@@ -1,0 +1,15 @@
+# Secrets
+.env
+.env.*
+gcp-key.json
+*.pem
+
+# Dependencies / build
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Local / generated
+.DS_Store
+data/corrections.jsonl
+data/sdr-tickets-raw.json

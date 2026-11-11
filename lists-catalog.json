@@ -1,0 +1,2502 @@
+[
+  {
+    "id": "365",
+    "name": "[MarketingOps] Unsubscribed from Marketing Emails",
+    "size": "413963"
+  },
+  {
+    "id": "795",
+    "name": "[Sales SMB] 0-3 Days [Company]",
+    "size": "4471"
+  },
+  {
+    "id": "796",
+    "name": "[Sales SMB] 4-7 Days [Company] 10-300 employees",
+    "size": "389"
+  },
+  {
+    "id": "797",
+    "name": "[Sales SMB] 7-21 Days [Company]",
+    "size": "13936"
+  },
+  {
+    "id": "1096",
+    "name": "[No Touch] 0-3 (Contact Level)",
+    "size": "452"
+  },
+  {
+    "id": "1483",
+    "name": "[CONTENT] The 10 commandments for communicating and engaging with deskless teams",
+    "size": "480"
+  },
+  {
+    "id": "2343",
+    "name": "Spam Contacts",
+    "size": "1494937"
+  },
+  {
+    "id": "2739",
+    "name": "[Israel Enterprise] Paid Customers",
+    "size": "152"
+  },
+  {
+    "id": "2972",
+    "name": "Stop Emails and WF",
+    "size": "17590"
+  },
+  {
+    "id": "2995",
+    "name": "[Sales SMB] 8-21 (Contact Level)",
+    "size": "14995"
+  },
+  {
+    "id": "3041",
+    "name": "[Sales SMB] 0-3 (Contact Level)",
+    "size": "5066"
+  },
+  {
+    "id": "3052",
+    "name": "[Sales 11-500] 4-7 (Contact Level)",
+    "size": "8104"
+  },
+  {
+    "id": "3813",
+    "name": "[General] Marketing Contacts - V02/25",
+    "size": "249459"
+  },
+  {
+    "id": "4182",
+    "name": "[SMB IL] Companies",
+    "size": "1002"
+  },
+  {
+    "id": "6286",
+    "name": "[General] Marketing Contacts - False",
+    "size": "49404"
+  },
+  {
+    "id": "8136",
+    "name": "aaron gary spam",
+    "size": "1700"
+  },
+  {
+    "id": "9687",
+    "name": "[Sales General] unknown range 0-7 days in the system & Not Israel V01/25",
+    "size": "2625"
+  },
+  {
+    "id": "9755",
+    "name": "[Sales SMB] Had Meeting (Contact Level)",
+    "size": "474"
+  },
+  {
+    "id": "9774",
+    "name": "Sales - 11-500 [SMB] - all trial companies 1-22 days",
+    "size": "43724"
+  },
+  {
+    "id": "9906",
+    "name": "[ALL Sales] Pricing Page Contact",
+    "size": "1675"
+  },
+  {
+    "id": "9914",
+    "name": "[All-Sales] Has Meeting (Contact Level)",
+    "size": "465"
+  },
+  {
+    "id": "10427",
+    "name": "[SDR] SDR Inbound to Salesloft [MASTER LIST]",
+    "size": "41581"
+  },
+  {
+    "id": "10827",
+    "name": "[SDR] SDR Inbound (500+ [Forms, creators, admins])",
+    "size": "12281"
+  },
+  {
+    "id": "10828",
+    "name": "[SDR] Sales inbound (200-500 all contacts [forms, creators, admins])",
+    "size": "5468"
+  },
+  {
+    "id": "10941",
+    "name": "[Sales ALL] Demo Schedule (for Lead Source)",
+    "size": "77232"
+  },
+  {
+    "id": "11196",
+    "name": "Sales 51-100: Had calls Attempts, No Touch (0-30 days)",
+    "size": "259"
+  },
+  {
+    "id": "11557",
+    "name": "[SDR] Dubai conference Leads to Salesloft (Nov 22)",
+    "size": "273"
+  },
+  {
+    "id": "11910",
+    "name": "[SDR] London Conference Leads - hospitality (Oct 2022)",
+    "size": "56"
+  },
+  {
+    "id": "11978",
+    "name": "[ALL] Countries for Exclusion - Global",
+    "size": "331306"
+  },
+  {
+    "id": "12347",
+    "name": "[Linkedin Camapgin] SDR Linkedin Content Downloads (Dec 2022)",
+    "size": "20"
+  },
+  {
+    "id": "12566",
+    "name": "[Linkedin Cmapagin] Linkedin DR Campaigns (200+ Dec 2022)",
+    "size": "1834"
+  },
+  {
+    "id": "12836",
+    "name": "[Mid Tier] All Leads for Reporting [500+]",
+    "size": "56079"
+  },
+  {
+    "id": "12982",
+    "name": "Blog Subscriptions (Dec 2022)",
+    "size": "1446"
+  },
+  {
+    "id": "13513",
+    "name": "[LB Marketing] LP Demo/Call Form",
+    "size": "62"
+  },
+  {
+    "id": "13550",
+    "name": "[System Workflow] No signup date - yes signup timestamp",
+    "size": "0"
+  },
+  {
+    "id": "13657",
+    "name": "Sales 51-100: New Signups",
+    "size": "175214"
+  },
+  {
+    "id": "13663",
+    "name": "Had meeting - active - this is for a # meeting counter",
+    "size": "92"
+  },
+  {
+    "id": "13685",
+    "name": "Sales - 11-500 Meetings: Contact Demo Outcome - No Show",
+    "size": "1"
+  },
+  {
+    "id": "13780",
+    "name": "[Sales] Meetings - Pending Demo (V)",
+    "size": "2970"
+  },
+  {
+    "id": "14073",
+    "name": "[CS Customer Marketing] Magazine Active List",
+    "size": "268435"
+  },
+  {
+    "id": "14759",
+    "name": "[All Sales] Opened Account (for Lead Source)*",
+    "size": "1884844"
+  },
+  {
+    "id": "14771",
+    "name": "[ALL Sales] Pricing Page Contact (for Lead Source)",
+    "size": "1184"
+  },
+  {
+    "id": "14885",
+    "name": "Post Webinars (Daily Operations Webinar)",
+    "size": "6783"
+  },
+  {
+    "id": "15209",
+    "name": "[CS General] Pending Training - Company Status List - v01/25",
+    "size": "282"
+  },
+  {
+    "id": "15214",
+    "name": "[CS General] Training Completed - Company Status List - v01/25",
+    "size": "14"
+  },
+  {
+    "id": "15219",
+    "name": "[CS General] Training No Show - Company Status List - v01/25",
+    "size": "6"
+  },
+  {
+    "id": "16125",
+    "name": "[Mid Tier] MQLs for Lifecycle Workflow",
+    "size": "4581"
+  },
+  {
+    "id": "16137",
+    "name": "[SDR] SDR Inbound (100-200) (company creators)",
+    "size": "15442"
+  },
+  {
+    "id": "16213",
+    "name": "[CS General] Completed CS Meetings Counter assist list - Don't touch - v01/25",
+    "size": "40"
+  },
+  {
+    "id": "16282",
+    "name": "[Sales 101-200] All Leads for Reporting",
+    "size": "39968"
+  },
+  {
+    "id": "16493",
+    "name": "[CONTENT] 6 Pillars for Improving Frontline Employee Retention",
+    "size": "1002"
+  },
+  {
+    "id": "16566",
+    "name": "[SDR] Re-engagement: SQLs that Didn't Progress",
+    "size": "164"
+  },
+  {
+    "id": "16749",
+    "name": "[Sales] Downtime Lead List",
+    "size": "592"
+  },
+  {
+    "id": "16910",
+    "name": "[SDR] - No show or cancelled follow up by SDR 200+",
+    "size": "872"
+  },
+  {
+    "id": "17343",
+    "name": "[CS Sanity] Meeting outcome is Completed but NumofTrainings is 0 v01/25",
+    "size": "29"
+  },
+  {
+    "id": "17361",
+    "name": "[ALL Large Business] All Leads for Reporting [100+]",
+    "size": "135382"
+  },
+  {
+    "id": "17441",
+    "name": "[CS SMB] - Onboarding Contacts that have booked meeting in the last 24h",
+    "size": "7"
+  },
+  {
+    "id": "17459",
+    "name": "[MM+LSMB] Linkedin XTRA Mile Campaigns (Mar 2023)",
+    "size": "32"
+  },
+  {
+    "id": "17617",
+    "name": "(SBP) - Inactive 1-10 signups (13.03.23)",
+    "size": "641431"
+  },
+  {
+    "id": "17621",
+    "name": "[CS Expansion] Renewals Leads - v01/25",
+    "size": "160"
+  },
+  {
+    "id": "18061",
+    "name": "[CS Customer Marketing]- Unengaged Active List v03/25",
+    "size": "59626"
+  },
+  {
+    "id": "18545",
+    "name": "UK HomeCare Final",
+    "size": "98"
+  },
+  {
+    "id": "18754",
+    "name": "Sanity - Customer with no company",
+    "size": "4451"
+  },
+  {
+    "id": "18757",
+    "name": "Sanity - Contacts LS is customer and company isnt",
+    "size": "14720"
+  },
+  {
+    "id": "18759",
+    "name": "Sanity - Contacts LS is Opportunity and there is no deal open",
+    "size": "1390"
+  },
+  {
+    "id": "18769",
+    "name": "Sanity - Contact with Company no string on the contact level",
+    "size": "9392"
+  },
+  {
+    "id": "18773",
+    "name": "[SDR] Sanity - 101+ with no SDR and no booked meeting",
+    "size": "59587"
+  },
+  {
+    "id": "18774",
+    "name": "[SDR] Sanity - 101+ with SDR - No engagement",
+    "size": "8339"
+  },
+  {
+    "id": "18973",
+    "name": "[SDR] Re-engagement: MQLs That had a meeting in the past year - Didn't progress (100+)",
+    "size": "666"
+  },
+  {
+    "id": "19365",
+    "name": "[SDR] Took Free 7 days",
+    "size": "43"
+  },
+  {
+    "id": "19382",
+    "name": "[ALL Large Business] Meetings Completed (for Took Free flow)",
+    "size": "1648"
+  },
+  {
+    "id": "19436",
+    "name": "[Should delete but can't] ifa_expo - sdr form",
+    "size": "7"
+  },
+  {
+    "id": "19555",
+    "name": "Telus International - for Exclusion",
+    "size": "294"
+  },
+  {
+    "id": "19799",
+    "name": "[Sales] 51-200 SQL (chance to convert 40%)",
+    "size": "66958"
+  },
+  {
+    "id": "19871",
+    "name": "[Post implementation]-11-50 onboarding webinar  - Not in use - Verify with lee",
+    "size": "1380"
+  },
+  {
+    "id": "20051",
+    "name": "intail_v1_past-admins_moved_company.xlsx",
+    "size": "43"
+  },
+  {
+    "id": "20113",
+    "name": "[All Sales] Regions mapping - No CT Account*",
+    "size": "323825"
+  },
+  {
+    "id": "20258",
+    "name": "[SDR] - 11-100 - Operational board [Master list all Geos, recent signups]",
+    "size": "546"
+  },
+  {
+    "id": "20341",
+    "name": "[Linkedin Campaign] Homecare (June 2023)",
+    "size": "441"
+  },
+  {
+    "id": "20361",
+    "name": "[CS Webinars]- FAQs SG and MP (unengaged)  - Not in use - Verify with lee",
+    "size": "43357"
+  },
+  {
+    "id": "20364",
+    "name": "[CS Webinars]- FAQs SG and MP (general)  - Not in use - Verify with lee",
+    "size": "43362"
+  },
+  {
+    "id": "20366",
+    "name": "[SBP]- FAQs Webinar SG and MP",
+    "size": "20089"
+  },
+  {
+    "id": "20701",
+    "name": "[MOps] Modern Manager : Newsletter TAM - V01/25",
+    "size": "266949"
+  },
+  {
+    "id": "20939",
+    "name": "[Mid Tier] Deals for Reporting - Including didn't close by team",
+    "size": "295"
+  },
+  {
+    "id": "20966",
+    "name": "filled out pricing page from and didnt book a meeting 201+",
+    "size": "185"
+  },
+  {
+    "id": "21896",
+    "name": "[All] Bounced from Emails",
+    "size": "291086"
+  },
+  {
+    "id": "22144",
+    "name": "[CS Expansion] Nurturing with bug - v01/25",
+    "size": "27"
+  },
+  {
+    "id": "22357",
+    "name": "[MOps] Influencers : Updated List - V01/25",
+    "size": "1328"
+  },
+  {
+    "id": "22596",
+    "name": "Xero deleted contacts",
+    "size": "8"
+  },
+  {
+    "id": "22675",
+    "name": "Xero list, part 1 (Lev)",
+    "size": "68"
+  },
+  {
+    "id": "22676",
+    "name": "Xero list part 2 (Lev)",
+    "size": "49"
+  },
+  {
+    "id": "22687",
+    "name": "[200+] All Leads  (cloned needs validation)",
+    "size": "86575"
+  },
+  {
+    "id": "22806",
+    "name": "[CS General] Prospects who didn't book a meeting and filled a form last 3 days - v01/25",
+    "size": "8"
+  },
+  {
+    "id": "22825",
+    "name": "[CS General] Prospects who didn't book a meeting and filled a form ALL TIME - v01/25",
+    "size": "10757"
+  },
+  {
+    "id": "22862",
+    "name": "Paying Contacts",
+    "size": "475522"
+  },
+  {
+    "id": "22921",
+    "name": "[Sales] New Chick-Fil-A Leads",
+    "size": "693"
+  },
+  {
+    "id": "22971",
+    "name": "[Sales] - 11-100 had a demo and took free",
+    "size": "1696"
+  },
+  {
+    "id": "23106",
+    "name": "[SDR] - 11-50 - APAC - All active - V02/25",
+    "size": "40"
+  },
+  {
+    "id": "23107",
+    "name": "[SDR] 11-50 - EMEA - All active V02/25",
+    "size": "85"
+  },
+  {
+    "id": "23108",
+    "name": "[SDR] 11-50 - North America - All active V02/25",
+    "size": "366"
+  },
+  {
+    "id": "23143",
+    "name": "[SDR] 11-50 - All active V02/25",
+    "size": "491"
+  },
+  {
+    "id": "23182",
+    "name": "[CS General] Training Canceled - Company Status List  - v01/25",
+    "size": "3"
+  },
+  {
+    "id": "23252",
+    "name": "Sales Had Meeting (Contact Level)",
+    "size": "3949"
+  },
+  {
+    "id": "23451",
+    "name": "All Franchise Domains ( except i9, jk, &ups)",
+    "size": "3650"
+  },
+  {
+    "id": "23452",
+    "name": "Franchise Mature Accounts",
+    "size": "1395"
+  },
+  {
+    "id": "23454",
+    "name": "Franchise Company Names ( except i9, jk&ups)",
+    "size": "10636"
+  },
+  {
+    "id": "23591",
+    "name": "[CS Sanity] Primary Comapny = Trial and Secondary = Paid v01/25",
+    "size": "1078"
+  },
+  {
+    "id": "23678",
+    "name": "[Sales 101+] Country Tier A (Tiers)",
+    "size": "198549"
+  },
+  {
+    "id": "23681",
+    "name": "[Sales 101+] Country Tier C (Tiers)",
+    "size": "23726"
+  },
+  {
+    "id": "23684",
+    "name": "[Sales 101+] Country Tier B (Tiers)",
+    "size": "219243"
+  },
+  {
+    "id": "23686",
+    "name": "[Sales 101+] Email Tier C (Tiers)",
+    "size": "170402"
+  },
+  {
+    "id": "23687",
+    "name": "[Sales 101+] Email Tier A (Tiers)",
+    "size": "261108"
+  },
+  {
+    "id": "23689",
+    "name": "[Sales 101+] Source Tier A (Tiers)",
+    "size": "80261"
+  },
+  {
+    "id": "23693",
+    "name": "[Sales 101+] Source Tier B (Tiers)",
+    "size": "24571"
+  },
+  {
+    "id": "23695",
+    "name": "[Sales 101+] Job Title Tier A (Tiers)",
+    "size": "99470"
+  },
+  {
+    "id": "23697",
+    "name": "[Sales 101+] Job Title Tier B (Tiers)",
+    "size": "47186"
+  },
+  {
+    "id": "23707",
+    "name": "Sales 101+ all Contacts",
+    "size": "442280"
+  },
+  {
+    "id": "23734",
+    "name": "[Sales] 101+ AU+NZ+ Singapore + Japan leads (krish)",
+    "size": "1287"
+  },
+  {
+    "id": "23738",
+    "name": "[Sales 101+] Job Title Tier C (Tiers)",
+    "size": "244847"
+  },
+  {
+    "id": "23752",
+    "name": "[SDR BPP] - 51-100 - APAC - All active (less then 4 days)",
+    "size": "5"
+  },
+  {
+    "id": "23753",
+    "name": "[SDR BPP] - 51-100 - North America - All active (less then 4 days)",
+    "size": "38"
+  },
+  {
+    "id": "23796",
+    "name": "[SDR BPP] - 101-200 - North America - All active (less then 4 days)",
+    "size": "16"
+  },
+  {
+    "id": "23800",
+    "name": "[SDR BPP] - 51-100 - EMEA - All active (less then 4 days)",
+    "size": "12"
+  },
+  {
+    "id": "23897",
+    "name": "[CS MT] -  Israel Companies that just converted and are \"New from sales\" in CS Midtier Israel",
+    "size": "6"
+  },
+  {
+    "id": "24082",
+    "name": "[SDR BPP] - 101-200 - EMEA - All active (less then 4 days)",
+    "size": "0"
+  },
+  {
+    "id": "24443",
+    "name": "[Sales] 101+ All other countries (krish) + Lead score ",
+    "size": "454"
+  },
+  {
+    "id": "24688",
+    "name": "[CS General] All Paying Companies - v01/25",
+    "size": "45821"
+  },
+  {
+    "id": "24849",
+    "name": "[Sales/CS] - Companies with active trial",
+    "size": "10842"
+  },
+  {
+    "id": "24931",
+    "name": "[SDR] - Europe Relevant Countries (Company)",
+    "size": "517356"
+  },
+  {
+    "id": "25024",
+    "name": "[SDR] - North America Relevant Countries (Company)",
+    "size": "1245572"
+  },
+  {
+    "id": "25088",
+    "name": "[SDR] - APAC Relevant countries",
+    "size": "150122"
+  },
+  {
+    "id": "25359",
+    "name": "[CS Success] - Success Companies that submitted training summary last 7 days - v01/25",
+    "size": "0"
+  },
+  {
+    "id": "25378",
+    "name": "[CS MT]  Subscribe contacts and copy the phone number to Whatsapp number",
+    "size": "36424"
+  },
+  {
+    "id": "25448",
+    "name": "[SDR BPP] - 101-200 - APAC - All active (less then 4 days)",
+    "size": "1"
+  },
+  {
+    "id": "25537",
+    "name": "[SDR] - ARAB Relevant Countries",
+    "size": "34945"
+  },
+  {
+    "id": "25545",
+    "name": "Spam companies (based on narrowed list of spam contact list)",
+    "size": "763899"
+  },
+  {
+    "id": "25548",
+    "name": "Spam Contacts (cloned excluding 'should delete' contacts)",
+    "size": "742215"
+  },
+  {
+    "id": "25589",
+    "name": "[SDR 100+] - APAC Relevant contries",
+    "size": "262298"
+  },
+  {
+    "id": "25592",
+    "name": "[SDR] - Europe Relevant countries - 100+ (Contact)",
+    "size": "665243"
+  },
+  {
+    "id": "25594",
+    "name": "[SDR] - North America relevant countries (Contact)",
+    "size": "1836805"
+  },
+  {
+    "id": "25596",
+    "name": "[SDR] - Arab Relevant countries - 100+ (Contact)",
+    "size": "28913"
+  },
+  {
+    "id": "25639",
+    "name": "[SDR] all campaigns, conferences and static lists aggregations (100+)",
+    "size": "2431"
+  },
+  {
+    "id": "25926",
+    "name": "[SDR BPP] - 1-10 - North America - All active (less then 4 days) [EST only]",
+    "size": "334"
+  },
+  {
+    "id": "25940",
+    "name": "[SDR BPP] - 11-50 - North America - last days of trial (11-14 days ago) - [Trial]",
+    "size": "217"
+  },
+  {
+    "id": "25988",
+    "name": "[CS Expansion] Indicators List - Free HR Docs Usage - v01/25",
+    "size": "2"
+  },
+  {
+    "id": "25989",
+    "name": "[CS Expansion] Indicators List - Free HR Courses Usage - v01/25",
+    "size": "1"
+  },
+  {
+    "id": "25990",
+    "name": "[CS Expansion] Indicators List - Free HR PTO Timeoff Usage - v01/25",
+    "size": "4"
+  },
+  {
+    "id": "25991",
+    "name": "[CS Expansion] Indicators List - Seats Capacity (95% numofusers/totalseats) - v01/25",
+    "size": "5"
+  },
+  {
+    "id": "25992",
+    "name": "[CS Expansion] Indicators List - Seats Growth (+150%) - v01/25",
+    "size": "0"
+  },
+  {
+    "id": "25994",
+    "name": "[CS Expansion] Indicators List - Checkout - 2nd Step - v01/25",
+    "size": "8"
+  },
+  {
+    "id": "26302",
+    "name": "[SDR BPP] - 101-200 - North America - last days of trial (11-14 days ago) - [Trial]",
+    "size": "11"
+  },
+  {
+    "id": "26303",
+    "name": "[SDR BPP] - 51-100 - North America - last days of trial (11-14 days ago) - [Trial]",
+    "size": "42"
+  },
+  {
+    "id": "26308",
+    "name": "[SDR BPP] - 51-100 - EMEA - last days of trial (11-14 days ago) - [Trial]",
+    "size": "6"
+  },
+  {
+    "id": "26309",
+    "name": "[SDR BPP] - 101-200 - EMEA - last days of trial (11-14 days ago) - [Trial]",
+    "size": "7"
+  },
+  {
+    "id": "26310",
+    "name": "[SDR BPP] - 11-50 - EMEA - last days of trial (11-14 days ago) - [Trial]",
+    "size": "63"
+  },
+  {
+    "id": "26401",
+    "name": "[SDR BPP] - 11-50 - Practice list for SDR LATAM - All active (less then 4 days) (cloned)",
+    "size": "6"
+  },
+  {
+    "id": "26445",
+    "name": "[SDR] - All Relevant countries aggregation - V08/26",
+    "size": "2761661"
+  },
+  {
+    "id": "26447",
+    "name": "[SDR] SDR 200+ to salesloft [Master List]",
+    "size": "18042"
+  },
+  {
+    "id": "26453",
+    "name": "[Forms] Contact us form 200+",
+    "size": "622"
+  },
+  {
+    "id": "26491",
+    "name": "[SDR] All leads from all forms 200+",
+    "size": "701"
+  },
+  {
+    "id": "26521",
+    "name": "Copy company name to contact in IL",
+    "size": "3"
+  },
+  {
+    "id": "26523",
+    "name": "Copy deal name to contact in IL",
+    "size": "0"
+  },
+  {
+    "id": "26532",
+    "name": "Copy company name from the form to contact in IL",
+    "size": "0"
+  },
+  {
+    "id": "26656",
+    "name": "[SDR] - 100+ Africa Relevant countries",
+    "size": "43201"
+  },
+  {
+    "id": "26673",
+    "name": "[SDR BPP] - 11-50 - APAC - last days of trial (11-14 days ago) - [Trial]",
+    "size": "49"
+  },
+  {
+    "id": "26674",
+    "name": "[SDR BPP] - 11-50 - ARAB - last days of trial (11-14 days ago) - [Trial]",
+    "size": "6"
+  },
+  {
+    "id": "26845",
+    "name": "[SDR] 101+ Sales inbound all contacts from signup - V01/26",
+    "size": "23721"
+  },
+  {
+    "id": "26851",
+    "name": "[SDR] All leads from all forms 51-200",
+    "size": "929"
+  },
+  {
+    "id": "26853",
+    "name": "[SDR] SDR 1-200 to salesloft [Master List]",
+    "size": "24928"
+  },
+  {
+    "id": "26966",
+    "name": "companies with the name company in il",
+    "size": "13"
+  },
+  {
+    "id": "27583",
+    "name": "[CS No touch] - Contacts (AUS & NZ) that converted last 30 days*",
+    "size": "410"
+  },
+  {
+    "id": "27585",
+    "name": "[CS ALL] - Onboarding Contacts (AUS & NZ) that converted in last 14 days*",
+    "size": "15"
+  },
+  {
+    "id": "27587",
+    "name": "[CS SMB] - Onboarding Contacts (US & Canada) that converted in last 14 days*",
+    "size": "177"
+  },
+  {
+    "id": "27591",
+    "name": "[CS No touch] - Contacts (Non US, Canada, AUS, NZ) that converted last 30 days*",
+    "size": "800"
+  },
+  {
+    "id": "27595",
+    "name": "[CS No touch] - Contacts (US & Canada) that converted last 30 days*",
+    "size": "2697"
+  },
+  {
+    "id": "27597",
+    "name": "[CS OB] Contacts that had no show/cancel in the last 24h",
+    "size": "1"
+  },
+  {
+    "id": "27605",
+    "name": "[CS General] Increasing WAU in a course of 2 weeks",
+    "size": "4116"
+  },
+  {
+    "id": "27606",
+    "name": "[CS General] Increasing MAU in a course of 2 months",
+    "size": "2742"
+  },
+  {
+    "id": "27607",
+    "name": "[CS General] Declining MAU in a course of 2 months",
+    "size": "1906"
+  },
+  {
+    "id": "27608",
+    "name": "[CS General] Declining WAU in a course of 2 weeks",
+    "size": "851"
+  },
+  {
+    "id": "27614",
+    "name": "[CS MT] - Strategic Companies that submitted Onboarding training summary last 7 days",
+    "size": "0"
+  },
+  {
+    "id": "27651",
+    "name": "[CS SMB] Contacts with 2 or more failed payments*",
+    "size": "29"
+  },
+  {
+    "id": "27658",
+    "name": "[CS SMB] - Onboarding Companies that submitted training summary last 7 days",
+    "size": "39"
+  },
+  {
+    "id": "27698",
+    "name": "[CS ALL] - Onboarding Contacts (Non US,Canada, AUS & NZ) that converted in last 14 days",
+    "size": "73"
+  },
+  {
+    "id": "28119",
+    "name": "[SDR] engaged leads 51-200",
+    "size": "1420"
+  },
+  {
+    "id": "28124",
+    "name": "[Sales] engaged leads 200+",
+    "size": "1335"
+  },
+  {
+    "id": "28129",
+    "name": "[Sales] engaged leads 51-200",
+    "size": "4706"
+  },
+  {
+    "id": "28210",
+    "name": "Call Center - called to the call center",
+    "size": "9794"
+  },
+  {
+    "id": "28228",
+    "name": "Guy- demo booked via website",
+    "size": "27451"
+  },
+  {
+    "id": "28315",
+    "name": "[CS IL] MT - Israel Monthly newsletter - v10/25",
+    "size": "13877"
+  },
+  {
+    "id": "28316",
+    "name": "[CS IL] - Unsubscribed from emails - v01/25",
+    "size": "7502"
+  },
+  {
+    "id": "28372",
+    "name": "[CS OB] All the companies in the onboarding phase (2K-50K) - v01/25",
+    "size": "1117"
+  },
+  {
+    "id": "28384",
+    "name": "[CS Success] All the companies in the Success phase (8K-15K) - v01/25",
+    "size": "1493"
+  },
+  {
+    "id": "28389",
+    "name": "[CS OB] All the companies in the onboarding phase (15K+) - v01/25",
+    "size": "132"
+  },
+  {
+    "id": "28392",
+    "name": "[CS Success] All the companies in the success/Renewal phase (15K+) - v01/25",
+    "size": "662"
+  },
+  {
+    "id": "28402",
+    "name": "[CS OB+Success] MT - Responsive clients from intercom list* - v01/25",
+    "size": "722"
+  },
+  {
+    "id": "28409",
+    "name": "[CS IL] Israel - All the companies in the onboarding phase (2k+) - v01/25",
+    "size": "126"
+  },
+  {
+    "id": "28410",
+    "name": "[CS IL] Israel - All the companies in the success/Renewal phase (2K+) - v01/25",
+    "size": "261"
+  },
+  {
+    "id": "28423",
+    "name": "[CS General] Responsive clients from intercom list* - v01/25",
+    "size": "458"
+  },
+  {
+    "id": "28425",
+    "name": "Demo Done - Had Sales a demo",
+    "size": "279624"
+  },
+  {
+    "id": "28557",
+    "name": "Unqualified Leads - from contact or company",
+    "size": "891144"
+  },
+  {
+    "id": "28744",
+    "name": "[CS MT] IL Webinars- registered January 25 - Or",
+    "size": "116"
+  },
+  {
+    "id": "28761",
+    "name": "[CS Success] Success Contacts - Unhealthy Journey (2K-8K) - v01/25",
+    "size": "0"
+  },
+  {
+    "id": "28829",
+    "name": "Guy - to delete!",
+    "size": "121"
+  },
+  {
+    "id": "28935",
+    "name": "[MOps] PMM: SBP Trustpilot/Google review engine- review reminder",
+    "size": "24"
+  },
+  {
+    "id": "28983",
+    "name": "[Sales] Company More than 14 days, didn't convert",
+    "size": "933"
+  },
+  {
+    "id": "29030",
+    "name": "[CS Success] MT - Israel Companies that submitted Onboarding training summary last 7 days - v01/25",
+    "size": "0"
+  },
+  {
+    "id": "29035",
+    "name": "[CS MT] - Companies that submitted Onboarding training summary last 7 days",
+    "size": "0"
+  },
+  {
+    "id": "29038",
+    "name": "[CS MT] MT - Israel Companies that submitted Success training summary last 7 days - v01/25",
+    "size": "0"
+  },
+  {
+    "id": "29041",
+    "name": "[CS MT] - Companies that submitted Success training summary last 7 days",
+    "size": "0"
+  },
+  {
+    "id": "29046",
+    "name": "[CS MT] - Strategic Companies that submitted Success training summary last 7 days",
+    "size": "0"
+  },
+  {
+    "id": "29627",
+    "name": "[Sales] Still MQL & no Demo accounts for SMS attempts",
+    "size": "4518"
+  },
+  {
+    "id": "30102",
+    "name": "Dans leads to clean - Dans leads to clean.csv",
+    "size": "42"
+  },
+  {
+    "id": "30107",
+    "name": "[Sales General] Didnt finish signup - demo with contact first",
+    "size": "2747"
+  },
+  {
+    "id": "30197",
+    "name": "11-50 no shows for ran",
+    "size": "286"
+  },
+  {
+    "id": "30296",
+    "name": "[Scaled CS] Clicked on Academy email contact list",
+    "size": "429"
+  },
+  {
+    "id": "30297",
+    "name": "[Scaled CS] Clicked on academy email company list",
+    "size": "401"
+  },
+  {
+    "id": "30334",
+    "name": "[Sales 201+] - Contacts that submitted demo summary last 7 days",
+    "size": "31"
+  },
+  {
+    "id": "30451",
+    "name": "[Scaled CS] Connecteam Experts",
+    "size": "270"
+  },
+  {
+    "id": "30583",
+    "name": "[SDR BPP] - 11-100 - APAC ROW - All active (less then 4 days)",
+    "size": "11"
+  },
+  {
+    "id": "30719",
+    "name": "Don't send traffic - Don't send traffic",
+    "size": "545"
+  },
+  {
+    "id": "30721",
+    "name": "Exclusion List - Exclusion List",
+    "size": "5"
+  },
+  {
+    "id": "30941",
+    "name": "[Sales No Touch] March 24 Limited Plan Demo Push (cloned)",
+    "size": "359"
+  },
+  {
+    "id": "31034",
+    "name": "[SDR BPP] - APAC Relevant contries tier2 (without india)",
+    "size": "56046"
+  },
+  {
+    "id": "31065",
+    "name": "[Sales] - Has a first meeting booked - Contact",
+    "size": "59111"
+  },
+  {
+    "id": "31149",
+    "name": "[Sales 51-200] - Contacts that submitted demo summary last 7 days",
+    "size": "88"
+  },
+  {
+    "id": "31283",
+    "name": "[MOps] Churned contacts - V01/25",
+    "size": "169060"
+  },
+  {
+    "id": "31473",
+    "name": "CS Mailing list  outreach March 24",
+    "size": "1694"
+  },
+  {
+    "id": "31534",
+    "name": "Guy- website demo form submissions",
+    "size": "50548"
+  },
+  {
+    "id": "31592",
+    "name": "[Sales General] - Contacts that submitted demo summary last 7 days",
+    "size": "697"
+  },
+  {
+    "id": "31638",
+    "name": "[Leagl] All contact for updating our legal terms - 28.3.24",
+    "size": "2177567"
+  },
+  {
+    "id": "31653",
+    "name": "SENT [Legal] All contact for updating our legal terms - 28.3.24 - Split 1",
+    "size": "11512"
+  },
+  {
+    "id": "31654",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 2",
+    "size": "11516"
+  },
+  {
+    "id": "31655",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 3",
+    "size": "11515"
+  },
+  {
+    "id": "31656",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 4",
+    "size": "11514"
+  },
+  {
+    "id": "31657",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 5",
+    "size": "11513"
+  },
+  {
+    "id": "31658",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 6",
+    "size": "11514"
+  },
+  {
+    "id": "31659",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 7",
+    "size": "11510"
+  },
+  {
+    "id": "31660",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 8",
+    "size": "11515"
+  },
+  {
+    "id": "31661",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 9",
+    "size": "11515"
+  },
+  {
+    "id": "31662",
+    "name": "[Legal] All contact for updating our legal terms - 28.3.24 - Split 10",
+    "size": "11514"
+  },
+  {
+    "id": "31884",
+    "name": "CS SMB - 8K-15K Snapshot Q2",
+    "size": "325"
+  },
+  {
+    "id": "31930",
+    "name": "[SDR] - All Relevant Countries Aggregation",
+    "size": "1762503"
+  },
+  {
+    "id": "31974",
+    "name": "[CS Sanity] Companies with Wrong owner Sanity - v01/25",
+    "size": "93"
+  },
+  {
+    "id": "32122",
+    "name": "[CS Success] MT - Had a meeting in January 24 - Company - v01/25",
+    "size": "90"
+  },
+  {
+    "id": "32128",
+    "name": "[CS Success] MT - Had a meeting in February 24 - Company - v01/25",
+    "size": "71"
+  },
+  {
+    "id": "32130",
+    "name": "[CS Success] MT - Had a meeting in March 24 - Company - v01/25",
+    "size": "67"
+  },
+  {
+    "id": "32132",
+    "name": "[CS Success] MT - Had a meeting in April 24 - Company - v01/25",
+    "size": "84"
+  },
+  {
+    "id": "32134",
+    "name": "[CS Success] MT - Had a meeting in May 24 - Company - v01/25",
+    "size": "105"
+  },
+  {
+    "id": "32142",
+    "name": "[CS Success] MT - Had a meeting in June 24 - Company - v01/25",
+    "size": "88"
+  },
+  {
+    "id": "32144",
+    "name": "[CS Success] MT - Had a meeting in July 24 - Company - v01/25",
+    "size": "71"
+  },
+  {
+    "id": "32146",
+    "name": "[CS Success] MT - Had a meeting in August 24 - Company - v01/25",
+    "size": "78"
+  },
+  {
+    "id": "32148",
+    "name": "[CS Success] MT - Had a meeting in September 24 - Company - v01/25",
+    "size": "96"
+  },
+  {
+    "id": "32150",
+    "name": "[CS Success] MT - Had a meeting in October 24 - Company - v01/25",
+    "size": "64"
+  },
+  {
+    "id": "32152",
+    "name": "[CS Success] MT - Had a meeting in November 24 - Company - v01/25",
+    "size": "54"
+  },
+  {
+    "id": "32154",
+    "name": "[CS Success] MT - Had a meeting in December 24 - Company - v01/25",
+    "size": "67"
+  },
+  {
+    "id": "32183",
+    "name": "[SDR] 16/4 temporary spam countries",
+    "size": "345313"
+  },
+  {
+    "id": "32296",
+    "name": "No-Touch to Touch Upgraded Companies 2024",
+    "size": "2688"
+  },
+  {
+    "id": "32326",
+    "name": "[Sales General] Sales <>CS Handoff submitted",
+    "size": "8389"
+  },
+  {
+    "id": "32404",
+    "name": "[SDR] - Contacts/companies to exclude 51+*",
+    "size": "18"
+  },
+  {
+    "id": "32405",
+    "name": "[SDR] - Jani king companies*",
+    "size": "327"
+  },
+  {
+    "id": "32408",
+    "name": "[SDR] - Contacts/companies to exclude 11-50*",
+    "size": "327013"
+  },
+  {
+    "id": "32724",
+    "name": "[Customer Marketing]- JS new releases pop up (static-May)",
+    "size": "44663"
+  },
+  {
+    "id": "32821",
+    "name": "[CS Sanity] - Paid company and owner is not CS v01/25",
+    "size": "361"
+  },
+  {
+    "id": "32867",
+    "name": "[Sales 51-200] - Backup to contact list - Companies that submitted demo summary last 7 days",
+    "size": "50"
+  },
+  {
+    "id": "32871",
+    "name": "[Sales 51-200] - Backup to contact list - Deals that submitted demo summary last 7 days",
+    "size": "13"
+  },
+  {
+    "id": "32916",
+    "name": "[CS Success] All the companies in the success/Renewal phase (8K-15K) - v01/25",
+    "size": "1095"
+  },
+  {
+    "id": "32958",
+    "name": "[CS Ops Monitoring] Completed Meeting Counter assist list - CS Expansion Meetings - Don't touch - v01/25",
+    "size": "4"
+  },
+  {
+    "id": "32963",
+    "name": "[CS Success] Green Relationship List - Has ever been \"Green\" - v01/25",
+    "size": "238"
+  },
+  {
+    "id": "32967",
+    "name": "[CS Success] Green Relationship List - Is \"Green\" now - v01/25",
+    "size": "238"
+  },
+  {
+    "id": "33051",
+    "name": "Linkedin GTM - Linkedin enrichment list  Contacts",
+    "size": "793"
+  },
+  {
+    "id": "33210",
+    "name": "[MOps] LinekdIn GTM - companies",
+    "size": "176"
+  },
+  {
+    "id": "33211",
+    "name": "[Sales 101-200] All Leads for Reporting - For Bizops home test",
+    "size": "4627"
+  },
+  {
+    "id": "33288",
+    "name": "[CS Customer Marketing]- Zapier release announcement (static)",
+    "size": "82846"
+  },
+  {
+    "id": "33292",
+    "name": "[CS Customer Marketing]- Zapier release announcement (static) - Split 1",
+    "size": "41424"
+  },
+  {
+    "id": "33293",
+    "name": "[CS Customer Marketing]- Zapier release announcement (static) - Split 2",
+    "size": "41422"
+  },
+  {
+    "id": "33294",
+    "name": "[SDR] Contacts with demo scheduled for tomorrow - 11-50",
+    "size": "0"
+  },
+  {
+    "id": "33336",
+    "name": "[SBP] G2 rating request (06.2024)",
+    "size": "30184"
+  },
+  {
+    "id": "33339",
+    "name": "Left rating on G2 (manual gift card effort - 03-05.2024)",
+    "size": "136"
+  },
+  {
+    "id": "33373",
+    "name": "[CS MT] Israel - Main Webinar List- June",
+    "size": "1010"
+  },
+  {
+    "id": "33379",
+    "name": "[Sales 101+] - Backup to contact list - Deals that submitted demo summary last 7 days",
+    "size": "1"
+  },
+  {
+    "id": "33381",
+    "name": "[Sales 101+] - Backup to contact list - Companies that submitted demo summary last 7 days",
+    "size": "8"
+  },
+  {
+    "id": "33394",
+    "name": "[CS Success] MT - QBR Is complete - Enroll to Survey workflow - v01/25",
+    "size": "0"
+  },
+  {
+    "id": "33401",
+    "name": "[CS General] Last CS Meeting timestamp(ANY meeting type) + Counter - Contact level Assist list - v01/25",
+    "size": "87"
+  },
+  {
+    "id": "33458",
+    "name": "[CS Expansion] Expansion Scheduled Meetings Counter - Contact level Assist list - v01/25",
+    "size": "6"
+  },
+  {
+    "id": "33460",
+    "name": "[CS Expansion] Completed Expansion Meetings Counter - Contact level Assist list - v01/25",
+    "size": "3"
+  },
+  {
+    "id": "33486",
+    "name": "[CS Expansion] Expansion Scheduled Meetings Counter - Company level Assist list - v01/25",
+    "size": "7"
+  },
+  {
+    "id": "33540",
+    "name": "[CS Expansion] Pop up Demo - Booked a demo in the product Assist list - v01/25",
+    "size": "0"
+  },
+  {
+    "id": "33555",
+    "name": "[CS Expansion] Expansion No Show Meetings Counter - Contact level Assist list - v01/25",
+    "size": "5"
+  },
+  {
+    "id": "33576",
+    "name": "[CS OB] - New 8+ Clients Avery NEW",
+    "size": "228"
+  },
+  {
+    "id": "33658",
+    "name": "[Sales General] - Backup to contact list - Companies that submitted demo summary last 7 days",
+    "size": "91"
+  },
+  {
+    "id": "33727",
+    "name": "[CS Expansion] Submitted \"Product - 7 day trial\" form but no lead source - Company level - v01/25",
+    "size": "59"
+  },
+  {
+    "id": "33774",
+    "name": "Crew paying customers [delete later]",
+    "size": "89"
+  },
+  {
+    "id": "33780",
+    "name": "SDR - Shlomo's Lead - for Melanie",
+    "size": "166"
+  },
+  {
+    "id": "33782",
+    "name": "SDR - Shlomo's Lead - for Rachella",
+    "size": "160"
+  },
+  {
+    "id": "33795",
+    "name": "Crew prospects including non paying [delete later]",
+    "size": "180"
+  },
+  {
+    "id": "33813",
+    "name": "[CS Expansion] Renewals Leads - Assist list for had expansion demo in the last 90 days or country = Israel - v01/25",
+    "size": "76424"
+  },
+  {
+    "id": "33874",
+    "name": "crew contacts(based on page visits)",
+    "size": "691"
+  },
+  {
+    "id": "33911",
+    "name": "Companies and Contact with Contact that submitted a playbook - change the meeting outcome",
+    "size": "31"
+  },
+  {
+    "id": "33914",
+    "name": "Contacts with Contact that submitted a playbook - change the meeting outcome",
+    "size": "207"
+  },
+  {
+    "id": "33961",
+    "name": "[CS Customer Marketing]- New Releases webinar in internal chat (all but basic) (cloned)",
+    "size": "73825"
+  },
+  {
+    "id": "33965",
+    "name": "[CS Customer Marketing]- New Releases webinar in internal chat (all but basic) (cloned) - Split 1",
+    "size": "36913"
+  },
+  {
+    "id": "33966",
+    "name": "[CS Customer Marketing]- New Releases webinar in internal chat (all but basic) (cloned) - Split 2",
+    "size": "36913"
+  },
+  {
+    "id": "33972",
+    "name": "[CS General] Last booked meeting date timestamp - Contact level - v01/25",
+    "size": "426"
+  },
+  {
+    "id": "34038",
+    "name": "SBP accounts who use Quickbooks integration, June 24",
+    "size": "9"
+  },
+  {
+    "id": "34039",
+    "name": "[CS SBP]- QB offering for SBP",
+    "size": "56795"
+  },
+  {
+    "id": "34130",
+    "name": "[SBP]- Contact based-  Admins who encountered \"we're happy to see you grow\" popup first time",
+    "size": "29247"
+  },
+  {
+    "id": "34170",
+    "name": "[CS MT] Israel - Main Webinar List- July",
+    "size": "1040"
+  },
+  {
+    "id": "34197",
+    "name": "Healthcare Contacts (cloned)",
+    "size": "2019"
+  },
+  {
+    "id": "34240",
+    "name": "Call Center Playbook",
+    "size": "3147"
+  },
+  {
+    "id": "34347",
+    "name": "[Customer Marketing]- Hipaa 200+",
+    "size": "1574"
+  },
+  {
+    "id": "34366",
+    "name": "[Customer Marketing]- Hipaa 200+ - Split 1",
+    "size": "787"
+  },
+  {
+    "id": "34367",
+    "name": "[Customer Marketing]- Hipaa 200+ - Split 2",
+    "size": "787"
+  },
+  {
+    "id": "34388",
+    "name": "[Customer Marketing]- contacts to companies",
+    "size": "4211"
+  },
+  {
+    "id": "34425",
+    "name": "Workplace from meta customers",
+    "size": "8185"
+  },
+  {
+    "id": "34438",
+    "name": "[Customer Marketing]- Educational pop-up",
+    "size": "46891"
+  },
+  {
+    "id": "34459",
+    "name": "[sales] companies with first booked meeting in the future",
+    "size": "5"
+  },
+  {
+    "id": "34476",
+    "name": "[tracked termed] meeting confirmation",
+    "size": "10"
+  },
+  {
+    "id": "34494",
+    "name": "IL - 1-2000+2001-8000",
+    "size": "48"
+  },
+  {
+    "id": "34507",
+    "name": "[MOps] PMM : Referral audience - V01/25",
+    "size": "16436"
+  },
+  {
+    "id": "34545",
+    "name": "[Scaled CS] Admins that had an Experts meeting - v01/25",
+    "size": "7219"
+  },
+  {
+    "id": "34573",
+    "name": "Not Sent [known]",
+    "size": "15658"
+  },
+  {
+    "id": "34575",
+    "name": "First Email Sales : 11-50 {general}",
+    "size": "9648"
+  },
+  {
+    "id": "34576",
+    "name": "First Email Sales : 11-50 {general} (Clone)",
+    "size": "8358"
+  },
+  {
+    "id": "34577",
+    "name": "First Email Sales : 50-500 {General}",
+    "size": "8037"
+  },
+  {
+    "id": "34578",
+    "name": "First Email Sales : 11-50 {general} new version B test - 22.9.23",
+    "size": "3362"
+  },
+  {
+    "id": "34579",
+    "name": "First Email Sales : 1-10",
+    "size": "2438"
+  },
+  {
+    "id": "34580",
+    "name": "[Customer Marketing]- Educational pop-up - Split 1",
+    "size": "23446"
+  },
+  {
+    "id": "34581",
+    "name": "[Customer Marketing]- Educational pop-up - Split 2",
+    "size": "23445"
+  },
+  {
+    "id": "34613",
+    "name": "[SDR] No shows last 2 weeks - not from SDR",
+    "size": "262"
+  },
+  {
+    "id": "34669",
+    "name": "Contacts Closed lost last 3 weeks",
+    "size": "128"
+  },
+  {
+    "id": "34724",
+    "name": "[Scaled CS] Expansion project - met with expansion in the past",
+    "size": "5182"
+  },
+  {
+    "id": "34726",
+    "name": "Contacts Came from Workplace (Meta/Facebook)",
+    "size": "166"
+  },
+  {
+    "id": "34768",
+    "name": "Email excluding country list",
+    "size": "362605"
+  },
+  {
+    "id": "34821",
+    "name": "[SBP]- Hipaa announcement 1-10 (static) ",
+    "size": "3149"
+  },
+  {
+    "id": "34944",
+    "name": "[Franchise] Soccershots all leads by email domain",
+    "size": "463"
+  },
+  {
+    "id": "34965",
+    "name": "[SDR] Spam Companies",
+    "size": "161"
+  },
+  {
+    "id": "35000",
+    "name": "test list - SBP demo invite sent contacts (cloned)",
+    "size": "886"
+  },
+  {
+    "id": "35012",
+    "name": "[CS Expansion] Expansion Canceled Meetings Counter - Contact level Assist list - v01/25",
+    "size": "2"
+  },
+  {
+    "id": "35022",
+    "name": "[Customer Marketing]- Israeli clients using TC+JS",
+    "size": "2226"
+  },
+  {
+    "id": "35067",
+    "name": "[Scaled CS] Expansion project - free HR, using TO well (for split)",
+    "size": "242"
+  },
+  {
+    "id": "35069",
+    "name": "[Scaled CS] Expansion project - free HR, using TO well (for split) - Split 1 for POPUP",
+    "size": "121"
+  },
+  {
+    "id": "35070",
+    "name": "[Scaled CS] Expansion project - free HR, using TO well - Split 2 for SDR (used for trial CTA popup)",
+    "size": "121"
+  },
+  {
+    "id": "35095",
+    "name": "[CS MT] Israel - Main Webinar List- August",
+    "size": "1070"
+  },
+  {
+    "id": "35154",
+    "name": "[Franchise] goldfish all leads by email domain",
+    "size": "420"
+  },
+  {
+    "id": "35221",
+    "name": "No meeting booked no ticket open and no email sent to - not Connecteam - no part of a paying company not from",
+    "size": "2878983"
+  },
+  {
+    "id": "35253",
+    "name": "[SBP]- Contact based-  Admins who showed interest in pricing modal",
+    "size": "701"
+  },
+  {
+    "id": "35264",
+    "name": "[SDR] Reengaged contacts - to Salesloft*",
+    "size": "0"
+  },
+  {
+    "id": "35276",
+    "name": "Submitted - [New short form] COM website - Book a Call Form (Send to Chili router)",
+    "size": "507"
+  },
+  {
+    "id": "35277",
+    "name": "un relevant countries - not 1-10",
+    "size": "1744903"
+  },
+  {
+    "id": "35318",
+    "name": "List for Shahaf",
+    "size": "1086"
+  },
+  {
+    "id": "35333",
+    "name": "[Inbound SDR] Inbound SDR booker is known but not meeting is booked - all relevant*",
+    "size": "1144"
+  },
+  {
+    "id": "35343",
+    "name": "[Sales IL] Open deal with open tasks",
+    "size": "149"
+  },
+  {
+    "id": "35395",
+    "name": "11x SDR AI - re engaging with old leads - 13.8 (cloned)",
+    "size": "479"
+  },
+  {
+    "id": "35399",
+    "name": "[Sales] - Has a meeting complete - Contact",
+    "size": "35403"
+  },
+  {
+    "id": "35402",
+    "name": "Sales Deals - 101+ pipelines",
+    "size": "3903"
+  },
+  {
+    "id": "35409",
+    "name": "[CS Expansion] Not on the proposed plan - v01/25",
+    "size": "2796"
+  },
+  {
+    "id": "35481",
+    "name": "[Sales General] Companies that Had a demo completed",
+    "size": "61506"
+  },
+  {
+    "id": "35495",
+    "name": "[Sales] Had a demo in the past 3 months - Company",
+    "size": "1643"
+  },
+  {
+    "id": "35513",
+    "name": "[Sales] - Has a meeting booked - last day Contact",
+    "size": "24"
+  },
+  {
+    "id": "35519",
+    "name": "[CS Expansion] Clear Intent and EQL timestamp assist list - v01/25",
+    "size": "97"
+  },
+  {
+    "id": "35544",
+    "name": "[CS Expansion] Delta between desired plan to actual 11-200 - v01/25",
+    "size": "7258"
+  },
+  {
+    "id": "35545",
+    "name": "[CS Expansion] Not on the proposed plan - With Filters - TAM - v01/25",
+    "size": "2699"
+  },
+  {
+    "id": "35546",
+    "name": "[CS Expansion] Delta between desired plan to actual 201+ - v01/25",
+    "size": "602"
+  },
+  {
+    "id": "35547",
+    "name": "[CS Expansion] Not on the proposed plan - With Filters - 201+ - v01/25",
+    "size": "49"
+  },
+  {
+    "id": "35585",
+    "name": "[Sales] Submitted book a demo form V08/25",
+    "size": "85674"
+  },
+  {
+    "id": "35586",
+    "name": "[Sales General] QBD general list V02/25",
+    "size": "12266"
+  },
+  {
+    "id": "35590",
+    "name": "[CS Expansion] Delta between desired plan to actual - Masterlist - v01/25",
+    "size": "5891"
+  },
+  {
+    "id": "35591",
+    "name": "[CS Expansion] Delta between desired hub to actual - Masterlist - v01/25",
+    "size": "3378"
+  },
+  {
+    "id": "35597",
+    "name": "[SBP] August Flash Sale - US & Canada Only - Demo Invite",
+    "size": "1192"
+  },
+  {
+    "id": "35601",
+    "name": "[SBP] August Flash Sale - Rest of the world (excluding US & Canada) - Demo Invite",
+    "size": "605"
+  },
+  {
+    "id": "35602",
+    "name": "[SBP] August Flash Sale - US & Canada Only - No Touch Sale (cloned)",
+    "size": "3162"
+  },
+  {
+    "id": "35604",
+    "name": "[SBP] August Flash Sale - Rest of the world (excluding US & Canada) - No Touch Sale (cloned)",
+    "size": "1654"
+  },
+  {
+    "id": "35613",
+    "name": "August Blitz  - Pup-up trials",
+    "size": "464"
+  },
+  {
+    "id": "35623",
+    "name": "August Blitz  - Pup-up upgrade/checkout",
+    "size": "337"
+  },
+  {
+    "id": "35633",
+    "name": "[Customer Marketing]- Canny voters pay per job",
+    "size": "620"
+  },
+  {
+    "id": "35639",
+    "name": "[Customer Marketing] Canny voters company based",
+    "size": "560"
+  },
+  {
+    "id": "35657",
+    "name": "[Customer Marketing]- August Blitz - Pop-up trials (contact, static) 1",
+    "size": "561"
+  },
+  {
+    "id": "35663",
+    "name": "[Customer Marketing]- August Blitz - upgrade modal/checkout (contact, static)",
+    "size": "979"
+  },
+  {
+    "id": "35665",
+    "name": "Call Center - answered contacts by day (logo)",
+    "size": "4707"
+  },
+  {
+    "id": "35669",
+    "name": "[Customer Marketing]- August Blitz - seats growth (contact, static)",
+    "size": "470"
+  },
+  {
+    "id": "35671",
+    "name": "[Call Center][Sales] - unanswered contacts by day (logo)",
+    "size": "30"
+  },
+  {
+    "id": "35693",
+    "name": "[Sales General] all calls ended - for copy recording url workflow",
+    "size": "0"
+  },
+  {
+    "id": "35696",
+    "name": "[CS Customer Marketing]- August Magazine (general)",
+    "size": "97190"
+  },
+  {
+    "id": "35706",
+    "name": "[CS MT] Israel - Main Webinar List- September",
+    "size": "173"
+  },
+  {
+    "id": "35837",
+    "name": "[Workflows] - Sun Sep 01 2024 11:15:17 GMT+0300 - [Contact Entry Source] - when Recored Source is \"Integration\" and Original ",
+    "size": "0"
+  },
+  {
+    "id": "35854",
+    "name": "Workplace paying customers had a demo [delete later]",
+    "size": "136"
+  },
+  {
+    "id": "35855",
+    "name": "Workplace leads that had a demo",
+    "size": "216"
+  },
+  {
+    "id": "35873",
+    "name": "Product cutomers.csv",
+    "size": "22848"
+  },
+  {
+    "id": "35924",
+    "name": "[Sales 11-50] Aircall SMS sent yesterday",
+    "size": "45"
+  },
+  {
+    "id": "35929",
+    "name": "Unsubscribe from Marketing emails and paying ",
+    "size": "38584"
+  },
+  {
+    "id": "35931",
+    "name": "Unsubscribe from Marketing and paying and Unsubscribed from all email was updated before property ConversionToPaidTimestamp",
+    "size": "7260"
+  },
+  {
+    "id": "35939",
+    "name": "[SDR] [51+] Test list for onboarders - Myia (5/9/24)",
+    "size": "174"
+  },
+  {
+    "id": "35948",
+    "name": "[Workflows] - Sun Sep 08 2024 14:00:42 GMT+0300 - [Contact Entry Source] - when Recored Source is Integration set \"Contact En",
+    "size": "935"
+  },
+  {
+    "id": "35951",
+    "name": "[Workflows] - Sun Sep 08 2024 14:02:24 GMT+0300 - [Contact Entry Source] - when Recored Source is Integration set \"Contact En",
+    "size": "935"
+  },
+  {
+    "id": "35972",
+    "name": "Unsubscribe from Marketing emails and paying  only one on one",
+    "size": "10860"
+  },
+  {
+    "id": "35978",
+    "name": "[Workflows] - Mon Sep 09 2024 13:50:01 GMT+0300 - [Contact Entry Source] - when Recored Source is EMAIL RELATED  set \"Contact",
+    "size": "208"
+  },
+  {
+    "id": "36055",
+    "name": "Recorded calls - Deputy",
+    "size": "3051"
+  },
+  {
+    "id": "36136",
+    "name": "[CS Expansion] 15K+ Cross-sell opportunities - v01/25",
+    "size": "195"
+  },
+  {
+    "id": "36192",
+    "name": "Contacts mentioned deputy",
+    "size": "5235"
+  },
+  {
+    "id": "36203",
+    "name": "[SDR] [51+] Spam leads to Salesloft - 24hr after marked as spam only*",
+    "size": "9"
+  },
+  {
+    "id": "36212",
+    "name": "[call center] call outcome = has demo",
+    "size": "0"
+  },
+  {
+    "id": "36216",
+    "name": "[call center] call outcome = demo booked but not marked as call center demo",
+    "size": "25"
+  },
+  {
+    "id": "36220",
+    "name": "retail",
+    "size": "7"
+  },
+  {
+    "id": "36238",
+    "name": "xero admins clicked export",
+    "size": "382"
+  },
+  {
+    "id": "36291",
+    "name": "Called Call Center Before Paid",
+    "size": "20"
+  },
+  {
+    "id": "36369",
+    "name": "[Pricing Change] Yearly Legacy Pricing Change - CS Template - Phase 6 - Ops use - For client communication (1).csv",
+    "size": "127"
+  },
+  {
+    "id": "36401",
+    "name": "[sales] 11-50 new playbook - open tasks now",
+    "size": "9233"
+  },
+  {
+    "id": "36408",
+    "name": "[Customer Marketing]- Galya's demo v02/25",
+    "size": "1"
+  },
+  {
+    "id": "36432",
+    "name": "25.9 didnt book a demo",
+    "size": "47"
+  },
+  {
+    "id": "36437",
+    "name": "Contact with ticket",
+    "size": "197531"
+  },
+  {
+    "id": "36440",
+    "name": "[Customer Marketing] Help Desk Comms - v01/25",
+    "size": "2707"
+  },
+  {
+    "id": "36487",
+    "name": "[sales] new playbook - close lose with no playbook submitted ",
+    "size": "23457"
+  },
+  {
+    "id": "36494",
+    "name": "[SDR] 11-50 - All active (contact level) V02/25",
+    "size": "21041"
+  },
+  {
+    "id": "36522",
+    "name": "[SDR] To Salesloft - 51+ (company) (for 11-50 team)*",
+    "size": "46"
+  },
+  {
+    "id": "36609",
+    "name": "[Customer Marketing] help desk 100% companies",
+    "size": "3408"
+  },
+  {
+    "id": "36610",
+    "name": "[Customer Marketing] help desk 100% contacts",
+    "size": "58048"
+  },
+  {
+    "id": "36613",
+    "name": "[SDR] SBP relevant for test - Pop-up interacted*",
+    "size": "0"
+  },
+  {
+    "id": "36615",
+    "name": "[SDR] Contacts with demo scheduled for tomorrow - 1-10",
+    "size": "0"
+  },
+  {
+    "id": "36616",
+    "name": "[SDR] 1-10 companies all over time (test start and going forward)*",
+    "size": "55201"
+  },
+  {
+    "id": "36619",
+    "name": "[SDR] 1-10 companies all over time (last Q)*",
+    "size": "61768"
+  },
+  {
+    "id": "36679",
+    "name": "[SDR] Sales inbound (all contacts from Marketing campaigns)",
+    "size": "4643"
+  },
+  {
+    "id": "36686",
+    "name": "[Customer Marketing] help desk 30% companies",
+    "size": "1101"
+  },
+  {
+    "id": "36713",
+    "name": "List for Gal to Webhook",
+    "size": "805"
+  },
+  {
+    "id": "36714",
+    "name": "[Customer Marketing]- JS release in internal chat + Galya",
+    "size": "46576"
+  },
+  {
+    "id": "36716",
+    "name": "[Customer Marketing]- JS release in internal chat + Galya - Split 1",
+    "size": "23288"
+  },
+  {
+    "id": "36717",
+    "name": "[Customer Marketing]- JS release in internal chat + Galya - Split 2",
+    "size": "23289"
+  },
+  {
+    "id": "36762",
+    "name": "[Workflows] - Mon Oct 14 2024 15:23:43 GMT+0300 - copy from company to contact - legitimacy_status",
+    "size": "1091805"
+  },
+  {
+    "id": "36773",
+    "name": "[SDR] 51-100 leads rotated from 11-50 to the 51+ team*",
+    "size": "125"
+  },
+  {
+    "id": "36777",
+    "name": "[Customer Marketing]- Help Desk 20%",
+    "size": "1509"
+  },
+  {
+    "id": "36778",
+    "name": "[Customer Marketing]- Help Desk 20% (expansion)",
+    "size": "1910"
+  },
+  {
+    "id": "36786",
+    "name": "[Customer Marketing]- Help Desk 20% contacts - internal chat + popup (static)",
+    "size": "13948"
+  },
+  {
+    "id": "36796",
+    "name": "[Customer Marketing]- Help Desk 20% Contacts popup + internal chat",
+    "size": "13947"
+  },
+  {
+    "id": "36798",
+    "name": "HS SUPPORT",
+    "size": "162"
+  },
+  {
+    "id": "36812",
+    "name": "[Customer Marketing]- Help Desk 80%",
+    "size": "16265"
+  },
+  {
+    "id": "36813",
+    "name": "[Customer Marketing]- Help Desk 80% contacts",
+    "size": "63044"
+  },
+  {
+    "id": "36815",
+    "name": "[Customer Marketing]- Help Desk 80% contacts internal chat + pop up",
+    "size": "63047"
+  },
+  {
+    "id": "36817",
+    "name": "[Customer Marketing]- Help Desk 80% contacts internal chat + pop up - Split 1",
+    "size": "31524"
+  },
+  {
+    "id": "36818",
+    "name": "[Customer Marketing]- Help Desk 80% contacts internal chat + pop up - Split 2",
+    "size": "31524"
+  },
+  {
+    "id": "36831",
+    "name": "[Customer Marketing]- clicked G2 automated email",
+    "size": "34"
+  },
+  {
+    "id": "36835",
+    "name": "[Customer Marketing]- G2 Reviews audience (October 24) (static)",
+    "size": "12735"
+  },
+  {
+    "id": "36839",
+    "name": "[MOps] All Book a demo Forms 1-10 - V04/26",
+    "size": "23082"
+  },
+  {
+    "id": "36852",
+    "name": "Contact with engagement [Oct blitz 2024]",
+    "size": "37132"
+  },
+  {
+    "id": "36859",
+    "name": "[SDR] - APAC - for Luke - All active*",
+    "size": "2"
+  },
+  {
+    "id": "36868",
+    "name": "[Customer Marketing] Help Desk 20% applied 8-15 Security",
+    "size": "80"
+  },
+  {
+    "id": "36871",
+    "name": "[Customer Marketing] Help Desk 20% applied 8-15 Construction",
+    "size": "24"
+  },
+  {
+    "id": "36876",
+    "name": "[Customer Marketing] Help Desk 20% applied 8-15 Field Services",
+    "size": "19"
+  },
+  {
+    "id": "36878",
+    "name": "[Customer Marketing] Help Desk 20% applied 8-15 Logistics",
+    "size": "8"
+  },
+  {
+    "id": "36880",
+    "name": "[Customer Marketing] Help Desk 20% applied 8-15 Staffing",
+    "size": "8"
+  },
+  {
+    "id": "36882",
+    "name": "[Customer Marketing] Help Desk 20% applied 8-15 Other",
+    "size": "104"
+  },
+  {
+    "id": "36885",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Retail",
+    "size": "6"
+  },
+  {
+    "id": "36887",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Security",
+    "size": "98"
+  },
+  {
+    "id": "36889",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Cleaning",
+    "size": "72"
+  },
+  {
+    "id": "36891",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Hospitality",
+    "size": "72"
+  },
+  {
+    "id": "36893",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Construction",
+    "size": "106"
+  },
+  {
+    "id": "36895",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Field Services",
+    "size": "62"
+  },
+  {
+    "id": "36897",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Logistics",
+    "size": "24"
+  },
+  {
+    "id": "36899",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Staffing",
+    "size": "14"
+  },
+  {
+    "id": "36901",
+    "name": "[Customer Marketing] Help Desk 20% applied 2-8 Other",
+    "size": "618"
+  },
+  {
+    "id": "36904",
+    "name": "[Customer Marketing] Help Desk 20% applied 15+ retail",
+    "size": "16"
+  },
+  {
+    "id": "36906",
+    "name": "[Customer Marketing] Help Desk 20% applied 15+ security",
+    "size": "13"
+  },
+  {
+    "id": "36908",
+    "name": "[Customer Marketing] Help Desk 20% applied 15+ cleaning",
+    "size": "5"
+  },
+  {
+    "id": "36912",
+    "name": "[Customer Marketing] Help Desk 20% applied 15+ construction",
+    "size": "18"
+  },
+  {
+    "id": "36954",
+    "name": "[Customer Marketing] Help Desk 20% applied 15+ Other",
+    "size": "149"
+  },
+  {
+    "id": "36977",
+    "name": "[SDR] LTD spam list 24/10*",
+    "size": "3"
+  },
+  {
+    "id": "36988",
+    "name": "[Customer Marketing]- G2 Reviews audience (November 24) (static)",
+    "size": "28867"
+  },
+  {
+    "id": "36989",
+    "name": "[Customer Marketing]- G2 Reviews audience (November 24) (static) nps 7 filter",
+    "size": "32535"
+  },
+  {
+    "id": "36999",
+    "name": "[MOps] 11-50 Cleaning industry contacts email funnel - V01/25",
+    "size": "41640"
+  },
+  {
+    "id": "37032",
+    "name": "[Customer Marketing]- JS new releases pop up October (static)",
+    "size": "59582"
+  },
+  {
+    "id": "37033",
+    "name": "[CS MT] Israel - Main Webinar List- November",
+    "size": "1162"
+  },
+  {
+    "id": "37035",
+    "name": "[Customer Marketing]- JS new releases internal chat October (static)",
+    "size": "10184"
+  },
+  {
+    "id": "37036",
+    "name": "[Customer Marketing] Help Desk 100%",
+    "size": "76963"
+  },
+  {
+    "id": "37037",
+    "name": "[Customer Marketing] Help Desk 100% - Split 1",
+    "size": "25656"
+  },
+  {
+    "id": "37038",
+    "name": "[Customer Marketing] Help Desk 100% - Split 2",
+    "size": "25655"
+  },
+  {
+    "id": "37039",
+    "name": "[Customer Marketing] Help Desk 100% - Split 3",
+    "size": "25655"
+  },
+  {
+    "id": "37043",
+    "name": "German Contacts",
+    "size": "9272"
+  },
+  {
+    "id": "37050",
+    "name": "[Customer Marketing]- Israeli clients comms plan help desk",
+    "size": "810"
+  },
+  {
+    "id": "37054",
+    "name": "[General] Black Countries list - V01/25",
+    "size": "694683"
+  },
+  {
+    "id": "37060",
+    "name": "[Customer Marketing]- JS new releases pop up October (static) - Split 1",
+    "size": "29793"
+  },
+  {
+    "id": "37061",
+    "name": "[Customer Marketing]- JS new releases pop up October (static) - Split 2",
+    "size": "29791"
+  },
+  {
+    "id": "37075",
+    "name": "[Customer Marketing]- Israeli clients comms plan help desk (without or arazi)",
+    "size": "364"
+  },
+  {
+    "id": "37084",
+    "name": "[Customer Marketing] Help Desk 80% activated ",
+    "size": "15480"
+  },
+  {
+    "id": "37086",
+    "name": "[Customer Marketing] Help Desk 80% not activated",
+    "size": "83425"
+  },
+  {
+    "id": "37088",
+    "name": "[Customer Marketing] Help Desk 80% applied 15+ construction",
+    "size": "133"
+  },
+  {
+    "id": "37090",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Logistics",
+    "size": "93"
+  },
+  {
+    "id": "37092",
+    "name": "[Customer Marketing] Help Desk 80% applied 8-15 Other",
+    "size": "830"
+  },
+  {
+    "id": "37094",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Staffing",
+    "size": "38"
+  },
+  {
+    "id": "37096",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Other",
+    "size": "2409"
+  },
+  {
+    "id": "37098",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Retail",
+    "size": "213"
+  },
+  {
+    "id": "37100",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Security",
+    "size": "278"
+  },
+  {
+    "id": "37102",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Cleaning",
+    "size": "284"
+  },
+  {
+    "id": "37104",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Hospitality",
+    "size": "224"
+  },
+  {
+    "id": "37106",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Construction",
+    "size": "432"
+  },
+  {
+    "id": "37108",
+    "name": "[Customer Marketing] Help Desk 80% applied 2-8 Field Services",
+    "size": "342"
+  },
+  {
+    "id": "37111",
+    "name": "[Customer Marketing] Help Desk 80% applied 8-15 Security",
+    "size": "102"
+  },
+  {
+    "id": "37113",
+    "name": "[Customer Marketing] Help Desk 80% applied 8-15 Construction",
+    "size": "43"
+  },
+  {
+    "id": "37115",
+    "name": "[Customer Marketing] Help Desk 80% applied 8-15 Field Services",
+    "size": "20"
+  },
+  {
+    "id": "37117",
+    "name": "[Customer Marketing] Help Desk 80% applied 8-15 Staffing",
+    "size": "27"
+  },
+  {
+    "id": "37119",
+    "name": "[Customer Marketing] Help Desk 80% applied 8-15 Logistics",
+    "size": "64"
+  },
+  {
+    "id": "37121",
+    "name": "[Customer Marketing] Help Desk 80% applied 8-15 Retail",
+    "size": "125"
+  }
+]

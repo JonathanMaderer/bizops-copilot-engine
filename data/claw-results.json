@@ -1,0 +1,5279 @@
+[
+  {
+    "contactId": "190811138648",
+    "tickets": 2,
+    "ticketTitles": [
+      "New pipe dashboard in hubspot not filtering correctly",
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": null,
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "224564459884",
+    "tickets": 2,
+    "ticketTitles": [
+      "Leads getting held up Thursday night",
+      "Information not Populating on Looker"
+    ],
+    "categories": [
+      "Other",
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "191737204375",
+    "tickets": 2,
+    "ticketTitles": [
+      "Why where those leads reassigned? from Social to signup",
+      "What would be a reason for this lead to get to Anki's pipeline?"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team",
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "APAC 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "259360715789",
+    "tickets": 1,
+    "ticketTitles": [
+      "No Show's from AE's not automatically populating in my dashboard"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "501-1000",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "235991018326",
+    "tickets": 1,
+    "ticketTitles": [
+      "Issues with vantage"
+    ],
+    "categories": [
+      "Task / cadence / sequence"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "238888754338",
+    "tickets": 1,
+    "ticketTitles": [
+      "Unqualified Contacts in Vantage"
+    ],
+    "categories": [
+      "Qualification / unqualified"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "253488989351",
+    "tickets": 1,
+    "ticketTitles": [
+      "Account deletion"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "729591451",
+    "tickets": 1,
+    "ticketTitles": [
+      "Account deletion"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "101-200",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "548731001",
+    "tickets": 1,
+    "ticketTitles": [
+      "Account deletion"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "634834651",
+    "tickets": 1,
+    "ticketTitles": [
+      "Account deletion"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "42291575665",
+    "tickets": 1,
+    "ticketTitles": [
+      "Account deletion"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "219167567731",
+    "tickets": 1,
+    "ticketTitles": [
+      "Account deletion"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "153767356332",
+    "tickets": 1,
+    "ticketTitles": [
+      "Account deletion"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social North America",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "251926956102",
+    "tickets": 1,
+    "ticketTitles": [
+      "HS broken sales manager automation"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "256813282595",
+    "tickets": 1,
+    "ticketTitles": [
+      "Meetings with no meeting type"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "253894901686",
+    "tickets": 1,
+    "ticketTitles": [
+      "Meetings with no meeting type"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "236516716858",
+    "tickets": 1,
+    "ticketTitles": [
+      "Meetings with no meeting type"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "257369006595",
+    "tickets": 1,
+    "ticketTitles": [
+      "Removing FB California leads from Signup Dash on SDR Monitoring"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "650640002",
+    "tickets": 1,
+    "ticketTitles": [
+      "US Rep scheduled for Israel client"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "140296637612",
+    "tickets": 1,
+    "ticketTitles": [
+      "Aircall is not working - sometimes line is not clear (despite good internet connection). Sometimes I cannot even launch a call. Sometimes when I launch a call it gets 'stuck' as dialling, but I don't hear a dial tone or the call is actually going through"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "141635734685",
+    "tickets": 1,
+    "ticketTitles": [
+      "Aircall is not working - sometimes line is not clear (despite good internet connection). Sometimes I cannot even launch a call. Sometimes when I launch a call it gets 'stuck' as dialling, but I don't hear a dial tone or the call is actually going through"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "174906747281",
+    "tickets": 1,
+    "ticketTitles": [
+      "Welcome on board, and the link to set a CS onboarding is not sent to paying customers."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "196680408362",
+    "tickets": 1,
+    "ticketTitles": [
+      "Welcome on board, and the link to set a CS onboarding is not sent to paying customers."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "210272601491",
+    "tickets": 1,
+    "ticketTitles": [
+      "remove False SBP leads from Salsloft"
+    ],
+    "categories": [
+      "Task / cadence / sequence"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "205725097003",
+    "tickets": 1,
+    "ticketTitles": [
+      "remove False SBP leads from Salsloft"
+    ],
+    "categories": [
+      "Task / cadence / sequence"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "APAC 11-100",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "211053175909",
+    "tickets": 1,
+    "ticketTitles": [
+      "Completed meetings doesn't appear in personal performance."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "205565683503",
+    "tickets": 1,
+    "ticketTitles": [
+      "Completed meetings doesn't appear in personal performance."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "44111236467",
+    "tickets": 1,
+    "ticketTitles": [
+      "HOC recordings are not showing up on HubSpot"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "784063551",
+    "tickets": 1,
+    "ticketTitles": [
+      "HOC recordings are not showing up on HubSpot"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "194685394860",
+    "tickets": 1,
+    "ticketTitles": [
+      "HOC recordings are not showing up on HubSpot"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "101-200",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "236958644333",
+    "tickets": 1,
+    "ticketTitles": [
+      "Irrelevant country lead / wrong assignment"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "APAC 11-100",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "254616493159",
+    "tickets": 1,
+    "ticketTitles": [
+      "This socials lead is not appearing in my 101 Dashboard"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "201-500",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "251561739871",
+    "tickets": 1,
+    "ticketTitles": [
+      "201+ Contact us leads going to support when they SHOULD NOT"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "501-1000",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "251337402531",
+    "tickets": 1,
+    "ticketTitles": [
+      "201+ Contact us leads going to support when they SHOULD NOT"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 101+",
+    "sizeRange": "501-1000",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "253255484297",
+    "tickets": 1,
+    "ticketTitles": [
+      "201+ Contact us leads going to support when they SHOULD NOT"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "249996493717",
+    "tickets": 1,
+    "ticketTitles": [
+      "Follow-up meetings that are booked on the contact level do not appear on the deal level."
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": null,
+    "sizeRange": "501-1000",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "182393234248",
+    "tickets": 1,
+    "ticketTitles": [
+      "New pipe dashboard in hubspot not filtering correctly"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "192150184843",
+    "tickets": 1,
+    "ticketTitles": [
+      "New pipe dashboard in hubspot not filtering correctly"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "173498628385",
+    "tickets": 1,
+    "ticketTitles": [
+      "New pipe dashboard in hubspot not filtering correctly"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "160367828751",
+    "tickets": 1,
+    "ticketTitles": [
+      "New pipe dashboard in hubspot not filtering correctly"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "146428573047",
+    "tickets": 1,
+    "ticketTitles": [
+      "New pipe dashboard in hubspot not filtering correctly"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "106899993605",
+    "tickets": 1,
+    "ticketTitles": [
+      "[General] Redirect messages from old CT employees"
+    ],
+    "categories": [
+      "Qualification / unqualified"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "201427351101",
+    "tickets": 1,
+    "ticketTitles": [
+      "AI Powered Meeting Prep Not Coming in"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "201392548989",
+    "tickets": 1,
+    "ticketTitles": [
+      "AI Powered Meeting Prep Not Coming in"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "200223406224",
+    "tickets": 1,
+    "ticketTitles": [
+      "AI Powered Meeting Prep Not Coming in"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "206518625888",
+    "tickets": 1,
+    "ticketTitles": [
+      "demo recordings links on hubspot are missing"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "206228022608",
+    "tickets": 1,
+    "ticketTitles": [
+      "demo recordings links on hubspot are missing"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "192982811687",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "205255679635",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "205459448966",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "203246096819",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "182575838215",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "190893460871",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "177768612381",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "166037409596",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "144533686424",
+    "tickets": 1,
+    "ticketTitles": [
+      "Sales Pipeline Bugs"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "141807630",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead was marked as unqualified but still appears in the dashboard."
+    ],
+    "categories": [
+      "Qualification / unqualified"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "APAC 11-100",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "186027310657",
+    "tickets": 1,
+    "ticketTitles": [
+      "Email string of a contact appears in another unassociated company"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "214909071708",
+    "tickets": 1,
+    "ticketTitles": [
+      "FR Reps Not Listed as SDR Manager"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "215714499694",
+    "tickets": 1,
+    "ticketTitles": [
+      "FR Reps Not Listed as SDR Manager"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "209401788051",
+    "tickets": 1,
+    "ticketTitles": [
+      "Thomas missing meetings"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "210886184527",
+    "tickets": 1,
+    "ticketTitles": [
+      "Thomas missing meetings"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "212344657324",
+    "tickets": 1,
+    "ticketTitles": [
+      "Thomas missing meetings"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "211051471432",
+    "tickets": 1,
+    "ticketTitles": [
+      "Marvin meetings missing in Looker"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "333672002",
+    "tickets": 1,
+    "ticketTitles": [
+      "Marvin meetings missing in Looker"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "207049020209",
+    "tickets": 1,
+    "ticketTitles": [
+      "Marvin meetings missing in Looker"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "214148342872",
+    "tickets": 1,
+    "ticketTitles": [
+      "April Meetings Not Populating in Looker"
+    ],
+    "categories": [
+      "Task / cadence / sequence"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "215814179075",
+    "tickets": 1,
+    "ticketTitles": [
+      "April Meetings Not Populating in Looker"
+    ],
+    "categories": [
+      "Task / cadence / sequence"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "214152842576",
+    "tickets": 1,
+    "ticketTitles": [
+      "April Meetings Not Populating in Looker"
+    ],
+    "categories": [
+      "Task / cadence / sequence"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "213501253559",
+    "tickets": 1,
+    "ticketTitles": [
+      "April Meetings Not Populating in Looker"
+    ],
+    "categories": [
+      "Task / cadence / sequence"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": null,
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "218500199035",
+    "tickets": 1,
+    "ticketTitles": [
+      "Check Into Social Leads without SDR Assignment"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "217872428955",
+    "tickets": 1,
+    "ticketTitles": [
+      "Check Into Social Leads without SDR Assignment"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "213854295142",
+    "tickets": 1,
+    "ticketTitles": [
+      "Spam leads for 201+ segment"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 101+",
+    "sizeRange": "501-1000",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "213678282911",
+    "tickets": 1,
+    "ticketTitles": [
+      "Spam leads for 201+ segment"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 101+",
+    "sizeRange": "1001-5000",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "213671224350",
+    "tickets": 1,
+    "ticketTitles": [
+      "Spam leads for 201+ segment"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 101+",
+    "sizeRange": "1001-5000",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "213667933797",
+    "tickets": 1,
+    "ticketTitles": [
+      "Spam leads for 201+ segment"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 101+",
+    "sizeRange": "501-1000",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "213659984975",
+    "tickets": 1,
+    "ticketTitles": [
+      "Spam leads for 201+ segment"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 101+",
+    "sizeRange": "201-500",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "216886981892",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads hitting the FR Dashboard late"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "215892109839",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads hitting the FR Dashboard late"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "215087279153",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads hitting the FR Dashboard late"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "219786966861",
+    "tickets": 1,
+    "ticketTitles": [
+      "Reassign Scheduling APAC lead"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "215262138429",
+    "tickets": 1,
+    "ticketTitles": [
+      "Trial team assigned leads issue"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "213324421007",
+    "tickets": 1,
+    "ticketTitles": [
+      "Trial team assigned leads issue"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "218297224858",
+    "tickets": 1,
+    "ticketTitles": [
+      "Trial team assigned leads issue"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "222866250305",
+    "tickets": 1,
+    "ticketTitles": [
+      "45m Qualification Demo Booked with SDR"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224575450168",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224566364000",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224563552533",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224577840988",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224564474133",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224577855403",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224577855401",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224575681962",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224566599057",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224565426575",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224562059400",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "224578743173",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "224564795716",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads getting held up Thursday night"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "218557296810",
+    "tickets": 1,
+    "ticketTitles": [
+      "Emails not coming into inbox"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "225661061029",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads are coming in without a phone number."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "APAC 11-100",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "225676177270",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads are coming in without a phone number."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "APAC 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "219283686508",
+    "tickets": 1,
+    "ticketTitles": [
+      "Call transcription does not appear on HubSpot."
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "222511017392",
+    "tickets": 1,
+    "ticketTitles": [
+      "51-100 leads not being routed to reps"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "222582498712",
+    "tickets": 1,
+    "ticketTitles": [
+      "51-100 leads not being routed to reps"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "222567056500",
+    "tickets": 1,
+    "ticketTitles": [
+      "51-100 leads not being routed to reps"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "222583414863",
+    "tickets": 1,
+    "ticketTitles": [
+      "51-100 leads not being routed to reps"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "222828747166",
+    "tickets": 1,
+    "ticketTitles": [
+      "51-100 leads not being routed to reps"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "226158609460",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226170231376",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226171563046",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226148665761",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226155147327",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226171478169",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226174525970",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226136885385",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226178222187",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "226171914240",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226178705528",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226178643998",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead flow getting held up, coming through all at once"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "114248920742",
+    "tickets": 1,
+    "ticketTitles": [
+      "Information not Populating on Looker"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "190313201",
+    "tickets": 1,
+    "ticketTitles": [
+      "Information not Populating on Looker"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "228442258217",
+    "tickets": 1,
+    "ticketTitles": [
+      "Wrong assignment EMEA Midmarket prospect"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "501-1000",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "220504902841",
+    "tickets": 1,
+    "ticketTitles": [
+      "Missing 1st meeting on hubspot contact"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "196289815051",
+    "tickets": 1,
+    "ticketTitles": [
+      "Missing 1st meeting on hubspot contact"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "223623043874",
+    "tickets": 1,
+    "ticketTitles": [
+      "investigating the reason these 2 meetings had 15 min buffer, unlike other meetings"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "230149302189",
+    "tickets": 1,
+    "ticketTitles": [
+      "Looker board not updated/accurate"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "230325462328",
+    "tickets": 1,
+    "ticketTitles": [
+      "Looker board not updated/accurate"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "228900750004",
+    "tickets": 1,
+    "ticketTitles": [
+      "meetings not showing on hubspot but showing on my calendar"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "99795094799",
+    "tickets": 1,
+    "ticketTitles": [
+      "meetings not showing on hubspot but showing on my calendar"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "232416675698",
+    "tickets": 1,
+    "ticketTitles": [
+      "Jazmine's Calls Not Appearing in Daily Looker Board"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226797782327",
+    "tickets": 1,
+    "ticketTitles": [
+      "Effective ARR Dashboard Bug"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "177800885156",
+    "tickets": 1,
+    "ticketTitles": [
+      "contact associated to wrong company"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "233502288702",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads distributed to incorrect SDR Managers - APAC (Australia)"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 101+",
+    "sizeRange": "201-500",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "233458275966",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads distributed to incorrect SDR Managers - APAC (Australia)"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": "North America 101+",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "233240156560",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads distributed to incorrect SDR Managers - APAC (Australia)"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 101+",
+    "sizeRange": "201-500",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "234322983089",
+    "tickets": 1,
+    "ticketTitles": [
+      "Missing Zoom links in Chili cal meetings booked by SDRs"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "235268206243",
+    "tickets": 1,
+    "ticketTitles": [
+      "Jazmine's Created Demo Type"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235214940023",
+    "tickets": 1,
+    "ticketTitles": [
+      "Jazmine's Created Demo Type"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235205083549",
+    "tickets": 1,
+    "ticketTitles": [
+      "Jazmine's Created Demo Type"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235186268819",
+    "tickets": 1,
+    "ticketTitles": [
+      "Jazmine's Created Demo Type"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235067747183",
+    "tickets": 1,
+    "ticketTitles": [
+      "Pipeline Dashboard Inaccuracies"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "230639495861",
+    "tickets": 1,
+    "ticketTitles": [
+      "Pipeline Dashboard Inaccuracies"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": null,
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "111985100900",
+    "tickets": 1,
+    "ticketTitles": [
+      "Reassign Paying Customer > Amy Nguyen"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "201-500",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "233910698916",
+    "tickets": 1,
+    "ticketTitles": [
+      "Demo was booked twice with different Account Executives"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "232341908662",
+    "tickets": 1,
+    "ticketTitles": [
+      "Looks like leads are repeatedly getting reassigned by \"The Brain\""
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "234383312202",
+    "tickets": 1,
+    "ticketTitles": [
+      "Dashboard bug"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "233404977042",
+    "tickets": 1,
+    "ticketTitles": [
+      "Dashboard bug"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "233161344925",
+    "tickets": 1,
+    "ticketTitles": [
+      "Dashboard bug"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "234187274863",
+    "tickets": 1,
+    "ticketTitles": [
+      "Follow up call scheduled at the top of the hour"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "208971710279",
+    "tickets": 1,
+    "ticketTitles": [
+      "Closed Lost leads are going straight away to SDR pipeline"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "215147935807",
+    "tickets": 1,
+    "ticketTitles": [
+      "Closed Lost leads are going straight away to SDR pipeline"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "226990648368",
+    "tickets": 1,
+    "ticketTitles": [
+      "Closed Lost leads are going straight away to SDR pipeline"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "233470628419",
+    "tickets": 1,
+    "ticketTitles": [
+      "Dashboard bug"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235993086754",
+    "tickets": 1,
+    "ticketTitles": [
+      "Why where those leads reassigned? from Social to signup"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "APAC 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "218054718305",
+    "tickets": 1,
+    "ticketTitles": [
+      "Why where those leads reassigned? from Social to signup"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "161663785754",
+    "tickets": 1,
+    "ticketTitles": [
+      "Why where those leads reassigned? from Social to signup"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "221334422400",
+    "tickets": 1,
+    "ticketTitles": [
+      "Why where those leads reassigned? from Social to signup"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "5001+",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235151914564",
+    "tickets": 1,
+    "ticketTitles": [
+      "What's the reason for those leads to be back as new leads? to the SDR pipe"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "229463546948",
+    "tickets": 1,
+    "ticketTitles": [
+      "What's the reason for those leads to be back as new leads? to the SDR pipe"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235403809820",
+    "tickets": 1,
+    "ticketTitles": [
+      "What's the reason for those leads to be back as new leads? to the SDR pipe"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "1-10",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "232968982352",
+    "tickets": 1,
+    "ticketTitles": [
+      "What's the reason for those leads to be back as new leads? to the SDR pipe"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "230489024052",
+    "tickets": 1,
+    "ticketTitles": [
+      "This lead was booked by FR and got another trial SDR"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "225652480627",
+    "tickets": 1,
+    "ticketTitles": [
+      "No meetings logged in Hubspot for 3 leads in June"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "101-200",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "225223163791",
+    "tickets": 1,
+    "ticketTitles": [
+      "No meetings logged in Hubspot for 3 leads in June"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "190990001",
+    "tickets": 1,
+    "ticketTitles": [
+      "No meetings logged in Hubspot for 3 leads in June"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "234506956865",
+    "tickets": 1,
+    "ticketTitles": [
+      "No Show not appearing on dashboard"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "237149322122",
+    "tickets": 1,
+    "ticketTitles": [
+      "HubSpot Contact Email Reverting After Zoom Invite"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "237207413777",
+    "tickets": 1,
+    "ticketTitles": [
+      "HubSpot Contact Email Reverting After Zoom Invite"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "225727093125",
+    "tickets": 1,
+    "ticketTitles": [
+      "Re-engaged leads arrive at the social dashboard instead of the mid-market one."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "225788407625",
+    "tickets": 1,
+    "ticketTitles": [
+      "Re-engaged leads arrive at the social dashboard instead of the mid-market one."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "223590993314",
+    "tickets": 1,
+    "ticketTitles": [
+      "Re-engaged leads arrive at the social dashboard instead of the mid-market one."
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "236498384656",
+    "tickets": 1,
+    "ticketTitles": [
+      "Demo prep info not showing in HS"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "North America 11-100 ET",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239869079552",
+    "tickets": 1,
+    "ticketTitles": [
+      "Lead from poland hitting USA Queue"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "238812748404",
+    "tickets": 1,
+    "ticketTitles": [
+      "Scheduled meeting not showing up in HS"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "237226292632",
+    "tickets": 1,
+    "ticketTitles": [
+      "Auto Assign issue in SDR dashboard"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "234910121655",
+    "tickets": 1,
+    "ticketTitles": [
+      "No show meetings are marked as completed automatically when they shouldn't"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "238980644997",
+    "tickets": 1,
+    "ticketTitles": [
+      "Attention not opening deals"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": null,
+    "sizeRange": "201-500",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "238489747352",
+    "tickets": 1,
+    "ticketTitles": [
+      "Attention not opening deals"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "501-1000",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "238362035110",
+    "tickets": 1,
+    "ticketTitles": [
+      "Attention not opening deals"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "201-500",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235071676585",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads from AU got to EMEA"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "233983918863",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads from AU got to EMEA"
+    ],
+    "categories": [
+      "Routing / team / region"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239778157369",
+    "tickets": 1,
+    "ticketTitles": [
+      "Many sign-ups from Finland arrive as spam"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239738489724",
+    "tickets": 1,
+    "ticketTitles": [
+      "Many sign-ups from Finland arrive as spam"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239776820566",
+    "tickets": 1,
+    "ticketTitles": [
+      "Many sign-ups from Finland arrive as spam"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239773814402",
+    "tickets": 1,
+    "ticketTitles": [
+      "Many sign-ups from Finland arrive as spam"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "235572293493",
+    "tickets": 1,
+    "ticketTitles": [
+      "Why would that lead be removed from the SDR pipe?"
+    ],
+    "categories": [
+      "Wrong / missing SDR owner or team"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "EMEA 11-100",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "240165929734",
+    "tickets": 1,
+    "ticketTitles": [
+      "No-Shows that don't appear in the reps dashboard"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "240379690254",
+    "tickets": 1,
+    "ticketTitles": [
+      "No-Shows that don't appear in the reps dashboard"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239238695808",
+    "tickets": 1,
+    "ticketTitles": [
+      "No-Shows that don't appear in the reps dashboard"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239720022345",
+    "tickets": 1,
+    "ticketTitles": [
+      "No-Shows that don't appear in the reps dashboard"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239183286877",
+    "tickets": 1,
+    "ticketTitles": [
+      "No-Shows that don't appear in the reps dashboard"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "243343127830",
+    "tickets": 1,
+    "ticketTitles": [
+      "Delayed NFC lead to the social EMEA dashboard"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "2",
+    "status": "BLOCKED",
+    "title": "Brain State",
+    "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Brain State)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "242600023735",
+    "tickets": 1,
+    "ticketTitles": [
+      "Leads both booked and completed are staying in open pipe section"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "3",
+    "status": "BLOCKED",
+    "title": "AI Handover",
+    "conclusion": "AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (AI Handover)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "PASS",
+      "3": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "143190524175",
+    "tickets": 1,
+    "ticketTitles": [
+      "ARR for ADP project not showing accurate numbers"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "241708690446",
+    "tickets": 1,
+    "ticketTitles": [
+      "No-show stage did not enter the no-show flow"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "5",
+    "status": "BLOCKED",
+    "title": "Meeting Validation",
+    "conclusion": "Meeting type is not an SDR-recognized meeting type.",
+    "confidence": 0.5,
+    "confidenceReasons": [
+      "0.5: Unexpected meeting type \"SDR_Demo_First_Meeting_30min\" not in approved lists (list lag possible)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "PASS",
+      "3": "WARN",
+      "4": "PASS",
+      "5": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "239778832549",
+    "tickets": 1,
+    "ticketTitles": [
+      "No-show stage did not enter the no-show flow"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "3",
+    "status": "BLOCKED",
+    "title": "AI Handover",
+    "conclusion": "AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (AI Handover)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "PASS",
+      "3": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "247274364565",
+    "tickets": 1,
+    "ticketTitles": [
+      "Deleted meeting by mistake"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "5",
+    "status": "BLOCKED",
+    "title": "Meeting Validation",
+    "conclusion": "Meeting type is not an SDR-recognized meeting type.",
+    "confidence": 0.5,
+    "confidenceReasons": [
+      "0.5: Unexpected meeting type \"SDR_Demo_First_Meeting_30min\" not in approved lists (list lag possible)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "PASS",
+      "3": "WARN",
+      "4": "PASS",
+      "5": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "237459172733",
+    "tickets": 1,
+    "ticketTitles": [
+      "Vantage issues with Suggestions"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "url",
+    "mode": "1",
+    "status": "BLOCKED",
+    "title": "Deal Lock",
+    "conclusion": "Lead is locked by an active associated deal.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Deal Lock)."
+    ],
+    "team": "Social APAC",
+    "sizeRange": "31-50",
+    "stepStatuses": {
+      "1": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "245394878835",
+    "tickets": 1,
+    "ticketTitles": [
+      "HubSpot / Google Calendar / Vantage Not Sync'd"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "3",
+    "status": "BLOCKED",
+    "title": "AI Handover",
+    "conclusion": "AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (AI Handover)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "PASS",
+      "3": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "245417468535",
+    "tickets": 1,
+    "ticketTitles": [
+      "HubSpot / Google Calendar / Vantage Not Sync'd"
+    ],
+    "categories": [
+      "Lead missing from board/dashboard"
+    ],
+    "source": "url",
+    "mode": "3",
+    "status": "BLOCKED",
+    "title": "AI Handover",
+    "conclusion": "AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up.",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (AI Handover)."
+    ],
+    "team": "Social EMEA",
+    "sizeRange": "51-100",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "PASS",
+      "3": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "249055549332",
+    "tickets": 1,
+    "ticketTitles": [
+      "Meeting wasn't marked as no show even though the rep filled the playbook"
+    ],
+    "categories": [
+      "No-show / meeting handling"
+    ],
+    "source": "url",
+    "mode": "5",
+    "status": "BLOCKED",
+    "title": "Meeting Validation",
+    "conclusion": "Meeting type is not an SDR-recognized meeting type.",
+    "confidence": 0.5,
+    "confidenceReasons": [
+      "0.5: Unexpected meeting type \"SDR_Demo_First_Meeting_30min\" not in approved lists (list lag possible)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "2": "PASS",
+      "3": "WARN",
+      "4": "PASS",
+      "5": "BLOCKED",
+      "1.5": "PASS"
+    }
+  },
+  {
+    "contactId": "83144925469",
+    "tickets": 1,
+    "ticketTitles": [
+      "Meital was not able to start a churn zoom meeting"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "raw",
+    "mode": "0",
+    "status": "BLOCKED",
+    "title": "Contact Not Found",
+    "conclusion": "Contact ID does not exist or was deleted in HubSpot.",
+    "confidence": 0.5,
+    "confidenceReasons": [
+      "0.5: 404 anomaly: contact does not exist (deleted, merged away, or wrong ID)."
+    ],
+    "team": null,
+    "sizeRange": null,
+    "stepStatuses": {
+      "0": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "227167439956",
+    "tickets": 1,
+    "ticketTitles": [
+      "Neglected deal stuck in Sales 11-50 Pipe Management (Hubspot Board)"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "raw",
+    "mode": "1.5",
+    "status": "BLOCKED",
+    "title": "Owner Gate: Unassigned SDR",
+    "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+    "confidence": 1,
+    "confidenceReasons": [
+      "1.0: Unambiguous rule matched (Owner Gate: Unassigned SDR)."
+    ],
+    "team": null,
+    "sizeRange": "11-30",
+    "stepStatuses": {
+      "1": "PASS",
+      "1.5": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "41310877232",
+    "tickets": 1,
+    "ticketTitles": [
+      "Neglected deal stuck in Sales 11-50 Pipe Management (Hubspot Board)"
+    ],
+    "categories": [
+      "Deal / pipeline issue"
+    ],
+    "source": "raw",
+    "mode": "0",
+    "status": "BLOCKED",
+    "title": "Contact Not Found",
+    "conclusion": "Contact ID does not exist or was deleted in HubSpot.",
+    "confidence": 0.5,
+    "confidenceReasons": [
+      "0.5: 404 anomaly: contact does not exist (deleted, merged away, or wrong ID)."
+    ],
+    "team": null,
+    "sizeRange": null,
+    "stepStatuses": {
+      "0": "BLOCKED"
+    }
+  },
+  {
+    "contactId": "19124451386",
+    "tickets": 1,
+    "ticketTitles": [
+      "xdr - remove spam number"
+    ],
+    "categories": [
+      "Other"
+    ],
+    "source": "raw",
+    "mode": "0",
+    "status": "BLOCKED",
+    "title": "Contact Not Found",
+    "conclusion": "Contact ID does not exist or was deleted in HubSpot.",
+    "confidence": 0.5,
+    "confidenceReasons": [
+      "0.5: 404 anomaly: contact does not exist (deleted, merged away, or wrong ID)."
+    ],
+    "team": null,
+    "sizeRange": null,
+    "stepStatuses": {
+      "0": "BLOCKED"
+    }
+  }
+]

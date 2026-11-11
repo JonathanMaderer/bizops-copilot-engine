@@ -1,0 +1,25 @@
+# SDR Diagnostic Engine Rules
+
+## Core System Architecture ("The Brain")
+The system inspects HubSpot leads managed by a 3-workflow state machine:
+1. THE BRAIN (Main decision & routing)
+2. Lead Summary (Cycle timestamp mutation & SDR note generation)
+3. Cycles (Monitors lifecycle, closes cycle on Won/Lost, preserves on Extended)
+
+Operational SDR List Rule:
+Active Lead <=> (ai_sdr_cycle_start_time is known) AND (ai_sdr_cycle_end_time is empty)
+
+## Key Property Schema
+- Entry Source: ai_sdr_entry_source
+- Decision: ai_sdr_classification, ai_sdr_sub_classification ('start_cycle', 'continue_cycle', 'unqualified')
+- Timestamps: ai_sdr_cycle_start_time, ai_sdr_cycle_end_time, ai_sdr_cycle_outcome
+- Triggers: trial__finish_signup_date, sdr__qbd_indicator, sdr_general_replied_tiemstamp, sdr_social_qualified_lead_timestamp
+- Operational Filters: meeting_type_cp__c, sl_stage, numofemployeesrange, new_unqualified_reason, unqualified_reason___text_, ai_sdr__first_replied_at, sdr__sdr_team_
+
+## Diagnostic Hierarchy (Must Be Executed in Exact Order)
+1. Deal Lock: Check for active associated deals (!= closedwon / closedlost).
+2. Brain State: Check ai_sdr_cycle_start_time != null AND ai_sdr_cycle_end_time == null.
+3. AI Handover: Check ai_sdr__first_replied_at or ai_sdr_sub_classification == 'unqualified'.
+4. Filter Hygiene: Check numofemployeesrange == '1-10', and ensure new_unqualified_reason dropdown is not empty if free-text notes exist.
+5. Meeting Validation: Verify meeting_type_cp__c against approved SDR meeting types list.
+6. List vs UI Diff: Verify HubSpot board list membership. If present, diagnose as dashboard cache delay.

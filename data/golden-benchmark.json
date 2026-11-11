@@ -1,0 +1,403 @@
+{
+  "note": "Snapshot of engine verdicts on real historical contacts. HubSpot data is live, so re-baseline when contacts legitimately change.",
+  "createdAt": "2026-11-09T16:08:51.856Z",
+  "cases": [
+    {
+      "contactId": "650640002",
+      "expected": {
+        "mode": "1",
+        "status": "BLOCKED",
+        "title": "Deal Lock",
+        "conclusion": "Lead is locked by an active associated deal.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "BLOCKED"
+        }
+      },
+      "team": null,
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "US Rep scheduled for Israel client"
+      ]
+    },
+    {
+      "contactId": "190811138648",
+      "expected": {
+        "mode": "1.5",
+        "status": "BLOCKED",
+        "title": "Owner Gate: Unassigned SDR",
+        "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "1.5": "BLOCKED"
+        }
+      },
+      "team": null,
+      "sizeRange": null,
+      "sourceTickets": [
+        "New pipe dashboard in hubspot not filtering correctly",
+        "Sales Pipeline Bugs"
+      ]
+    },
+    {
+      "contactId": "224564459884",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "Leads getting held up Thursday night",
+        "Information not Populating on Looker"
+      ]
+    },
+    {
+      "contactId": "242600023735",
+      "expected": {
+        "mode": "3",
+        "status": "BLOCKED",
+        "title": "AI Handover",
+        "conclusion": "AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": null,
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "Leads both booked and completed are staying in open pipe section"
+      ]
+    },
+    {
+      "contactId": "191737204375",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "APAC 11-100",
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "Why where those leads reassigned? from Social to signup",
+        "What would be a reason for this lead to get to Anki's pipeline?"
+      ]
+    },
+    {
+      "contactId": "153767356332",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social North America",
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "Account deletion"
+      ]
+    },
+    {
+      "contactId": "174906747281",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "EMEA 11-100",
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "Welcome on board, and the link to set a CS onboarding is not sent to paying customers."
+      ]
+    },
+    {
+      "contactId": "251337402531",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 101+",
+      "sizeRange": "501-1000",
+      "sourceTickets": [
+        "201+ Contact us leads going to support when they SHOULD NOT"
+      ]
+    },
+    {
+      "contactId": "182575838215",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social EMEA",
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "Sales Pipeline Bugs"
+      ]
+    },
+    {
+      "contactId": "213854295142",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "EMEA 101+",
+      "sizeRange": "501-1000",
+      "sourceTickets": [
+        "Spam leads for 201+ segment"
+      ]
+    },
+    {
+      "contactId": "219786966861",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social APAC",
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "Reassign Scheduling APAC lead"
+      ]
+    },
+    {
+      "contactId": "259360715789",
+      "expected": {
+        "mode": "1.5",
+        "status": "BLOCKED",
+        "title": "Owner Gate: Unassigned SDR",
+        "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "1.5": "BLOCKED"
+        }
+      },
+      "team": null,
+      "sizeRange": "501-1000",
+      "sourceTickets": [
+        "No Show's from AE's not automatically populating in my dashboard"
+      ]
+    },
+    {
+      "contactId": "235991018326",
+      "expected": {
+        "mode": "1.5",
+        "status": "BLOCKED",
+        "title": "Owner Gate: Unassigned SDR",
+        "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "1.5": "BLOCKED"
+        }
+      },
+      "team": null,
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "Issues with vantage"
+      ]
+    },
+    {
+      "contactId": "238888754338",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": null,
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "Unqualified Contacts in Vantage"
+      ]
+    },
+    {
+      "contactId": "253488989351",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "",
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "Account deletion"
+      ]
+    },
+    {
+      "contactId": "729591451",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": null,
+      "sizeRange": "101-200",
+      "sourceTickets": [
+        "Account deletion"
+      ]
+    },
+    {
+      "contactId": "548731001",
+      "expected": {
+        "mode": "1.5",
+        "status": "BLOCKED",
+        "title": "Owner Gate: Unassigned SDR",
+        "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "1.5": "BLOCKED"
+        }
+      },
+      "team": null,
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "Account deletion"
+      ]
+    },
+    {
+      "contactId": "634834651",
+      "expected": {
+        "mode": "1.5",
+        "status": "BLOCKED",
+        "title": "Owner Gate: Unassigned SDR",
+        "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "1.5": "BLOCKED"
+        }
+      },
+      "team": null,
+      "sizeRange": "51-100",
+      "sourceTickets": [
+        "Account deletion"
+      ]
+    },
+    {
+      "contactId": "42291575665",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": null,
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "Account deletion"
+      ]
+    },
+    {
+      "contactId": "219167567731",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "Account deletion"
+      ]
+    }
+  ]
+}
