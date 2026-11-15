@@ -48,12 +48,20 @@ function extractId(text: string): string | null {
   return raw ? raw[1]! : null;
 }
 
+const ACTIVE_KEY = 'sdr-copilot-active-v1';
+
 function loadSessions(): Session[] {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]') as Session[];
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
+    return Array.isArray(parsed) ? (parsed as Session[]) : [];
   } catch {
     return [];
   }
+}
+
+function loadActiveId(sessions: Session[]): string | null {
+  const id = localStorage.getItem(ACTIVE_KEY);
+  return id && sessions.some((s) => s.id === id) ? id : null;
 }
 
 function UserBubble({ text }: { text: string }) {
@@ -77,7 +85,7 @@ function UserBubble({ text }: { text: string }) {
 
 export function App() {
   const [sessions, setSessions] = useState<Session[]>(loadSessions);
-  const [activeId, setActiveId] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(() => loadActiveId(loadSessions()));
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [input, setInput] = useState('');
   const [draftQueue, setDraftQueue] = useState<string | undefined>(undefined);
@@ -91,8 +99,21 @@ export function App() {
 
   useEffect(() => {
     const clean = sessions.slice(0, 25).map((s) => ({ ...s, messages: s.messages.filter((m) => !m.pending) }));
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
+    } catch {
+      /* storage full or unavailable: keep working in memory */
+    }
   }, [sessions]);
+
+  useEffect(() => {
+    try {
+      if (activeId) localStorage.setItem(ACTIVE_KEY, activeId);
+      else localStorage.removeItem(ACTIVE_KEY);
+    } catch {
+      /* ignore */
+    }
+  }, [activeId]);
 
   useEffect(() => {
     fetch('/api/status')

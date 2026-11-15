@@ -8,36 +8,57 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const servicePath = path.resolve(here, '../src/api/diagnose.ts');
 const feedbackPath = path.resolve(here, '../src/api/feedback.ts');
 
+class BadRequest extends Error {}
+
 /** Serves POST /api/diagnose and /api/feedback by running the engine service layer inside the Vite dev server. */
 function engineApi(): Plugin {
   return {
     name: 'sdr-engine-api',
     configureServer(server) {
+      const sendJson = (res: import('node:http').ServerResponse, status: number, body: unknown) => {
+        if (res.headersSent || res.writableEnded) return;
+        res.statusCode = status;
+        res.setHeader('content-type', 'application/json');
+        res.end(JSON.stringify(body));
+      };
+      /** Reads the JSON body and runs the handler; any failure becomes a JSON response, never a server crash. */
       const route = (url: string, handler: (body: any) => Promise<unknown>) =>
         server.middlewares.use(url, async (req, res) => {
-          const send = (status: number, body: unknown) => {
-            res.statusCode = status;
-            res.setHeader('content-type', 'application/json');
-            res.end(JSON.stringify(body));
-          };
-          if (req.method !== 'POST') return send(405, { error: 'Use POST' });
           try {
+            if (req.method !== 'POST') return sendJson(res, 405, { error: 'Use POST' });
             let raw = '';
             for await (const chunk of req) raw += chunk;
-            send(200, await handler(JSON.parse(raw || '{}')));
+            let body: any;
+            try {
+              body = JSON.parse(raw || '{}');
+            } catch {
+              return sendJson(res, 400, { error: 'Invalid JSON body' });
+            }
+            sendJson(res, 200, await handler(body ?? {}));
           } catch (e) {
-            const err = e as Error;
-            send(err.constructor?.name === 'InvalidInputError' ? 400 : 500, { error: err.message });
+            const err = e instanceof Error ? e : new Error(String(e));
+            console.error(`[api ${url}]`, err);
+            if (err instanceof BadRequest || err.constructor?.name === 'InvalidInputError') return sendJson(res, 400, { error: err.message });
+            sendJson(res, 500, { error: 'Internal Server Error', details: err.message });
           }
         });
       server.middlewares.use('/api/status', async (_req, res) => {
-        const mod = (await server.ssrLoadModule(path.resolve(here, '../src/ai/copilot.ts'))) as typeof import('../src/ai/copilot.ts');
-        res.setHeader('content-type', 'application/json');
-        res.end(JSON.stringify({ llm: mod.getLlmStatus() }));
+        try {
+          const mod = (await server.ssrLoadModule(path.resolve(here, '../src/ai/copilot.ts'))) as typeof import('../src/ai/copilot.ts');
+          sendJson(res, 200, { llm: mod.getLlmStatus() });
+        } catch (e) {
+          sendJson(res, 500, { error: 'Internal Server Error', details: (e as Error).message });
+        }
       });
       route('/api/diagnose', async (body) => {
+        // Only a bare numeric ID or a HubSpot contact URL is accepted; conversational text is rejected cleanly.
+        const raw = String(body.contactId ?? body.contactIdOrUrl ?? body.input ?? '').trim();
+        const valid = /^\d{3,}$/.test(raw) || /^https?:\/\/\S+\/(?:record\/0-1|contact|contacts)\/\d+/.test(raw);
+        if (!valid) {
+          throw new BadRequest('Please provide a valid HubSpot Contact ID.');
+        }
         const mod = (await server.ssrLoadModule(servicePath)) as typeof import('../src/api/diagnose.ts');
-        return mod.diagnoseLead({ ...body, contactIdOrUrl: String(body.contactIdOrUrl ?? body.input ?? '') });
+        return mod.diagnoseLead({ ...body, contactIdOrUrl: raw });
       });
       route('/api/feedback', async (body) => {
         const mod = (await server.ssrLoadModule(feedbackPath)) as typeof import('../src/api/feedback.ts');
