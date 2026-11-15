@@ -336,8 +336,10 @@ async function callVertex(project: string, prompt: string, system: string = getS
           config: {
             systemInstruction: system,
             temperature: 0,
-            maxOutputTokens: 8192, // headroom: Gemini 2.5 thinking tokens count against this budget
+            maxOutputTokens: 2048,
             responseMimeType: 'application/json',
+            // Thinking tokens count against maxOutputTokens; disabling them keeps the JSON from being truncated.
+            ...(model.startsWith('gemini-2.5') ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
           },
         }),
         LLM_TIMEOUT_MS,
@@ -428,8 +430,9 @@ export async function generateCopilotAnalysis(
     const prompt = `Diagnostic payload:\n${JSON.stringify(payload, null, 2)}\n\n${FORMAT_INSTRUCTIONS}`;
     let modelUsed = provider.model;
     let j: Partial<CopilotResponse> | undefined;
-    // One retry: a truncated or malformed JSON reply is occasionally returned by the model.
+    // One retry (after 500ms) when the model returns an empty or unparsable JSON reply.
     for (let attempt = 0; attempt < 2 && !j; attempt++) {
+      if (attempt > 0) await new Promise((r) => setTimeout(r, 500));
       try {
         let raw: string;
         if (provider.name === 'vertex') {
@@ -441,7 +444,9 @@ export async function generateCopilotAnalysis(
         }
         j = parseJson(raw) as Partial<CopilotResponse>;
       } catch (e) {
-        if (attempt === 1) throw e;
+        const retryable = e instanceof SyntaxError || /empty response/i.test((e as Error).message);
+        if (attempt === 1 || !retryable) throw e;
+        console.warn(`LLM returned ${e instanceof SyntaxError ? 'malformed JSON' : 'an empty response'}; retrying once.`);
       }
     }
     if (!j) throw new Error('no LLM response');
