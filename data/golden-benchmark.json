@@ -1,9 +1,12 @@
 {
-  "note": "Snapshot of engine verdicts on real historical contacts. HubSpot data is live, so re-baseline when contacts legitimately change.",
+  "note": "Snapshot of engine verdicts on real historical contacts. HubSpot data is live, so re-baseline (scripts/build-benchmark.ts) when contacts legitimately change. status is BLOCKED | WARN | PASS; mode is the verdict step (null for PASS); PASS controls must never be blocked.",
   "createdAt": "2026-11-09T16:08:51.856Z",
+  "updatedAt": "2026-11-15T14:20:14.248Z",
   "cases": [
     {
       "contactId": "650640002",
+      "category": "step-1",
+      "region": null,
       "expected": {
         "mode": "1",
         "status": "BLOCKED",
@@ -12,16 +15,23 @@
         "minConfidence": 1,
         "stepStatuses": {
           "1": "BLOCKED"
+        },
+        "blockedAt": {
+          "step": 1,
+          "title": "Deal Lock"
         }
       },
       "team": null,
       "sizeRange": "11-30",
       "sourceTickets": [
         "US Rep scheduled for Israel client"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Deal Lock. Lead is locked by an active associated deal."
     },
     {
       "contactId": "190811138648",
+      "category": "step-1.5",
+      "region": null,
       "expected": {
         "mode": "1.5",
         "status": "BLOCKED",
@@ -31,6 +41,10 @@
         "stepStatuses": {
           "1": "PASS",
           "1.5": "BLOCKED"
+        },
+        "blockedAt": {
+          "step": 1.5,
+          "title": "Owner Gate: Unassigned SDR"
         }
       },
       "team": null,
@@ -38,10 +52,13 @@
       "sourceTickets": [
         "New pipe dashboard in hubspot not filtering correctly",
         "Sales Pipeline Bugs"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Owner Gate: Unassigned SDR. Lead has no SDR owner (Incoming queue, not Open Pipe)."
     },
     {
       "contactId": "224564459884",
+      "category": "step-2",
+      "region": "NA",
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -52,6 +69,10 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "North America 11-100 ET",
@@ -59,10 +80,13 @@
       "sourceTickets": [
         "Leads getting held up Thursday night",
         "Information not Populating on Looker"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Brain never started a cycle for this lead (not an Active Lead)."
     },
     {
       "contactId": "242600023735",
+      "category": "step-3",
+      "region": null,
       "expected": {
         "mode": "3",
         "status": "BLOCKED",
@@ -74,16 +98,23 @@
           "2": "PASS",
           "3": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 3,
+          "title": "AI Handover"
         }
       },
       "team": null,
       "sizeRange": "11-30",
       "sourceTickets": [
         "Leads both booked and completed are staying in open pipe section"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: AI Handover. AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up."
     },
     {
       "contactId": "191737204375",
+      "category": "step-2",
+      "region": "APAC",
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -94,6 +125,10 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "APAC 11-100",
@@ -101,10 +136,13 @@
       "sourceTickets": [
         "Why where those leads reassigned? from Social to signup",
         "What would be a reason for this lead to get to Anki's pipeline?"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Cycle has ended; lead is not an Active Lead in the Brain."
     },
     {
       "contactId": "153767356332",
+      "category": "step-2",
+      "region": "NA",
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -115,16 +153,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "Social North America",
       "sizeRange": "11-30",
       "sourceTickets": [
         "Account deletion"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Brain never started a cycle for this lead (not an Active Lead)."
     },
     {
       "contactId": "174906747281",
+      "category": "step-2",
+      "region": "EMEA",
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -135,16 +180,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "EMEA 11-100",
       "sizeRange": "31-50",
       "sourceTickets": [
         "Welcome on board, and the link to set a CS onboarding is not sent to paying customers."
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Brain never started a cycle for this lead (not an Active Lead)."
     },
     {
       "contactId": "251337402531",
+      "category": "step-2",
+      "region": "NA",
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -155,16 +207,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "North America 101+",
       "sizeRange": "501-1000",
       "sourceTickets": [
         "201+ Contact us leads going to support when they SHOULD NOT"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Cycle has ended; lead is not an Active Lead in the Brain."
     },
     {
       "contactId": "182575838215",
+      "category": "step-2",
+      "region": "EMEA",
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -175,16 +234,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "Social EMEA",
       "sizeRange": "11-30",
       "sourceTickets": [
         "Sales Pipeline Bugs"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Brain never started a cycle for this lead (not an Active Lead)."
     },
     {
       "contactId": "213854295142",
+      "category": "step-2",
+      "region": "EMEA",
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -195,16 +261,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "EMEA 101+",
       "sizeRange": "501-1000",
       "sourceTickets": [
         "Spam leads for 201+ segment"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Brain never started a cycle for this lead (not an Active Lead)."
     },
     {
       "contactId": "219786966861",
+      "category": "step-2",
+      "region": "APAC",
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -215,16 +288,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "Social APAC",
       "sizeRange": "31-50",
       "sourceTickets": [
         "Reassign Scheduling APAC lead"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Brain never started a cycle for this lead (not an Active Lead)."
     },
     {
       "contactId": "259360715789",
+      "category": "step-1.5",
+      "region": null,
       "expected": {
         "mode": "1.5",
         "status": "BLOCKED",
@@ -234,16 +314,23 @@
         "stepStatuses": {
           "1": "PASS",
           "1.5": "BLOCKED"
+        },
+        "blockedAt": {
+          "step": 1.5,
+          "title": "Owner Gate: Unassigned SDR"
         }
       },
       "team": null,
       "sizeRange": "501-1000",
       "sourceTickets": [
         "No Show's from AE's not automatically populating in my dashboard"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Owner Gate: Unassigned SDR. Lead has no SDR owner (Incoming queue, not Open Pipe)."
     },
     {
       "contactId": "235991018326",
+      "category": "step-1.5",
+      "region": null,
       "expected": {
         "mode": "1.5",
         "status": "BLOCKED",
@@ -253,16 +340,23 @@
         "stepStatuses": {
           "1": "PASS",
           "1.5": "BLOCKED"
+        },
+        "blockedAt": {
+          "step": 1.5,
+          "title": "Owner Gate: Unassigned SDR"
         }
       },
       "team": null,
       "sizeRange": "11-30",
       "sourceTickets": [
         "Issues with vantage"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Owner Gate: Unassigned SDR. Lead has no SDR owner (Incoming queue, not Open Pipe)."
     },
     {
       "contactId": "238888754338",
+      "category": "step-2",
+      "region": null,
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -273,16 +367,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": null,
       "sizeRange": "11-30",
       "sourceTickets": [
         "Unqualified Contacts in Vantage"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Cycle has ended; lead is not an Active Lead in the Brain."
     },
     {
       "contactId": "253488989351",
+      "category": "step-2",
+      "region": null,
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -293,16 +394,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": "",
       "sizeRange": "11-30",
       "sourceTickets": [
         "Account deletion"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Cycle has ended; lead is not an Active Lead in the Brain."
     },
     {
       "contactId": "729591451",
+      "category": "step-2",
+      "region": null,
       "expected": {
         "mode": "2",
         "status": "BLOCKED",
@@ -313,16 +421,23 @@
           "1": "PASS",
           "2": "BLOCKED",
           "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
         }
       },
       "team": null,
       "sizeRange": "101-200",
       "sourceTickets": [
         "Account deletion"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Brain never started a cycle for this lead (not an Active Lead)."
     },
     {
       "contactId": "548731001",
+      "category": "step-1.5",
+      "region": null,
       "expected": {
         "mode": "1.5",
         "status": "BLOCKED",
@@ -332,19 +447,323 @@
         "stepStatuses": {
           "1": "PASS",
           "1.5": "BLOCKED"
+        },
+        "blockedAt": {
+          "step": 1.5,
+          "title": "Owner Gate: Unassigned SDR"
         }
       },
       "team": null,
       "sizeRange": "31-50",
       "sourceTickets": [
         "Account deletion"
-      ]
+      ],
+      "notes": "Historical ticket case. Snapshot: Owner Gate: Unassigned SDR. Lead has no SDR owner (Incoming queue, not Open Pipe)."
     },
     {
       "contactId": "634834651",
+      "category": "step-1.5",
+      "region": null,
       "expected": {
         "mode": "1.5",
         "status": "BLOCKED",
+        "title": "Owner Gate: Unassigned SDR",
+        "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "1.5": "BLOCKED"
+        },
+        "blockedAt": {
+          "step": 1.5,
+          "title": "Owner Gate: Unassigned SDR"
+        }
+      },
+      "team": null,
+      "sizeRange": "51-100",
+      "sourceTickets": [
+        "Account deletion"
+      ],
+      "notes": "Historical ticket case. Snapshot: Owner Gate: Unassigned SDR. Lead has no SDR owner (Incoming queue, not Open Pipe)."
+    },
+    {
+      "contactId": "42291575665",
+      "category": "step-2",
+      "region": null,
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
+        }
+      },
+      "team": null,
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "Account deletion"
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Brain never started a cycle for this lead (not an Active Lead)."
+    },
+    {
+      "contactId": "219167567731",
+      "category": "step-2",
+      "region": "NA",
+      "expected": {
+        "mode": "2",
+        "status": "BLOCKED",
+        "title": "Brain State",
+        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        },
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "Account deletion"
+      ],
+      "notes": "Historical ticket case. Snapshot: Brain State. Cycle has ended; lead is not an Active Lead in the Brain."
+    },
+    {
+      "contactId": "249996493717",
+      "category": "step-1",
+      "region": null,
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "1",
+        "blockedAt": {
+          "step": 1,
+          "title": "Deal Lock"
+        },
+        "title": "Deal Lock",
+        "conclusion": "Lead is locked by an active associated deal.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "BLOCKED"
+        }
+      },
+      "team": null,
+      "sizeRange": "501-1000",
+      "sourceTickets": [
+        "Follow-up meetings that are booked on the contact level do not appear on the deal level."
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. Active deal(s): 65381699094 (196624990)"
+    },
+    {
+      "contactId": "214909071708",
+      "category": "step-1",
+      "region": "NA",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "1",
+        "blockedAt": {
+          "step": 1,
+          "title": "Deal Lock"
+        },
+        "title": "Deal Lock",
+        "conclusion": "Lead is locked by an active associated deal.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "BLOCKED"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "11-30",
+      "sourceTickets": [
+        "FR Reps Not Listed as SDR Manager"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. Active deal(s): 59721865730 (85248602)"
+    },
+    {
+      "contactId": "213501253559",
+      "category": "step-1",
+      "region": null,
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "1",
+        "blockedAt": {
+          "step": 1,
+          "title": "Deal Lock"
+        },
+        "title": "Deal Lock",
+        "conclusion": "Lead is locked by an active associated deal.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "BLOCKED"
+        }
+      },
+      "team": null,
+      "sizeRange": "1-10",
+      "sourceTickets": [
+        "April Meetings Not Populating in Looker"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. Active deal(s): 58882730318 (85248602)"
+    },
+    {
+      "contactId": "256813282595",
+      "category": "step-2",
+      "region": null,
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "2",
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
+        },
+        "title": "Brain State",
+        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": null,
+      "sizeRange": "1-10",
+      "sourceTickets": [
+        "Meetings with no meeting type"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. cycle_start=2026-10-21T15:55:51.352Z, cycle_end=2026-10-28T15:56:06.100Z, cycle outcome: not recorded"
+    },
+    {
+      "contactId": "257369006595",
+      "category": "step-2",
+      "region": null,
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "2",
+        "blockedAt": {
+          "step": 2,
+          "title": "Brain State"
+        },
+        "title": "Brain State",
+        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": null,
+      "sizeRange": "51-100",
+      "sourceTickets": [
+        "Removing FB California leads from Signup Dash on SDR Monitoring"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. cycle_start=2026-10-23T16:53:14.094Z, cycle_end=2026-10-30T16:53:18.017Z, cycle outcome: not recorded"
+    },
+    {
+      "contactId": "239778832549",
+      "category": "step-3",
+      "region": "APAC",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "3",
+        "blockedAt": {
+          "step": 3,
+          "title": "AI Handover"
+        },
+        "title": "AI Handover",
+        "conclusion": "AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social APAC",
+      "sizeRange": "31-50",
+      "sourceTickets": [
+        "No-show stage did not enter the no-show flow"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. ai_sdr__first_replied_at=2026-08-04T09:51:56.070Z"
+    },
+    {
+      "contactId": "245394878835",
+      "category": "step-3",
+      "region": "EMEA",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "3",
+        "blockedAt": {
+          "step": 3,
+          "title": "AI Handover"
+        },
+        "title": "AI Handover",
+        "conclusion": "AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social EMEA",
+      "sizeRange": "51-100",
+      "sourceTickets": [
+        "HubSpot / Google Calendar / Vantage Not Sync'd"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. ai_sdr__first_replied_at=2026-09-01T06:41:15.764Z"
+    },
+    {
+      "contactId": "245417468535",
+      "category": "step-3",
+      "region": "EMEA",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "3",
+        "blockedAt": {
+          "step": 3,
+          "title": "AI Handover"
+        },
+        "title": "AI Handover",
+        "conclusion": "AI Handover: Lead replied or is unqualified: outbound cadences are paused for AE follow-up.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social EMEA",
+      "sizeRange": "51-100",
+      "sourceTickets": [
+        "HubSpot / Google Calendar / Vantage Not Sync'd"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. ai_sdr__first_replied_at=2026-08-30T20:59:13.671Z"
+    },
+    {
+      "contactId": "251926956102",
+      "category": "step-1.5",
+      "region": null,
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "1.5",
+        "blockedAt": {
+          "step": 1.5,
+          "title": "Owner Gate: Unassigned SDR"
+        },
         "title": "Owner Gate: Unassigned SDR",
         "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
         "minConfidence": 1,
@@ -356,48 +775,670 @@
       "team": null,
       "sizeRange": "51-100",
       "sourceTickets": [
-        "Account deletion"
-      ]
+        "HS broken sales manager automation"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. Contact has no SDR owner assigned. It sits in Incoming queue, not Open Pipe."
     },
     {
-      "contactId": "42291575665",
+      "contactId": "253894901686",
+      "category": "step-1.5",
+      "region": null,
       "expected": {
-        "mode": "2",
         "status": "BLOCKED",
-        "title": "Brain State",
-        "conclusion": "Brain never started a cycle for this lead (not an Active Lead).",
+        "mode": "1.5",
+        "blockedAt": {
+          "step": 1.5,
+          "title": "Owner Gate: Unassigned SDR"
+        },
+        "title": "Owner Gate: Unassigned SDR",
+        "conclusion": "Lead has no SDR owner (Incoming queue, not Open Pipe).",
         "minConfidence": 1,
         "stepStatuses": {
           "1": "PASS",
-          "2": "BLOCKED",
-          "1.5": "PASS"
+          "1.5": "BLOCKED"
         }
       },
       "team": null,
       "sizeRange": "31-50",
       "sourceTickets": [
-        "Account deletion"
-      ]
+        "Meetings with no meeting type"
+      ],
+      "notes": "Historical ticket case, verdict re-confirmed live. Contact has no SDR owner assigned. It sits in Incoming queue, not Open Pipe."
     },
     {
-      "contactId": "219167567731",
+      "contactId": "245500826741",
+      "category": "step-4",
+      "region": "EMEA",
       "expected": {
-        "mode": "2",
         "status": "BLOCKED",
-        "title": "Brain State",
-        "conclusion": "Cycle has ended; lead is not an Active Lead in the Brain.",
+        "mode": "4",
+        "blockedAt": {
+          "step": 4,
+          "title": "Filter Hygiene"
+        },
+        "title": "Filter Hygiene",
+        "conclusion": "Lead is filtered out by hygiene rules.",
         "minConfidence": 1,
         "stepStatuses": {
           "1": "PASS",
-          "2": "BLOCKED",
+          "2": "PASS",
+          "3": "WARN",
+          "4": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "EMEA 11-100",
+      "sizeRange": "1-10",
+      "sourceTickets": [],
+      "notes": "Step 4 edge case: company size 1-10 without the False SBP override."
+    },
+    {
+      "contactId": "224471591479",
+      "category": "step-4",
+      "region": "NA",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "4",
+        "blockedAt": {
+          "step": 4,
+          "title": "Filter Hygiene"
+        },
+        "title": "Filter Hygiene",
+        "conclusion": "Lead is filtered out by hygiene rules.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social North America",
+      "sizeRange": "1-10",
+      "sourceTickets": [],
+      "notes": "Step 4 edge case: company size 1-10 without the False SBP override."
+    },
+    {
+      "contactId": "249732229782",
+      "category": "step-4",
+      "region": null,
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "4",
+        "blockedAt": {
+          "step": 4,
+          "title": "Filter Hygiene"
+        },
+        "title": "Filter Hygiene",
+        "conclusion": "Lead is filtered out by hygiene rules.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": null,
+      "sizeRange": "1-10",
+      "sourceTickets": [],
+      "notes": "Step 4 edge case: company size 1-10 without the False SBP override."
+    },
+    {
+      "contactId": "243502370598",
+      "category": "step-4",
+      "region": null,
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "4",
+        "blockedAt": {
+          "step": 4,
+          "title": "Filter Hygiene"
+        },
+        "title": "Filter Hygiene",
+        "conclusion": "Lead is filtered out by hygiene rules.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": null,
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Step 4 edge case: free-text unqualified reason with empty new_unqualified_reason dropdown."
+    },
+    {
+      "contactId": "243943895827",
+      "category": "step-4",
+      "region": "EMEA",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "4",
+        "blockedAt": {
+          "step": 4,
+          "title": "Filter Hygiene"
+        },
+        "title": "Filter Hygiene",
+        "conclusion": "Lead is filtered out by hygiene rules.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "EMEA 11-100",
+      "sizeRange": "51-100",
+      "sourceTickets": [],
+      "notes": "Step 4 edge case: free-text unqualified reason with empty new_unqualified_reason dropdown."
+    },
+    {
+      "contactId": "245023291514",
+      "category": "step-5",
+      "region": "NA",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "5",
+        "blockedAt": {
+          "step": 5,
+          "title": "Meeting Validation"
+        },
+        "title": "Meeting Validation",
+        "conclusion": "Meeting type is not an SDR-recognized meeting type.",
+        "minConfidence": 0.5,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "51-100",
+      "sourceTickets": [],
+      "notes": "Step 5 edge case: unapproved meeting type string. meeting_type_cp__c=\"CS_Training_General\" which is not in the approved SDR meeting types (SDR_Demo_First_Meeting_30min, Sales_Demo_First_Meeting_30min) and the contact is in none of the approved lists (62429, 68564, 71079)."
+    },
+    {
+      "contactId": "244734082694",
+      "category": "step-5",
+      "region": "NA",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "5",
+        "blockedAt": {
+          "step": 5,
+          "title": "Meeting Validation"
+        },
+        "title": "Meeting Validation",
+        "conclusion": "Meeting type is not an SDR-recognized meeting type.",
+        "minConfidence": 0.5,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "WARN",
+          "4": "PASS",
+          "5": "BLOCKED",
           "1.5": "PASS"
         }
       },
       "team": "North America 11-100 ET",
       "sizeRange": "31-50",
-      "sourceTickets": [
-        "Account deletion"
-      ]
+      "sourceTickets": [],
+      "notes": "Step 5 edge case: unapproved meeting type string. meeting_type_cp__c=\"CS_Meeting_Experts\" which is not in the approved SDR meeting types (SDR_Demo_First_Meeting_30min, Sales_Demo_First_Meeting_30min) and the contact is in none of the approved lists (62429, 68564, 71079)."
+    },
+    {
+      "contactId": "249107806545",
+      "category": "step-5",
+      "region": "NA",
+      "expected": {
+        "status": "BLOCKED",
+        "mode": "5",
+        "blockedAt": {
+          "step": 5,
+          "title": "Meeting Validation"
+        },
+        "title": "Meeting Validation",
+        "conclusion": "Meeting type is not an SDR-recognized meeting type.",
+        "minConfidence": 0.5,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "BLOCKED",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "51-100",
+      "sourceTickets": [],
+      "notes": "Step 5 edge case: unapproved meeting type string. meeting_type_cp__c=\"CS_Training_General\" which is not in the approved SDR meeting types (SDR_Demo_First_Meeting_30min, Sales_Demo_First_Meeting_30min) and the contact is in none of the approved lists (62429, 68564, 71079)."
+    },
+    {
+      "contactId": "262180825462",
+      "category": "pass-control",
+      "region": "NA",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Healthy control (NA): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "261774810721",
+      "category": "pass-control",
+      "region": "NA",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "31-50",
+      "sourceTickets": [],
+      "notes": "Healthy control (NA): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "261765097074",
+      "category": "pass-control",
+      "region": "NA",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Healthy control (NA): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "262894780588",
+      "category": "step-6",
+      "region": "NA",
+      "expected": {
+        "status": "WARN",
+        "mode": "6",
+        "blockedAt": null,
+        "title": "List vs UI Diff",
+        "conclusion": "Cannot verify board list membership: team could not be resolved to a LIST_IDS.teams key.",
+        "minConfidence": 0.8,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "WARN",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "1-10",
+      "sourceTickets": [],
+      "notes": "Step 6 edge case: contact is not in its team's board list. sdr__sdr_team_=\"North America 11-100 ET\", numofemployeesrange=\"1-10\". Tried: north_america_11_100_et, sales_na, sales_na_1_10. Available team keys: sales_na_11_50, sales_na_trial, sales_na_51_200, sales_na_201_plus, sales_apac_201_plus, sales_emea, sales_apac, social_na_11_50, social_na_51_200, social_emea, social_apac, special_projects, adp, sdr_il, live_team, xdr, csdr."
+    },
+    {
+      "contactId": "230427381332",
+      "category": "step-6",
+      "region": "NA",
+      "expected": {
+        "status": "WARN",
+        "mode": "6",
+        "blockedAt": null,
+        "title": "List vs UI Diff",
+        "conclusion": "Cannot verify board list membership: team could not be resolved to a LIST_IDS.teams key.",
+        "minConfidence": 0.8,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "WARN",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social North America",
+      "sizeRange": "1-10",
+      "sourceTickets": [],
+      "notes": "Step 6 edge case: contact is not in its team's board list. sdr__sdr_team_=\"Social North America\", numofemployeesrange=\"1-10\". Tried: social_north_america, social_na_1_10, social_na. Available team keys: sales_na_11_50, sales_na_trial, sales_na_51_200, sales_na_201_plus, sales_apac_201_plus, sales_emea, sales_apac, social_na_11_50, social_na_51_200, social_emea, social_apac, special_projects, adp, sdr_il, live_team, xdr, csdr."
+    },
+    {
+      "contactId": "242433409048",
+      "category": "step-6",
+      "region": "APAC",
+      "expected": {
+        "status": "WARN",
+        "mode": "6",
+        "blockedAt": null,
+        "title": "List vs UI Diff",
+        "conclusion": "Cannot verify board list membership: team could not be resolved to a LIST_IDS.teams key.",
+        "minConfidence": 0.8,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "WARN",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "WARN",
+          "1.5": "PASS"
+        }
+      },
+      "team": "APAC 11-100",
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Step 6 edge case: contact is not in its team's board list. sdr__sdr_team_=\"APAC 11-100\", numofemployeesrange=\"11-30\". Tried: apac_11_100. Available team keys: sales_na_11_50, sales_na_trial, sales_na_51_200, sales_na_201_plus, sales_apac_201_plus, sales_emea, sales_apac, social_na_11_50, social_na_51_200, social_emea, social_apac, special_projects, adp, sdr_il, live_team, xdr, csdr."
+    },
+    {
+      "contactId": "246110166361",
+      "category": "step-6",
+      "region": "NA",
+      "expected": {
+        "status": "WARN",
+        "mode": "6",
+        "blockedAt": null,
+        "title": "List vs UI Diff",
+        "conclusion": "Cannot verify board list membership: team could not be resolved to a LIST_IDS.teams key.",
+        "minConfidence": 0.8,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "WARN",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social North America",
+      "sizeRange": "1-10",
+      "sourceTickets": [],
+      "notes": "Step 6 edge case: contact is not in its team's board list. sdr__sdr_team_=\"Social North America\", numofemployeesrange=\"1-10\". Tried: social_north_america, social_na_1_10, social_na. Available team keys: sales_na_11_50, sales_na_trial, sales_na_51_200, sales_na_201_plus, sales_apac_201_plus, sales_emea, sales_apac, social_na_11_50, social_na_51_200, social_emea, social_apac, special_projects, adp, sdr_il, live_team, xdr, csdr."
+    },
+    {
+      "contactId": "262807519548",
+      "category": "step-6",
+      "region": "NA",
+      "expected": {
+        "status": "WARN",
+        "mode": "6",
+        "blockedAt": null,
+        "title": "List vs UI Diff",
+        "conclusion": "Cannot verify board list membership: team could not be resolved to a LIST_IDS.teams key.",
+        "minConfidence": 0.8,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "WARN",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "1-10",
+      "sourceTickets": [],
+      "notes": "Step 6 edge case: contact is not in its team's board list. sdr__sdr_team_=\"North America 11-100 ET\", numofemployeesrange=\"1-10\". Tried: north_america_11_100_et, sales_na, sales_na_1_10. Available team keys: sales_na_11_50, sales_na_trial, sales_na_51_200, sales_na_201_plus, sales_apac_201_plus, sales_emea, sales_apac, social_na_11_50, social_na_51_200, social_emea, social_apac, special_projects, adp, sdr_il, live_team, xdr, csdr."
+    },
+    {
+      "contactId": "262151215923",
+      "category": "step-6",
+      "region": "NA",
+      "expected": {
+        "status": "WARN",
+        "mode": "6",
+        "blockedAt": null,
+        "title": "List vs UI Diff",
+        "conclusion": "Cannot verify board list membership: team could not be resolved to a LIST_IDS.teams key.",
+        "minConfidence": 0.8,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "WARN",
+          "1.5": "PASS"
+        }
+      },
+      "team": "North America 11-100 ET",
+      "sizeRange": "1-10",
+      "sourceTickets": [],
+      "notes": "Step 6 edge case: contact is not in its team's board list. sdr__sdr_team_=\"North America 11-100 ET\", numofemployeesrange=\"1-10\". Tried: north_america_11_100_et, sales_na, sales_na_1_10. Available team keys: sales_na_11_50, sales_na_trial, sales_na_51_200, sales_na_201_plus, sales_apac_201_plus, sales_emea, sales_apac, social_na_11_50, social_na_51_200, social_emea, social_apac, special_projects, adp, sdr_il, live_team, xdr, csdr."
+    },
+    {
+      "contactId": "262795434022",
+      "category": "pass-control",
+      "region": "EMEA",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social EMEA",
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Healthy control (EMEA): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "262874676340",
+      "category": "pass-control",
+      "region": "EMEA",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social EMEA",
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Healthy control (EMEA): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "262764203144",
+      "category": "pass-control",
+      "region": "EMEA",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "EMEA 11-100",
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Healthy control (EMEA): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "262915663647",
+      "category": "pass-control",
+      "region": "NA",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social North America",
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Healthy control (NA): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "262762921591",
+      "category": "pass-control",
+      "region": "APAC",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social APAC",
+      "sizeRange": "11-30",
+      "sourceTickets": [],
+      "notes": "Healthy control (APAC): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "262909596743",
+      "category": "pass-control",
+      "region": "APAC",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social APAC",
+      "sizeRange": "51-100",
+      "sourceTickets": [],
+      "notes": "Healthy control (APAC): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
+    },
+    {
+      "contactId": "262864074876",
+      "category": "pass-control",
+      "region": "APAC",
+      "expected": {
+        "status": "PASS",
+        "mode": null,
+        "blockedAt": null,
+        "title": "All steps pass",
+        "conclusion": "All checks pass and contact is in the board list: dashboard cache delay.",
+        "minConfidence": 1,
+        "stepStatuses": {
+          "1": "PASS",
+          "2": "PASS",
+          "3": "PASS",
+          "4": "PASS",
+          "5": "PASS",
+          "6": "PASS",
+          "1.5": "PASS"
+        }
+      },
+      "team": "Social APAC",
+      "sizeRange": "31-50",
+      "sourceTickets": [],
+      "notes": "Healthy control (APAC): active lead, owned, routed, in its board list. Any BLOCKED here is a false positive."
     }
   ]
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsx scripts/eval-benchmark.ts",
+    "test": "tsx scripts/eval-benchmark.ts --with-llm --llm-sample 12",
     "dev": "vite --config web/vite.config.ts",
     "typecheck": "tsc -p . && tsc -p web"
   },
