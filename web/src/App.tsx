@@ -9,6 +9,8 @@ interface Msg {
   result?: CopilotResult;
   pending?: boolean;
   error?: string;
+  /** Quick-reply chips returned by /api/followup. */
+  suggestions?: string[];
 }
 
 interface Session {
@@ -195,21 +197,53 @@ export function App() {
       void run(sid, { contactId: id, issue, customText: note.length > 3 ? note : undefined, targetQueue: cur?.targetQueue ?? draftQueue, answers: {} });
       return;
     }
-    if (cur?.contactId) {
-      // Follow-up answer: match it to a pending clarification question, else treat it as extra issue context.
-      const last = [...cur.messages].reverse().find((m) => m.result)?.result;
-      const lower = text.toLowerCase();
-      for (const q of last?.clarificationQuestions ?? []) {
-        const hit = q.options.find((o) => lower === o.toLowerCase() || lower.includes(o.toLowerCase()));
+    // A typed answer that exactly matches a pending clarification option is treated as clicking that chip.
+    const lastResult = [...(cur?.messages ?? [])].reverse().find((m) => m.result)?.result;
+    if (cur?.contactId && lastResult) {
+      for (const q of lastResult.clarificationQuestions ?? []) {
+        const hit = q.options.find((o) => text.toLowerCase() === o.toLowerCase());
         if (hit) {
           void run(sid, { contactId: cur.contactId, issue: cur.issue, customText: cur.customText, targetQueue: cur.targetQueue, answers: { ...cur.answers, [q.id]: hit } });
           return;
         }
       }
-      void run(sid, { contactId: cur.contactId, issue: 'other', customText: text, targetQueue: cur.targetQueue, answers: cur.answers });
+    }
+    // No ID in the text: a written question about an already diagnosed lead goes to /api/followup (no new card).
+    if (lastResult && !('notFound' in lastResult.dossier)) {
+      void askFollowup(sid, text, lastResult);
       return;
     }
-    addMsg(sid, { id: uid(), role: 'assistant', text: 'Paste a HubSpot contact URL or ID and I will investigate why the lead is not visible.' });
+    // No diagnosed lead yet: surface the API's clean validation message.
+    void rejectWithoutId(sid, text);
+  }
+
+  async function askFollowup(sid: string, question: string, r: CopilotResult) {
+    const mid = uid();
+    addMsg(sid, { id: mid, role: 'assistant', pending: true });
+    const finish = (patch: Partial<Msg>) => update(sid, (s) => ({ ...s, messages: s.messages.map((m) => (m.id === mid ? { id: mid, role: 'assistant', ...patch } : m)) }));
+    try {
+      const res = await fetch('/api/followup', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ question, dossier: r.dossier, diagnosis: r.engine.diagnosis }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? `Request failed (${res.status})`);
+      finish({ text: json.answer, suggestions: json.suggestedQuestions?.length ? json.suggestedQuestions : undefined });
+    } catch (e) {
+      finish({ error: (e as Error).message });
+    }
+  }
+
+  async function rejectWithoutId(sid: string, text: string) {
+    let msg = 'Please provide a valid HubSpot Contact ID or URL.';
+    try {
+      const res = await fetch('/api/diagnose', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ contactId: text }) });
+      if (res.status === 400) msg = (await res.json()).error ?? msg;
+    } catch {
+      /* use the default message */
+    }
+    addMsg(sid, { id: uid(), role: 'assistant', text: `${msg} Paste a contact URL or numeric ID.` });
   }
 
   function chooseStarter(label: string, issue: ReportedIssue, targetQueue?: string) {
@@ -320,6 +354,20 @@ export function App() {
                         </div>
                       )}
                       {m.text && <p className="py-1 text-sm text-zinc-300">{m.text}</p>}
+                      {m.suggestions && (
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {m.suggestions.map((q) => (
+                            <button
+                              key={q}
+                              disabled={busy || m.id !== active?.messages.at(-1)?.id}
+                              onClick={() => send(q)}
+                              className="rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1 text-xs text-zinc-200 transition hover:border-indigo-400 hover:text-indigo-300 disabled:cursor-default disabled:opacity-40 disabled:hover:border-zinc-700 disabled:hover:text-zinc-200"
+                            >
+                              {q}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                       {m.error && <p className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-sm text-rose-300">{m.error}</p>}
                       {m.result && <CopilotCard r={m.result} interactive={m.id === lastCardId && !busy} onAnswer={answerChip} />}
                     </div>

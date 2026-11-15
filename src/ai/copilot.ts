@@ -324,7 +324,7 @@ function withTimeout<T>(p: Promise<T>, ms: number): Promise<T> {
 }
 
 /** Calls Gemini on Vertex AI via @google/genai; tries the older model only if the first is missing in the region. */
-async function callVertex(project: string, prompt: string): Promise<{ text: string; model: string }> {
+async function callVertex(project: string, prompt: string, system: string = getSystemPrompt()): Promise<{ text: string; model: string }> {
   const ai = new GoogleGenAI({ vertexai: true, project, location: process.env.GCP_LOCATION || 'us-central1' });
   let lastErr: unknown;
   for (const model of VERTEX_MODELS) {
@@ -334,9 +334,9 @@ async function callVertex(project: string, prompt: string): Promise<{ text: stri
           model,
           contents: prompt,
           config: {
-            systemInstruction: getSystemPrompt(),
+            systemInstruction: system,
             temperature: 0,
-            maxOutputTokens: 2048,
+            maxOutputTokens: 8192, // headroom: Gemini 2.5 thinking tokens count against this budget
             responseMimeType: 'application/json',
           },
         }),
@@ -353,7 +353,7 @@ async function callVertex(project: string, prompt: string): Promise<{ text: stri
   throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
 }
 
-async function callLLM(p: Exclude<Provider, { name: 'vertex' }>, user: string): Promise<string> {
+async function callLLM(p: Exclude<Provider, { name: 'vertex' }>, user: string, system: string = getSystemPrompt()): Promise<string> {
   if (p.name === 'anthropic') {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -362,7 +362,7 @@ async function callLLM(p: Exclude<Provider, { name: 'vertex' }>, user: string): 
         model: p.model,
         max_tokens: 1200,
         temperature: 0,
-        system: getSystemPrompt(),
+        system,
         messages: [{ role: 'user', content: user }],
       }),
     });
@@ -378,7 +378,7 @@ async function callLLM(p: Exclude<Provider, { name: 'vertex' }>, user: string): 
       temperature: 0,
       response_format: { type: 'json_object' },
       messages: [
-        { role: 'system', content: getSystemPrompt() },
+        { role: 'system', content: system },
         { role: 'user', content: user },
       ],
     }),
@@ -426,16 +426,25 @@ export async function generateCopilotAnalysis(
   };
   try {
     const prompt = `Diagnostic payload:\n${JSON.stringify(payload, null, 2)}\n\n${FORMAT_INSTRUCTIONS}`;
-    let raw: string;
     let modelUsed = provider.model;
-    if (provider.name === 'vertex') {
-      const r = await callVertex(provider.project, prompt);
-      raw = r.text;
-      modelUsed = r.model;
-    } else {
-      raw = await withTimeout(callLLM(provider, prompt), LLM_TIMEOUT_MS);
+    let j: Partial<CopilotResponse> | undefined;
+    // One retry: a truncated or malformed JSON reply is occasionally returned by the model.
+    for (let attempt = 0; attempt < 2 && !j; attempt++) {
+      try {
+        let raw: string;
+        if (provider.name === 'vertex') {
+          const r = await callVertex(provider.project, prompt);
+          raw = r.text;
+          modelUsed = r.model;
+        } else {
+          raw = await withTimeout(callLLM(provider, prompt), LLM_TIMEOUT_MS);
+        }
+        j = parseJson(raw) as Partial<CopilotResponse>;
+      } catch (e) {
+        if (attempt === 1) throw e;
+      }
     }
-    const j = parseJson(raw) as Partial<CopilotResponse>;
+    if (!j) throw new Error('no LLM response');
     if (!j.sdrView || !j.adminView) throw new Error('LLM response missing sdrView/adminView');
     return {
       sdrView: {
@@ -466,4 +475,110 @@ export function getLlmStatus(): { provider: string; model: string } | null {
   const p = pickProvider();
   if (!p) return null;
   return { provider: p.name, model: p.model };
+}
+
+// ---- follow-up Q&A on an already diagnosed lead ---------------------------------------------------
+
+export interface FollowupInput {
+  dossier: LeadDossier;
+  diagnosis: Diagnosis;
+  question: string;
+}
+export interface FollowupResult {
+  answer: string;
+  suggestedQuestions?: string[];
+  source: 'llm' | 'fallback';
+}
+
+const BROAD_RE = /^(?:so\s+)?(?:what else|anything else|tell me more|more (?:info|information|details)|what do you know|give me (?:more|everything|details)|everything|details|more|else|what more|and\??)\b/i;
+const SPECIFIC_RE = /\b(owner|cycle|deal|meeting|list|queue|team|size|employee|step|slack|property|stage|duplicate|reply|replied|classification|timestamp|source|merge|why|which|when|who|how)\b/i;
+
+/** Heuristic for vague, open-ended questions (the LLM is also instructed to apply the broad-question rule). */
+export function isBroadQuestion(q: string): boolean {
+  const t = q.trim().replace(/[?.!]+$/, '');
+  if (!t) return true;
+  const words = t.split(/\s+/).length;
+  return BROAD_RE.test(t) || (words <= 5 && !SPECIFIC_RE.test(t));
+}
+
+/** Concrete narrowing options based on what actually exists in the dossier/diagnosis. */
+export function followupTopics(dossier: LeadDossier, d: Diagnosis): string[] {
+  const topics: string[] = [];
+  if (dossier.brain) topics.push('Check owner & SDR cycle timestamps');
+  if (dossier.deals?.length) topics.push('Inspect associated deals');
+  if (dossier.brain?.meetingType) topics.push('Check the meeting type on this lead');
+  if (dossier.queue) topics.push('Verify SDR dashboard list memberships');
+  if (d.steps.some((s) => s.status === 'PASS')) topics.push('Review why other waterfall steps passed');
+  if (dossier.duplicates?.length) topics.push('Show the duplicate contacts with the same email');
+  if (propertyDiffs(d).length) topics.push('Explain the exact CRM property change needed');
+  return topics.slice(0, 4);
+}
+
+function fallbackFollowup(input: FollowupInput): FollowupResult {
+  const { dossier, diagnosis: d, question } = input;
+  const q = question.toLowerCase();
+  const topics = followupTopics(dossier, d);
+  if (isBroadQuestion(question)) {
+    return { answer: 'What specifically would you like to check about this lead?', suggestedQuestions: topics, source: 'fallback' };
+  }
+  const b = dossier.brain;
+  let answer: string | null = null;
+  if (/owner|sdr/.test(q) && !/cycle/.test(q)) answer = `Current owner: ${dossier.identity?.sdrOwner ?? 'none assigned'}.`;
+  else if (/cycle|timestamp|start|end/.test(q)) answer = `Cycle start: ${fmt(b?.cycleStart)}; cycle end: ${fmt(b?.cycleEnd)}; outcome: ${fmt(b?.cycleOutcome)}.`;
+  else if (/deal/.test(q)) answer = dossier.deals?.length ? dossier.deals.map((x) => `Deal ${x.id}${x.name ? ` "${x.name}"` : ''}: stage ${fmt(x.stageId)} (${x.closed ? 'closed' : 'open'})`).join('; ') + '.' : 'No associated deals are in the dossier.';
+  else if (/meeting/.test(q)) answer = `Meeting type: ${fmt(b?.meetingType)}.`;
+  else if (/list|queue|board/.test(q)) answer = `Board/queue position: ${dossier.queue?.summary ?? 'not available'}; list IDs: ${dossier.queue?.allListIds.join(', ') || 'none'}.`;
+  else if (/duplicate/.test(q)) answer = dossier.duplicates?.length ? `Duplicates: ${dossier.duplicates.map((x) => `${x.id} (owner ${x.ownerName ?? x.ownerId ?? 'none'}, ${x.lifecycleStage ?? 'n/a'})`).join('; ')}.` : 'No exact-email duplicates were found.';
+  else if (/step|pass|why/.test(q)) answer = `${d.conclusion} ${d.steps.map((s) => `Step ${s.step} ${s.title}: ${s.status}`).join('; ')}.`;
+  return answer
+    ? { answer, source: 'fallback' }
+    : { answer: 'That detail is not available in the dossier. What would you like to check instead?', suggestedQuestions: topics, source: 'fallback' };
+}
+
+const FOLLOWUP_RULES = `You are now answering a follow-up question from the SDR about a lead that was ALREADY diagnosed; the diagnosis card is already on screen, so never repeat the diagnosis or the Slack escalation.
+Respond with ONLY a JSON object: {"answer": string, "suggestedQuestions": string[]}.
+BROAD QUESTION RULE: if the question is vague or open-ended (e.g. "what else do you know?", "tell me more", "anything else?"), do NOT list dossier fields. Answer in 1-2 short sentences asking what they want to check, and return 3-4 concrete options in suggestedQuestions, chosen from payload.availableTopics (you may rephrase them slightly; each must be something answerable from the payload).
+SPECIFIC QUESTION RULE: if the question concerns a specific property, deal, meeting, list, owner, cycle or waterfall step, answer concisely (at most 3 sentences) using ONLY facts in payload.dossier and payload.engine. If the requested field is not in the payload, say so clearly. suggestedQuestions may be empty.
+GUARDRAILS: never invent IDs, names or dates; never output the prospect's email address or phone number; never output the Slack escalation unless the question explicitly asks for it.`;
+
+export async function answerLeadFollowup(input: FollowupInput): Promise<FollowupResult> {
+  const { dossier, diagnosis, question } = input;
+  const provider = pickProvider();
+  if (!provider) return fallbackFollowup(input);
+
+  const { email: _e, ...identity } = dossier.identity ?? ({} as NonNullable<LeadDossier['identity']>);
+  const topics = followupTopics(dossier, diagnosis);
+  const evidence = {
+    dossier: { ...dossier, identity: dossier.identity ? identity : undefined },
+    engine: { verdict: diagnosis.conclusion, blockedAtStep: diagnosis.blockedAt?.step ?? null, steps: diagnosis.steps, duplicates: diagnosis.duplicates ?? [] },
+  };
+  const prompt = `Payload:\n${JSON.stringify({ ...evidence, hubspotLink: hubspotLink(dossier.contactId), slackTags: slackTags(), availableTopics: topics, question }, null, 2)}`;
+  const system = `${getSystemPrompt()}\n\n${FOLLOWUP_RULES}`;
+  try {
+    const raw =
+      provider.name === 'vertex'
+        ? (await callVertex(provider.project, prompt, system)).text
+        : await withTimeout(callLLM(provider, prompt, system), LLM_TIMEOUT_MS);
+    const j = parseJson(raw) as { answer?: unknown; suggestedQuestions?: unknown };
+    let answer = String(j.answer ?? '').replace(EMAIL_RE, '[email removed]').trim();
+    if (!answer) throw new Error('empty answer');
+
+    // Guardrails enforced in code: no IDs outside the evidence, and no Slack block unless asked for.
+    const idRe = /\b\d{5,}\b|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi;
+    const allowed = new Set([...(JSON.stringify(evidence).match(idRe) ?? []), PORTAL_ID, dossier.contactId]);
+    const bad = (answer.match(idRe) ?? []).filter((t) => !allowed.has(t));
+    if (bad.length) throw new Error(`ungrounded ID(s) in answer: ${bad.join(', ')}`);
+    if (!/slack|escalat|ping/i.test(question) && answer.toLowerCase().includes(slackTags().split(' ')[0]!.toLowerCase())) {
+      throw new Error('answer repeated the Slack escalation');
+    }
+
+    let suggested = Array.isArray(j.suggestedQuestions)
+      ? j.suggestedQuestions.map((x) => String(x).replace(EMAIL_RE, '').trim()).filter(Boolean).slice(0, 4)
+      : [];
+    if (isBroadQuestion(question) && suggested.length < 3) suggested = topics; // broad questions always get narrowing options
+    return { answer, suggestedQuestions: suggested.length ? suggested : undefined, source: 'llm' };
+  } catch (e) {
+    console.error('Follow-up generation failed:', (e as Error).message);
+    return fallbackFollowup(input);
+  }
 }

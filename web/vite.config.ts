@@ -60,6 +60,17 @@ function engineApi(): Plugin {
         const mod = (await server.ssrLoadModule(servicePath)) as typeof import('../src/api/diagnose.ts');
         return mod.diagnoseLead({ ...body, contactIdOrUrl: raw });
       });
+      route('/api/followup', async (body) => {
+        if (typeof body.question !== 'string' || !body.question.trim()) throw new BadRequest('question is required');
+        if (!body.dossier || typeof body.dossier !== 'object') throw new BadRequest('dossier is required');
+        const mod = (await server.ssrLoadModule(path.resolve(here, '../src/ai/copilot.ts'))) as typeof import('../src/ai/copilot.ts');
+        const { answer, suggestedQuestions } = await mod.answerLeadFollowup({
+          dossier: body.dossier,
+          diagnosis: body.diagnosis ?? { contactId: body.dossier.contactId ?? '', steps: [], conclusion: '' },
+          question: body.question.trim(),
+        });
+        return { answer, suggestedQuestions };
+      });
       route('/api/feedback', async (body) => {
         if (!body.contactId || (body.rating !== 'up' && body.rating !== 'down')) {
           throw new BadRequest('contactId and rating (up|down) are required');
