@@ -21,6 +21,7 @@ export const PROPS = {
   xdrManager: 'exp__xdr_manager',
   mergedIds: 'hs_merged_object_ids',
   country: 'country',
+  email: 'email',
 } as const;
 
 export const CONTACT_PROPERTIES: string[] = Object.values(PROPS);

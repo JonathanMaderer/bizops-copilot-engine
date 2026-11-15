@@ -21,17 +21,20 @@ interface Session {
   contactId?: string;
   issue?: ReportedIssue;
   customText?: string;
+  targetQueue?: string;
   answers: Record<string, string>;
 }
 
 const STORAGE_KEY = 'sdr-copilot-sessions-v1';
 const uid = () => Math.random().toString(36).slice(2, 10);
 
-const STARTERS: { label: string; issue: ReportedIssue }[] = [
-  { label: 'Missing from Open Pipe', issue: 'missing_open_pipe' },
-  { label: 'Check Unassigned Incoming', issue: 'unassigned_incoming' },
+const QUEUES = ['Open Pipe', 'Pending Demos', 'No-Shows', 'Incoming'] as const;
+
+const STARTERS: { label: string; issue: ReportedIssue; queue?: string }[] = [
+  { label: 'Missing from Open Pipe', issue: 'missing_open_pipe', queue: 'Open Pipe' },
+  { label: 'Check Unassigned Incoming', issue: 'unassigned_incoming', queue: 'Incoming' },
   { label: 'Investigate Cadence Expiration', issue: 'cadence_stopped' },
-  { label: 'Lead vanished after demo', issue: 'demo_vanished' },
+  { label: 'Lead vanished after demo', issue: 'demo_vanished', queue: 'Pending Demos' },
 ];
 
 const ID_PATTERN = /(https?:\/\/\S+|\b\d{6,}\b)/g;
@@ -77,12 +80,14 @@ export function App() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [input, setInput] = useState('');
+  const [draftQueue, setDraftQueue] = useState<string | undefined>(undefined);
   const [engine, setEngine] = useState<string>('Connecting…');
   const endRef = useRef<HTMLDivElement>(null);
   const taRef = useRef<HTMLTextAreaElement>(null);
 
   const active = sessions.find((s) => s.id === activeId) ?? null;
   const busy = !!active?.messages.some((m) => m.pending);
+  const queue = active ? active.targetQueue : draftQueue;
 
   useEffect(() => {
     const clean = sessions.slice(0, 25).map((s) => ({ ...s, messages: s.messages.filter((m) => !m.pending) }));
@@ -114,7 +119,7 @@ export function App() {
 
   function ensureSession(): string {
     if (activeId && active) return activeId;
-    const s: Session = { id: uid(), title: 'New investigation', updatedAt: Date.now(), messages: [], answers: {} };
+    const s: Session = { id: uid(), title: 'New investigation', updatedAt: Date.now(), messages: [], answers: {}, targetQueue: draftQueue };
     setSessions((prev) => [s, ...prev]);
     setActiveId(s.id);
     return s.id;
@@ -123,13 +128,14 @@ export function App() {
   const addMsg = (sid: string, m: Msg) => update(sid, (s) => ({ ...s, messages: [...s.messages, m], updatedAt: Date.now() }));
 
   /** Calls diagnoseLead (via /api/diagnose) with the accumulated conversation context. */
-  async function run(sid: string, ctx: Pick<Session, 'contactId' | 'issue' | 'customText' | 'answers'>) {
+  async function run(sid: string, ctx: Pick<Session, 'contactId' | 'issue' | 'customText' | 'targetQueue' | 'answers'>) {
     const mid = uid();
     update(sid, (s) => ({ ...s, ...ctx, messages: [...s.messages, { id: mid, role: 'assistant', pending: true }] }));
     const body: DiagnoseRequest = {
       contactIdOrUrl: ctx.contactId!,
       reportedIssue: ctx.issue,
       customIssueText: ctx.customText,
+      targetQueue: ctx.targetQueue,
       clarificationAnswers: Object.keys(ctx.answers).length ? ctx.answers : undefined,
     };
     try {
@@ -165,7 +171,7 @@ export function App() {
       // New contact: fresh clarification state; any extra words become a custom issue note.
       const note = text.replace(ID_PATTERN, ' ').replace(/\s+/g, ' ').trim();
       const issue = note.length > 3 ? 'other' : cur?.issue;
-      void run(sid, { contactId: id, issue, customText: note.length > 3 ? note : undefined, answers: {} });
+      void run(sid, { contactId: id, issue, customText: note.length > 3 ? note : undefined, targetQueue: cur?.targetQueue ?? draftQueue, answers: {} });
       return;
     }
     if (cur?.contactId) {
@@ -175,27 +181,40 @@ export function App() {
       for (const q of last?.clarificationQuestions ?? []) {
         const hit = q.options.find((o) => lower === o.toLowerCase() || lower.includes(o.toLowerCase()));
         if (hit) {
-          void run(sid, { contactId: cur.contactId, issue: cur.issue, customText: cur.customText, answers: { ...cur.answers, [q.id]: hit } });
+          void run(sid, { contactId: cur.contactId, issue: cur.issue, customText: cur.customText, targetQueue: cur.targetQueue, answers: { ...cur.answers, [q.id]: hit } });
           return;
         }
       }
-      void run(sid, { contactId: cur.contactId, issue: 'other', customText: text, answers: cur.answers });
+      void run(sid, { contactId: cur.contactId, issue: 'other', customText: text, targetQueue: cur.targetQueue, answers: cur.answers });
       return;
     }
     addMsg(sid, { id: uid(), role: 'assistant', text: 'Paste a HubSpot contact URL or ID and I will investigate why the lead is not visible.' });
   }
 
-  function chooseStarter(label: string, issue: ReportedIssue) {
+  function chooseStarter(label: string, issue: ReportedIssue, targetQueue?: string) {
     const sid = ensureSession();
     addMsg(sid, { id: uid(), role: 'user', text: label });
-    update(sid, (s) => ({ ...s, issue }));
+    update(sid, (s) => ({ ...s, issue, targetQueue: targetQueue ?? s.targetQueue }));
+    if (targetQueue) setDraftQueue(targetQueue);
     addMsg(sid, { id: uid(), role: 'assistant', text: `Got it: "${label}". Paste the HubSpot contact URL or ID of the lead.` });
+  }
+
+  /** Sets the queue the rep was looking at; re-diagnoses the open contact so the engine sees it. */
+  function changeQueue(value: string) {
+    const q = value || undefined;
+    setDraftQueue(q);
+    if (!active) return;
+    update(active.id, (s) => ({ ...s, targetQueue: q }));
+    if (active.contactId && !busy) {
+      addMsg(active.id, { id: uid(), role: 'user', text: q ? `Queue I was checking: ${q}` : 'Queue: any' });
+      void run(active.id, { contactId: active.contactId, issue: active.issue, customText: active.customText, targetQueue: q, answers: active.answers });
+    }
   }
 
   function answerChip(qid: string, option: string) {
     if (!active?.contactId || busy) return;
     addMsg(active.id, { id: uid(), role: 'user', text: option });
-    void run(active.id, { contactId: active.contactId, issue: active.issue, customText: active.customText, answers: { ...active.answers, [qid]: option } });
+    void run(active.id, { contactId: active.contactId, issue: active.issue, customText: active.customText, targetQueue: active.targetQueue, answers: { ...active.answers, [qid]: option } });
   }
 
   const lastCardId = useMemo(() => [...(active?.messages ?? [])].reverse().find((m) => m.result)?.id, [active]);
@@ -209,6 +228,7 @@ export function App() {
             onClick={() => {
               setActiveId(null);
               setInput('');
+              setDraftQueue(undefined);
             }}
             className="w-full rounded-lg border border-zinc-700 px-3 py-2 text-left text-sm font-medium text-zinc-100 hover:bg-zinc-800"
           >
@@ -260,7 +280,7 @@ export function App() {
                 <p className="mt-1 text-sm text-zinc-500">Why can't the rep see this lead? Paste a HubSpot contact URL or ID.</p>
                 <div className="mt-6 flex flex-wrap justify-center gap-2">
                   {STARTERS.map((s) => (
-                    <button key={s.label} onClick={() => chooseStarter(s.label, s.issue)} className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-300 hover:border-indigo-400 hover:text-indigo-300">
+                    <button key={s.label} onClick={() => chooseStarter(s.label, s.issue, s.queue)} className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-300 hover:border-indigo-400 hover:text-indigo-300">
                       {s.label}
                     </button>
                   ))}
@@ -299,6 +319,20 @@ export function App() {
             }}
             className="pointer-events-auto mx-auto flex max-w-3xl items-end gap-2 rounded-2xl border border-zinc-700 bg-zinc-900 p-2 shadow-xl focus-within:border-indigo-500"
           >
+            <select
+              value={queue ?? ''}
+              disabled={busy}
+              onChange={(e) => changeQueue(e.target.value)}
+              title="Queue the rep was looking at (sent as targetQueue)"
+              className="h-10 shrink-0 rounded-xl border border-zinc-700 bg-zinc-950 px-2 text-xs text-zinc-300 focus:border-indigo-500 focus:outline-none disabled:opacity-60"
+            >
+              <option value="">Any queue</option>
+              {QUEUES.map((q) => (
+                <option key={q} value={q}>
+                  {q}
+                </option>
+              ))}
+            </select>
             <textarea
               ref={taRef}
               rows={1}

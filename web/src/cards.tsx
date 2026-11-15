@@ -44,7 +44,7 @@ export function ConfidenceBadge({ score }: { score: number }) {
   );
 }
 
-function CopyButton({ text }: { text: string }) {
+function CopyButton({ text, label = '📋 Copy' }: { text: string; label?: string }) {
   const [done, setDone] = useState(false);
   return (
     <button
@@ -55,7 +55,7 @@ function CopyButton({ text }: { text: string }) {
         setTimeout(() => setDone(false), 1800);
       }}
     >
-      {done ? '✓ Copied!' : '📋 Copy'}
+      {done ? '✓ Copied!' : label}
     </button>
   );
 }
@@ -106,6 +106,32 @@ function DiffTable({ steps }: { steps: Step[] }) {
         ))}
       </tbody>
     </table>
+  );
+}
+
+function Duplicates({ r }: { r: CopilotResult }) {
+  const dups = r.engine.diagnosis.duplicates;
+  if (!dups?.length) return null;
+  const link = (id: string) => r.links.hubspotContact.replace(/\/record\/0-1\/\d+$/, `/record/0-1/${id}`);
+  return (
+    <div className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3">
+      <p className="text-xs font-semibold text-amber-300">
+        ⚠ {dups.length} duplicate contact{dups.length > 1 ? 's' : ''} with the exact same email
+      </p>
+      <p className="mt-0.5 text-xs text-zinc-400">The rep may be looking at the wrong record. Confirm which one is correct, or merge.</p>
+      <ul className="mt-2 divide-y divide-amber-500/20 text-xs">
+        {dups.map((x) => (
+          <li key={x.id} className="flex flex-wrap items-center gap-x-3 gap-y-0.5 py-1.5">
+            <a href={link(x.id)} target="_blank" rel="noreferrer" className={`${mono} text-indigo-300 hover:underline`}>
+              {x.id} ↗
+            </a>
+            <span className="text-zinc-200">{x.name ?? 'Unnamed'}</span>
+            <span className="text-zinc-400">Owner: {x.ownerName ?? x.ownerId ?? 'unassigned'}</span>
+            <span className="text-zinc-400">Lifecycle: {x.lifecycleStage ?? 'n/a'}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -227,11 +253,13 @@ export function CopilotCard({ r, interactive, onAnswer }: { r: CopilotResult; in
         )}
       </div>
 
+      <Duplicates r={r} />
+
       {s.slackMessage && (
         <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
           <div className="mb-1.5 flex items-center justify-between">
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Slack message</span>
-            <CopyButton text={s.slackMessage} />
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Slack escalation to BizOps</span>
+            <CopyButton text={s.slackMessage} label="📋 Copy Slack Escalation to BizOps" />
           </div>
           <p className="whitespace-pre-wrap text-sm text-zinc-300">{s.slackMessage}</p>
         </div>

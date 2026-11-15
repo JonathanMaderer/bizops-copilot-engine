@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
 import type { Diagnosis } from '../engine/investigator.ts';
 import type { Confidence } from '../engine/confidence.ts';
+import type { DuplicateContact } from '../engine/hubspot.ts';
 
 dotenv.config({ path: '.env.local', quiet: true });
 
@@ -31,6 +32,8 @@ export interface LeadDossier {
     meetingType: string | null;
   };
   queue?: { summary: string; hits: { listId: string; labels: string[] }[]; allListIds: string[] };
+  /** Other contacts sharing this contact's exact email. */
+  duplicates?: DuplicateContact[];
 }
 
 export interface EngineResult {
@@ -68,8 +71,86 @@ export interface CopilotResponse {
   note?: string;
 }
 
+/** Base role prompt. The routing/taxonomy/resolver rules come from docs/BIZOPS_PLAYBOOK.md (see getSystemPrompt). */
 export const SYSTEM_PROMPT =
   'You are an expert SDR Team Lead and RevOps Specialist. Your task is to interpret a deterministic CRM diagnostic payload for a lead that an SDR cannot find on their dashboard. You must NEVER hallucinate or assume facts not present in the payload. Rely ONLY on the provided dossier.';
+
+/** Used only when docs/BIZOPS_PLAYBOOK.md is missing or unreadable. */
+const FALLBACK_RULES = `Core rules (playbook file unavailable):
+- Diagnostic order, first BLOCKED step is the root cause: 0 Contact Existence, 1 Deal Lock (active associated deal), 1.5 Owner Gate (sdr_owner empty = Incoming), 2 Brain State (active lead = ai_sdr_cycle_start_time known AND ai_sdr_cycle_end_time empty), 3 AI Handover (ai_sdr__first_replied_at set or sub-classification unqualified), 4 Filter Hygiene (numofemployeesrange 1-10 excluded unless lead source False SBP), 5 Meeting Validation (approved SDR meeting types only), 6 List vs UI Diff (if the contact is in the board list, it is a dashboard cache delay).
+- Use only payload facts; rep statements are claims, not CRM data. Flag exact-email duplicates listed in dossier.duplicates.
+- Never include the prospect's email address in any output.`;
+
+const PLAYBOOK_PATHS = [new URL('../../docs/BIZOPS_PLAYBOOK.md', import.meta.url), path.resolve(process.cwd(), 'docs/BIZOPS_PLAYBOOK.md')];
+const PLAYBOOK_MAX_CHARS = 60_000;
+const COACHING_HEADING = '## Live Coaching Rules';
+
+/** Reads the playbook fresh on each call so appended coaching rules apply without a restart. Null if missing/empty. */
+export function loadPlaybook(): string | null {
+  for (const p of PLAYBOOK_PATHS) {
+    try {
+      const text = fs.readFileSync(p, 'utf8').trim();
+      if (!text) continue;
+      if (text.length <= PLAYBOOK_MAX_CHARS) return text;
+      // Over budget: trim the body but always keep the coaching section (it overrides everything above).
+      const i = text.indexOf(COACHING_HEADING);
+      const coaching = i >= 0 ? text.slice(i) : '';
+      const body = (i >= 0 ? text.slice(0, i) : text).slice(0, Math.max(0, PLAYBOOK_MAX_CHARS - coaching.length));
+      return `${body}\n\n${coaching}`.trim();
+    } catch {
+      /* try next location */
+    }
+  }
+  return null;
+}
+
+export function getSystemPrompt(): string {
+  const playbook = loadPlaybook();
+  if (!playbook) console.warn('docs/BIZOPS_PLAYBOOK.md not found; using built-in fallback rules.');
+  return `${SYSTEM_PROMPT}\n\n# BIZOPS PLAYBOOK\n${playbook ?? FALLBACK_RULES}`;
+}
+
+// ---- Slack escalation to BizOps ----------------------------------------------------------------
+
+const PORTAL_ID = process.env.HUBSPOT_PORTAL_ID ?? '4021060';
+const hubspotLink = (id: string) => `https://app.hubspot.com/contacts/${PORTAL_ID}/record/0-1/${id}`;
+
+export function slackTags(): string {
+  return `${process.env.SLACK_TAG_JONATHAN || '@Jonathan'} ${process.env.SLACK_TAG_DEAN || '@Dean'}`;
+}
+
+const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
+
+/** Removes email addresses from a draft, then makes sure it opens with the BizOps tags. */
+function sanitizeSlack(msg: string): string {
+  const clean = msg.replace(EMAIL_RE, '[email removed]').trim();
+  const tags = slackTags();
+  const lower = clean.toLowerCase();
+  return tags.split(' ').every((t) => lower.includes(t.toLowerCase())) ? clean : `${tags} ${clean}`;
+}
+
+function duplicateLine(dossier: LeadDossier): string | null {
+  const dups = dossier.duplicates ?? [];
+  if (!dups.length) return null;
+  return `Exact-email duplicates: ${dups.map((x) => `${x.id} (owner: ${x.ownerName ?? x.ownerId ?? 'none'}, lifecycle: ${x.lifecycleStage ?? 'n/a'})`).join('; ')}`;
+}
+
+/** Deterministic BizOps escalation (also the fallback when the LLM draft is missing). Null when nothing is blocking. */
+export function buildEscalation(dossier: LeadDossier, r: EngineResult): string | null {
+  const d = r.diagnosis;
+  if (!d.blockedAt && !d.steps.some((s) => s.status !== 'PASS')) return null;
+  const { step, title } = rootStepLabel(d);
+  const diffs = propertyDiffs(d);
+  const change = diffs.length ? diffs.join('; ') : (d.blockedAt?.remediation ?? d.steps.find((s) => s.remediation)?.remediation ?? 'see engine remediation');
+  const lines = [
+    `${slackTags()} Contact ${dossier.contactId}: ${hubspotLink(dossier.contactId)}`,
+    `Root cause: Step ${step}${title ? ` ${title}` : ''}: ${d.conclusion}`,
+    `CRM change needed: ${change}`,
+  ];
+  const dup = duplicateLine(dossier);
+  if (dup) lines.push(dup);
+  return lines.join('\n');
+}
 
 const FORMAT_INSTRUCTIONS = `Respond with ONLY a JSON object (no markdown fences) with this exact shape:
 {
@@ -77,7 +158,7 @@ const FORMAT_INSTRUCTIONS = `Respond with ONLY a JSON object (no markdown fences
     "summary": "2-3 sentences, empathetic, clear and direct",
     "reason": "plain-English reason the lead is not visible, e.g. 'AE Deal Lock', 'Unassigned in Incoming', 'Cadence expired'",
     "nextStep": "one concrete action for the SDR",
-    "slackMessage": "copy-paste ready Slack message if the rep needs to ping someone (AE about an active deal, RevOps to assign an incoming lead), otherwise null"
+    "slackMessage": "concise internal Slack escalation to BizOps (see Slack rules below), or null if the engine found no blocker"
   },
   "adminView": {
     "rootCauseCategory": "root cause category",
@@ -86,7 +167,9 @@ const FORMAT_INSTRUCTIONS = `Respond with ONLY a JSON object (no markdown fences
     "remediation": "direct remediation action"
   }
 }
-Rules: repContext holds statements made by the rep (not CRM data): you may use them for tone and to explain the resolution, but never present them as CRM properties. Use only facts in the payload (names, IDs, dates, stages). If a fact is missing, say it is not available. Do not invent people, owners or dates.`;
+Rules: repContext holds statements made by the rep (not CRM data): you may use them for tone and to explain the resolution, but never present them as CRM properties. Use only facts in the payload (names, IDs, dates, stages). If a fact is missing, say it is not available. Do not invent people, owners or dates.
+If dossier.duplicates is non-empty, state in the summary that other contacts share this exact email (list their IDs and owners) and that the rep may be looking at the wrong record; this never replaces the engine's root cause.
+Slack rules: a single internal ping, no greetings or filler, in this order: start with the tags in payload.slackTags; the HubSpot Contact ID and payload.hubspotLink; the verified root cause (engine step and title); the exact CRM property change needed, formatted "property: current -> target" using propertyDiffs. If duplicates exist, add one line with their IDs, owners and lifecycle stages. NEVER include the prospect's email address or phone number.`;
 
 // ---- deterministic building blocks ----------------------------------------------------------
 
@@ -139,7 +222,6 @@ function fallbackAnalysis(dossier: LeadDossier, r: EngineResult, note: string): 
 
   let reason = category;
   let nextStep = blocker?.remediation ?? 'No action needed; refresh the board and re-check.';
-  let slack: string | null = null;
   switch (step) {
     case '0':
       nextStep = 'Double-check the contact link; the record may have been deleted or merged.';
@@ -147,16 +229,13 @@ function fallbackAnalysis(dossier: LeadDossier, r: EngineResult, note: string): 
     case '1': {
       const deal = activeDeals[0];
       nextStep = 'Ask the deal owner to close or advance the active deal so the lead returns to the SDR board.';
-      slack = `Hi! ${who} (contact ${dossier.contactId}) is hidden from my SDR board because of an active deal${deal ? ` (#${deal.id}${deal.name ? ` "${deal.name}"` : ''}, stage ${fmt(deal.stageId)})` : ''}. Is that deal still being worked, or can it be closed/advanced?`;
       break;
     }
     case '1.5':
       nextStep = 'Ask RevOps / your team lead to assign an SDR owner so the lead moves from Incoming to Open Pipe.';
-      slack = `Hi RevOps! ${who} (contact ${dossier.contactId}) has no sdr_owner and is sitting in Incoming. Could you assign an SDR owner${dossier.identity?.team ? ` on team "${dossier.identity.team}"` : ''}? Thanks!`;
       break;
     case '2':
       nextStep = 'The cadence cycle has ended, so the lead left the board. Ask RevOps to re-activate the cycle if it should still be worked.';
-      slack = `Hi RevOps! ${who} (contact ${dossier.contactId}) disappeared from my board: the Brain cycle ended on ${fmt(dossier.brain?.cycleEnd)} (outcome: ${dossier.brain?.cycleOutcome ?? 'not recorded'}). Should this lead be re-activated?`;
       break;
     case '3':
       nextStep = 'The lead replied or is unqualified, so outbound cadences are paused. Coordinate with the AE for manual follow-up.';
@@ -166,7 +245,6 @@ function fallbackAnalysis(dossier: LeadDossier, r: EngineResult, note: string): 
       break;
     case '5':
       nextStep = 'Update the meeting type on the contact to an approved SDR meeting type.';
-      slack = `Hi RevOps! ${who} (contact ${dossier.contactId}) has meeting type "${fmt(dossier.brain?.meetingType)}", which is not an approved SDR meeting type. Can you confirm whether it should be added or corrected?`;
       break;
     case '6':
       nextStep = blocker?.remediation ?? d.steps.at(-1)?.remediation ?? 'Assign an SDR team so the lead can be routed.';
@@ -176,7 +254,7 @@ function fallbackAnalysis(dossier: LeadDossier, r: EngineResult, note: string): 
   }
   const summary = `${who} isn't on your board because of: ${reason}. ${d.conclusion}${owner ? ` Current owner: ${owner}.` : ''}`;
   return {
-    sdrView: { summary, reason, nextStep, slackMessage: slack },
+    sdrView: { summary, reason, nextStep, slackMessage: buildEscalation(dossier, r) },
     adminView: {
       rootCauseCategory: category,
       step: `Step ${step}${title ? `: ${title}` : ''}`,
@@ -256,7 +334,7 @@ async function callVertex(project: string, prompt: string): Promise<{ text: stri
           model,
           contents: prompt,
           config: {
-            systemInstruction: SYSTEM_PROMPT,
+            systemInstruction: getSystemPrompt(),
             temperature: 0,
             maxOutputTokens: 2048,
             responseMimeType: 'application/json',
@@ -284,7 +362,7 @@ async function callLLM(p: Exclude<Provider, { name: 'vertex' }>, user: string): 
         model: p.model,
         max_tokens: 1200,
         temperature: 0,
-        system: SYSTEM_PROMPT,
+        system: getSystemPrompt(),
         messages: [{ role: 'user', content: user }],
       }),
     });
@@ -300,7 +378,7 @@ async function callLLM(p: Exclude<Provider, { name: 'vertex' }>, user: string): 
       temperature: 0,
       response_format: { type: 'json_object' },
       messages: [
-        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'system', content: getSystemPrompt() },
         { role: 'user', content: user },
       ],
     }),
@@ -327,9 +405,14 @@ export async function generateCopilotAnalysis(
     return fallbackAnalysis(dossier, engineResult, 'No GCP service-account key (GOOGLE_APPLICATION_CREDENTIALS / gcp-key.json) or other LLM key found; using grounded template.');
   }
   const diffs = propertyDiffs(engineResult.diagnosis);
+  const escalation = buildEscalation(dossier, engineResult);
   const { step, category } = rootStepLabel(engineResult.diagnosis);
+  // The prospect's email never goes to the model, so it cannot leak into a Slack draft.
+  const { email: _email, ...identityNoEmail } = dossier.identity ?? ({} as NonNullable<LeadDossier['identity']>);
   const payload = {
-    dossier,
+    dossier: { ...dossier, identity: dossier.identity ? identityNoEmail : undefined },
+    slackTags: slackTags(),
+    hubspotLink: hubspotLink(dossier.contactId),
     engine: {
       verdict: engineResult.diagnosis.conclusion,
       blockedAtStep: engineResult.diagnosis.blockedAt?.step ?? null,
@@ -359,7 +442,8 @@ export async function generateCopilotAnalysis(
         summary: String(j.sdrView.summary ?? ''),
         reason: String(j.sdrView.reason ?? ''),
         nextStep: String(j.sdrView.nextStep ?? ''),
-        slackMessage: j.sdrView.slackMessage ? String(j.sdrView.slackMessage) : null,
+        // Always an email-free escalation that opens with the BizOps tags; deterministic draft if the LLM gave none.
+        slackMessage: !escalation ? null : j.sdrView.slackMessage ? sanitizeSlack(String(j.sdrView.slackMessage)) : escalation,
       },
       adminView: {
         rootCauseCategory: String(j.adminView.rootCauseCategory ?? category),

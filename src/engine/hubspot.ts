@@ -5,15 +5,37 @@ dotenv.config({ path: '.env.local' });
 
 const BASE = 'https://api.hubapi.com';
 
+const MAX_RETRIES = 3;
+const MAX_BACKOFF_MS = 30_000;
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+
+/** Delay before retry `attempt` (0-based): honors Retry-After (seconds or HTTP date), else 1s, 2s, 4s + jitter. */
+export function retryDelayMs(retryAfter: string | null, attempt: number): number {
+  if (retryAfter) {
+    const secs = Number(retryAfter);
+    const ms = Number.isFinite(secs) ? secs * 1000 : Date.parse(retryAfter) - Date.now();
+    if (Number.isFinite(ms) && ms >= 0) return Math.min(ms, MAX_BACKOFF_MS);
+  }
+  return Math.min(1000 * 2 ** attempt + Math.floor(Math.random() * 250), MAX_BACKOFF_MS);
+}
+
 async function hs<T>(path: string, init?: RequestInit): Promise<T> {
   const token = process.env.HUBSPOT_ACCESS_TOKEN;
   if (!token) throw new Error('Missing HUBSPOT_ACCESS_TOKEN in .env.local');
-  const res = await fetch(`${BASE}${path}`, {
-    ...init,
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...init?.headers },
-  });
-  if (!res.ok) throw new HubSpotError(res.status, `HubSpot ${res.status} ${path}: ${await res.text()}`);
-  return (await res.json()) as T;
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetch(`${BASE}${path}`, {
+      ...init,
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...init?.headers },
+    });
+    // 429 rate limit: exponential backoff, up to MAX_RETRIES retries.
+    if (res.status === 429 && attempt < MAX_RETRIES) {
+      await res.text().catch(() => '');
+      await sleep(retryDelayMs(res.headers.get('retry-after'), attempt));
+      continue;
+    }
+    if (!res.ok) throw new HubSpotError(res.status, `HubSpot ${res.status} ${path}: ${await res.text()}`);
+    return (await res.json()) as T;
+  }
 }
 
 export class HubSpotError extends Error {
@@ -128,6 +150,46 @@ export async function getOwnerName(ownerId: string): Promise<string | null> {
   } catch {
     return null;
   }
+}
+
+export interface DuplicateContact {
+  id: string;
+  name: string | null;
+  ownerId: string | null;
+  ownerName: string | null;
+  lifecycleStage: string | null;
+  createdAt: string | null;
+}
+
+/** Other contacts with exactly the same email (CRM Search `email EQ`), excluding `excludeContactId`. */
+export async function findDuplicateContactsByEmail(email: string, excludeContactId: string): Promise<DuplicateContact[]> {
+  const value = email.trim().toLowerCase();
+  if (!value) return [];
+  type Row = { id: string; properties: Record<string, string | null | undefined> };
+  const r = await hs<{ results: Row[] }>('/crm/v3/objects/contacts/search', {
+    method: 'POST',
+    body: JSON.stringify({
+      filterGroups: [{ filters: [{ propertyName: 'email', operator: 'EQ', value }] }],
+      properties: ['firstname', 'lastname', 'email', 'lifecyclestage', 'createdate', 'sdr_owner', 'exp__xdr_manager'],
+      limit: 10,
+    }),
+  });
+  const rows = r.results.filter((c) => String(c.id) !== String(excludeContactId));
+  const names = new Map<string, string | null>();
+  for (const id of new Set(rows.map((c) => c.properties.sdr_owner || c.properties.exp__xdr_manager).filter(Boolean) as string[])) {
+    names.set(id, await getOwnerName(id));
+  }
+  return rows.map((c) => {
+    const ownerId = c.properties.sdr_owner || c.properties.exp__xdr_manager || null;
+    return {
+      id: String(c.id),
+      name: [c.properties.firstname, c.properties.lastname].filter(Boolean).join(' ') || null,
+      ownerId,
+      ownerName: ownerId ? (names.get(ownerId) ?? null) : null,
+      lifecycleStage: c.properties.lifecyclestage ?? null,
+      createdAt: c.properties.createdate ?? null,
+    };
+  });
 }
 
 export async function getContactListIds(contactId: string): Promise<string[]> {

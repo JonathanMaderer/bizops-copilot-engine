@@ -156,6 +156,7 @@ export async function diagnoseLead(input: string | DiagnoseRequest): Promise<Cop
 
   const { lead, dossier } = await fetchLeadDossier(contactId);
   const { diagnosis, confidence: baseConfidence } = await investigateContact(lead);
+  if ('identity' in dossier) dossier.duplicates = diagnosis.duplicates ?? [];
 
   const allQuestions = buildClarifications(lead, diagnosis, baseConfidence, req);
   const answers = req.clarificationAnswers ?? {};

@@ -1,5 +1,5 @@
 import { LIST_IDS, PROPS } from '../config/schema.ts';
-import { getContactPropertiesByName, getOwnerName, type LeadData } from './hubspot.ts';
+import { getContactPropertiesByName, getOwnerName, type DuplicateContact, type LeadData } from './hubspot.ts';
 
 /** Accepts a numeric ID or any HubSpot URL containing one (…/contact/123, …/record/0-1/123). */
 export function extractContactId(input: string): string | null {
@@ -81,6 +81,8 @@ export async function buildDossier(lead: LeadData) {
       meetingType: p[PROPS.meetingType] ?? null,
     },
     queue: queuePosition(lead.listIds),
+    /** Filled by diagnoseLead from the engine's exact-email duplicate check. */
+    duplicates: [] as DuplicateContact[],
   };
 }
 export type Dossier = Awaited<ReturnType<typeof buildDossier>>;

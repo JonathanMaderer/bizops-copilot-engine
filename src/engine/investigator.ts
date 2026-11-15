@@ -1,5 +1,5 @@
 import { APPROVED_MEETING_TYPES, NA_101_PLUS_LARGE_RANGES, TEAM_ALIASES, PROTECTED_SL_STAGES, PROPS, EXCLUDED_EMPLOYEE_RANGE, SIZE_OVERRIDE_LEAD_SOURCE, LIST_IDS } from '../config/schema.ts';
-import { fetchListDefinition, getContactPropertiesByName, type LeadResult } from './hubspot.ts';
+import { fetchListDefinition, findDuplicateContactsByEmail, getContactPropertiesByName, type DuplicateContact, type LeadResult } from './hubspot.ts';
 import { collectProperties, evaluateBranch } from './listFilters.ts';
 
 export type StepStatus = 'PASS' | 'BLOCKED' | 'WARN';
@@ -21,11 +21,30 @@ export interface Diagnosis {
   /** Step that halted the waterfall, if any. */
   blockedAt?: StepResult;
   conclusion: string;
+  /** Other contacts sharing this contact's exact email (informational; never changes the verdict). */
+  duplicates?: DuplicateContact[];
 }
 
 const has = (v: string | null | undefined) => v !== null && v !== undefined && String(v).trim() !== '';
 
+/** Runs the deterministic waterfall, then attaches exact-email duplicates (lookup failures are non-fatal). */
 export async function diagnoseContact(input: LeadResult): Promise<Diagnosis> {
+  const d = await runWaterfall(input);
+  if (!('notFound' in input)) {
+    const email = input.properties[PROPS.email];
+    if (has(email)) {
+      try {
+        const dups = await findDuplicateContactsByEmail(String(email), input.resolvedId ?? input.contactId);
+        if (dups.length) d.duplicates = dups;
+      } catch (e) {
+        console.error('Duplicate email check failed:', (e as Error).message);
+      }
+    }
+  }
+  return d;
+}
+
+async function runWaterfall(input: LeadResult): Promise<Diagnosis> {
   if ('notFound' in input) {
     const step: StepResult = {
       step: 0,
