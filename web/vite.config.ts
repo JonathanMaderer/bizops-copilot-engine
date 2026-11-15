@@ -61,6 +61,9 @@ function engineApi(): Plugin {
         return mod.diagnoseLead({ ...body, contactIdOrUrl: raw });
       });
       route('/api/feedback', async (body) => {
+        if (!body.contactId || (body.rating !== 'up' && body.rating !== 'down')) {
+          throw new BadRequest('contactId and rating (up|down) are required');
+        }
         const mod = (await server.ssrLoadModule(feedbackPath)) as typeof import('../src/api/feedback.ts');
         mod.saveFeedback(body);
         return { ok: true };
