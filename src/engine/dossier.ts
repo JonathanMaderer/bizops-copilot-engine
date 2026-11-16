@@ -1,5 +1,5 @@
 import { LIST_IDS, PROPS } from '../config/schema.ts';
-import { getContactPropertiesByName, getOwnerName, type DuplicateContact, type LeadData } from './hubspot.ts';
+import { getContactPropertiesByName, getOwnerName, type DuplicateContact, type LeadData, type PropertyHistory } from './hubspot.ts';
 
 /** Accepts a numeric ID or any HubSpot URL containing one (…/contact/123, …/record/0-1/123). */
 export function extractContactId(input: string): string | null {
@@ -53,6 +53,17 @@ export async function buildDossier(lead: LeadData) {
   const ident = await getContactPropertiesByName(id, ['firstname', 'lastname', 'email']);
   const ownerId = p[PROPS.sdrOwner] || p[PROPS.xdrManager] || null;
   const ownerName = ownerId ? await getOwnerName(String(ownerId)) : null;
+  const history = (lead.propertyHistory ?? {}) as PropertyHistory;
+  const historyOwnerIds = [
+    ...new Set(Object.entries(history).filter(([k]) => /owner|manager/.test(k)).flatMap(([, v]) => v.map((c) => c.value)).filter((v) => /^\d+$/.test(v))),
+  ].slice(0, 15);
+  const ownerNames: Record<string, string> = {};
+  await Promise.all(
+    historyOwnerIds.map(async (id) => {
+      const n = await getOwnerName(id);
+      if (n && !n.includes('@')) ownerNames[id] = n;
+    }),
+  );
   return {
     contactId: lead.contactId,
     identity: {
@@ -81,6 +92,9 @@ export async function buildDossier(lead: LeadData) {
       meetingType: p[PROPS.meetingType] ?? null,
     },
     queue: queuePosition(lead.listIds),
+    /** Chronological change history for routing/ownership properties (empty when HubSpot returned none). */
+    propertyHistory: history,
+    ownerNames,
     /** Filled by diagnoseLead from the engine's exact-email duplicate check. */
     duplicates: [] as DuplicateContact[],
   };

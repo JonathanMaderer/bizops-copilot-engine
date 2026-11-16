@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { CONTACT_PROPERTIES, CLOSED_DEAL_STAGES } from '../config/schema.ts';
+import { CONTACT_PROPERTIES, CLOSED_DEAL_STAGES, HISTORY_PROPERTIES } from '../config/schema.ts';
 
 dotenv.config({ path: '.env.local' });
 
@@ -63,9 +63,43 @@ export interface Deal {
   active: boolean;
 }
 
+export interface PropertyChange {
+  value: string;
+  timestamp: string;
+  sourceType: string | null;
+  sourceId: string | null;
+}
+/** Property name -> changes, oldest first (only properties HubSpot returned history for). */
+export type PropertyHistory = Record<string, PropertyChange[]>;
+
+const HISTORY_LIMIT = 20;
+
+/** Normalizes HubSpot `propertiesWithHistory` (newest first, raw) into chronological, capped timelines. */
+export function normalizeHistory(raw: unknown): PropertyHistory {
+  const out: PropertyHistory = {};
+  if (!raw || typeof raw !== 'object') return out;
+  for (const [prop, entries] of Object.entries(raw as Record<string, unknown>)) {
+    if (!Array.isArray(entries) || !entries.length) continue;
+    const changes = entries
+      .filter((e): e is Record<string, unknown> => !!e && typeof e === 'object' && typeof (e as { timestamp?: unknown }).timestamp === 'string')
+      .map((e) => ({
+        value: e.value === null || e.value === undefined ? '' : String(e.value),
+        timestamp: String(e.timestamp),
+        sourceType: e.sourceType ? String(e.sourceType) : null,
+        sourceId: e.sourceId ? String(e.sourceId) : null,
+      }))
+      .sort((a, b) => Date.parse(a.timestamp) - Date.parse(b.timestamp))
+      .slice(-HISTORY_LIMIT);
+    if (changes.length) out[prop] = changes;
+  }
+  return out;
+}
+
 export interface LeadData {
   contactId: string;
   properties: ContactProps;
+  /** Change timelines for HISTORY_PROPERTIES (empty object when HubSpot returned none). */
+  propertyHistory?: PropertyHistory;
   deals: Deal[];
   activeDeals: Deal[];
   listIds: string[];
@@ -78,9 +112,11 @@ export interface LeadData {
 export async function getContact(
   contactId: string,
   properties: string[] = CONTACT_PROPERTIES,
-): Promise<{ id: string; properties: ContactProps }> {
+  withHistory: string[] = [],
+): Promise<{ id: string; properties: ContactProps; propertiesWithHistory?: unknown }> {
   const qs = new URLSearchParams({ properties: properties.join(',') });
-  return hs<{ id: string; properties: ContactProps }>(`/crm/v3/objects/contacts/${contactId}?${qs}`);
+  if (withHistory.length) qs.set('propertiesWithHistory', withHistory.join(','));
+  return hs<{ id: string; properties: ContactProps; propertiesWithHistory?: unknown }>(`/crm/v3/objects/contacts/${contactId}?${qs}`);
 }
 
 export async function getContactPropertiesByName(contactId: string, names: string[]): Promise<ContactProps> {
@@ -143,10 +179,15 @@ export async function loadStageMeta(): Promise<Map<string, { label: string; isCl
 }
 
 /** Resolves a HubSpot owner id to a display name (null if unavailable). */
+const ownerNameCache = new Map<string, string | null>();
+
 export async function getOwnerName(ownerId: string): Promise<string | null> {
+  if (ownerNameCache.has(ownerId)) return ownerNameCache.get(ownerId)!;
   try {
     const o = await hs<{ firstName?: string; lastName?: string; email?: string }>(`/crm/v3/owners/${ownerId}`);
-    return [o.firstName, o.lastName].filter(Boolean).join(' ') || o.email || null;
+    const name = [o.firstName, o.lastName].filter(Boolean).join(' ') || o.email || null;
+    ownerNameCache.set(ownerId, name);
+    return name;
   } catch {
     return null;
   }
@@ -217,9 +258,9 @@ export interface NotFound {
 export type LeadResult = LeadData | NotFound;
 
 export async function fetchLead(contactId: string): Promise<LeadResult> {
-  let contact: { id: string; properties: ContactProps };
+  let contact: { id: string; properties: ContactProps; propertiesWithHistory?: unknown };
   try {
-    contact = await getContact(contactId);
+    contact = await getContact(contactId, CONTACT_PROPERTIES, HISTORY_PROPERTIES);
   } catch (e) {
     if (e instanceof HubSpotError && e.status === 404) {
       return { notFound: true, contactId };
@@ -233,6 +274,7 @@ export async function fetchLead(contactId: string): Promise<LeadResult> {
     contactId,
     resolvedId,
     properties: contact.properties,
+    propertyHistory: normalizeHistory(contact.propertiesWithHistory),
     deals,
     activeDeals: deals.filter((d) => d.active),
     listIds,

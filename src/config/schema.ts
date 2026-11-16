@@ -26,6 +26,19 @@ export const PROPS = {
 
 export const CONTACT_PROPERTIES: string[] = Object.values(PROPS);
 
+/** Routing / ownership properties fetched with change history (unknown names are ignored by HubSpot). */
+export const HISTORY_PROPERTIES: string[] = [
+  'hubspot_owner_id',
+  PROPS.sdrOwner,
+  'sdr_manager',
+  PROPS.xdrManager,
+  PROPS.sdrTeam,
+  PROPS.cycleStart,
+  PROPS.cycleEnd,
+  'lifecyclestage',
+  'hs_lead_status',
+];
+
 export const SUB_CLASSIFICATIONS = ['start_cycle', 'continue_cycle', 'unqualified'] as const;
 
 /** Deal stages treated as closed (won or lost): legacy names plus stage IDs from all deal pipelines. */

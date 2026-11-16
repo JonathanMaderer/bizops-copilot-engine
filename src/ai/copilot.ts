@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
 import type { Diagnosis } from '../engine/investigator.ts';
 import type { Confidence } from '../engine/confidence.ts';
-import type { DuplicateContact } from '../engine/hubspot.ts';
+import type { DuplicateContact, PropertyHistory } from '../engine/hubspot.ts';
 
 dotenv.config({ path: '.env.local', quiet: true });
 
@@ -34,6 +34,10 @@ export interface LeadDossier {
   queue?: { summary: string; hits: { listId: string; labels: string[] }[]; allListIds: string[] };
   /** Other contacts sharing this contact's exact email. */
   duplicates?: DuplicateContact[];
+  /** Change history for routing/ownership properties, oldest first. */
+  propertyHistory?: PropertyHistory;
+  /** HubSpot owner id -> display name for owners that appear in propertyHistory. */
+  ownerNames?: Record<string, string>;
 }
 
 export interface EngineResult {
@@ -390,6 +394,30 @@ async function callLLM(p: Exclude<Provider, { name: 'vertex' }>, user: string, s
   return j.choices[0]?.message.content ?? '';
 }
 
+/** Calls the configured model and parses its JSON reply; retries once (after 500ms) on an empty or malformed reply. */
+async function callModelJson(provider: Provider, prompt: string, system?: string): Promise<{ json: unknown; model: string }> {
+  for (let attempt = 0; ; attempt++) {
+    if (attempt > 0) await new Promise((r) => setTimeout(r, 500));
+    try {
+      let raw: string;
+      let model = provider.model;
+      if (provider.name === 'vertex') {
+        const r = await callVertex(provider.project, prompt, system);
+        raw = r.text;
+        model = r.model;
+      } else {
+        raw = await withTimeout(callLLM(provider, prompt, system), LLM_TIMEOUT_MS);
+      }
+      if (!raw.trim()) throw new Error('empty response');
+      return { json: parseJson(raw), model };
+    } catch (e) {
+      const retryable = e instanceof SyntaxError || /empty response/i.test((e as Error).message);
+      if (attempt >= 1 || !retryable) throw e;
+      console.warn(`LLM returned ${e instanceof SyntaxError ? 'malformed JSON' : 'an empty response'}; retrying once.`);
+    }
+  }
+}
+
 function parseJson(text: string): unknown {
   const cleaned = text.trim().replace(/^```(?:json)?/i, '').replace(/```$/, '').trim();
   const start = cleaned.indexOf('{');
@@ -428,28 +456,8 @@ export async function generateCopilotAnalysis(
   };
   try {
     const prompt = `Diagnostic payload:\n${JSON.stringify(payload, null, 2)}\n\n${FORMAT_INSTRUCTIONS}`;
-    let modelUsed = provider.model;
-    let j: Partial<CopilotResponse> | undefined;
-    // One retry (after 500ms) when the model returns an empty or unparsable JSON reply.
-    for (let attempt = 0; attempt < 2 && !j; attempt++) {
-      if (attempt > 0) await new Promise((r) => setTimeout(r, 500));
-      try {
-        let raw: string;
-        if (provider.name === 'vertex') {
-          const r = await callVertex(provider.project, prompt);
-          raw = r.text;
-          modelUsed = r.model;
-        } else {
-          raw = await withTimeout(callLLM(provider, prompt), LLM_TIMEOUT_MS);
-        }
-        j = parseJson(raw) as Partial<CopilotResponse>;
-      } catch (e) {
-        const retryable = e instanceof SyntaxError || /empty response/i.test((e as Error).message);
-        if (attempt === 1 || !retryable) throw e;
-        console.warn(`LLM returned ${e instanceof SyntaxError ? 'malformed JSON' : 'an empty response'}; retrying once.`);
-      }
-    }
-    if (!j) throw new Error('no LLM response');
+    const { json, model: modelUsed } = await callModelJson(provider, prompt);
+    const j = json as Partial<CopilotResponse>;
     if (!j.sdrView || !j.adminView) throw new Error('LLM response missing sdrView/adminView');
     return {
       sdrView: {
@@ -530,24 +538,95 @@ function fallbackFollowup(input: FollowupInput): FollowupResult {
   let answer: string | null = null;
   if (/owner|sdr/.test(q) && !/cycle/.test(q)) answer = `Current owner: ${dossier.identity?.sdrOwner ?? 'none assigned'}.`;
   else if (/cycle|timestamp|start|end/.test(q)) answer = `Cycle start: ${fmt(b?.cycleStart)}; cycle end: ${fmt(b?.cycleEnd)}; outcome: ${fmt(b?.cycleOutcome)}.`;
-  else if (/deal/.test(q)) answer = dossier.deals?.length ? dossier.deals.map((x) => `Deal ${x.id}${x.name ? ` "${x.name}"` : ''}: stage ${fmt(x.stageId)} (${x.closed ? 'closed' : 'open'})`).join('; ') + '.' : 'No associated deals are in the dossier.';
+  else if (/deal/.test(q)) answer = dossier.deals?.length ? dossier.deals.map((x) => `Deal ${x.id}${x.name ? ` "${x.name}"` : ''}: stage ${fmt(x.stageId)} (${x.closed ? 'closed' : 'open'})`).join('; ') + '.' : 'HubSpot shows no associated deals for this contact.';
   else if (/meeting/.test(q)) answer = `Meeting type: ${fmt(b?.meetingType)}.`;
   else if (/list|queue|board/.test(q)) answer = `Board/queue position: ${dossier.queue?.summary ?? 'not available'}; list IDs: ${dossier.queue?.allListIds.join(', ') || 'none'}.`;
   else if (/duplicate/.test(q)) answer = dossier.duplicates?.length ? `Duplicates: ${dossier.duplicates.map((x) => `${x.id} (owner ${x.ownerName ?? x.ownerId ?? 'none'}, ${x.lifecycleStage ?? 'n/a'})`).join('; ')}.` : 'No exact-email duplicates were found.';
   else if (/step|pass|why/.test(q)) answer = `${d.conclusion} ${d.steps.map((s) => `Step ${s.step} ${s.title}: ${s.status}`).join('; ')}.`;
   return answer
     ? { answer, source: 'fallback' }
-    : { answer: 'That detail is not available in the dossier. What would you like to check instead?', suggestedQuestions: topics, source: 'fallback' };
+    : { answer: `HubSpot did not return that detail for this contact. You can check the record directly: ${hubspotLink(dossier.contactId)}`, suggestedQuestions: topics, source: 'fallback' };
+}
+
+const HISTORY_Q_RE = /\b(histor(?:y|ical)|changed?|changes|timeline|audit|previous(?:ly)?|reassign(?:ed)?|who (?:set|changed|updated|assigned|moved)|what (?:changed|set|updated)|when (?:was|did) .* (?:change|set|assign|update))/i;
+
+export const isHistoryQuestion = (q: string) => HISTORY_Q_RE.test(q);
+
+const HISTORY_LABELS: Record<string, string> = {
+  hubspot_owner_id: 'Contact owner',
+  sdr_owner: 'SDR owner',
+  sdr_manager: 'SDR manager',
+  exp__xdr_manager: 'XDR manager',
+  sdr__sdr_team_: 'SDR team',
+  ai_sdr_cycle_start_time: 'SDR cycle start',
+  ai_sdr_cycle_end_time: 'SDR cycle end',
+  lifecyclestage: 'Lifecycle stage',
+  hs_lead_status: 'Lead status',
+};
+const HISTORY_TOPICS: [RegExp, string[]][] = [
+  [/owner|assign/i, ['hubspot_owner_id', 'sdr_owner']],
+  [/manager/i, ['sdr_manager', 'exp__xdr_manager']],
+  [/team/i, ['sdr__sdr_team_']],
+  [/(?<!life)cycle|cadence/i, ['ai_sdr_cycle_start_time', 'ai_sdr_cycle_end_time']],
+  [/lifecycle/i, ['lifecyclestage']],
+  [/lead status/i, ['hs_lead_status']],
+];
+
+const fmtWhen = (ts: string) => (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(ts) ? `${ts.slice(0, 10)} ${ts.slice(11, 16)} UTC` : ts);
+
+/** Chronological "old -> new" list per property; plain-language note (with record link) for properties without history. */
+export function formatPropertyHistory(dossier: LeadDossier, question: string): string {
+  const history = dossier.propertyHistory ?? {};
+  const asked = [...new Set(HISTORY_TOPICS.filter(([re]) => re.test(question)).flatMap(([, props]) => props))];
+  const props = asked.length ? asked : Object.keys(HISTORY_LABELS);
+  const names = dossier.ownerNames ?? {};
+  const show = (prop: string, v: string) => {
+    if (!v) return '(empty)';
+    if (/owner|manager/.test(prop) && names[v]) return `${names[v]} (${v})`;
+    return /cycle_(start|end)_time/.test(prop) ? fmtWhen(v) : v;
+  };
+  const blocks: string[] = [];
+  const missing: string[] = [];
+  for (const prop of props) {
+    const changes = history[prop] ?? [];
+    const label = `${HISTORY_LABELS[prop] ?? prop} (${prop})`;
+    if (!changes.length) {
+      missing.push(label);
+      continue;
+    }
+    const lines = changes.map((c, i) => {
+      const prev = i > 0 ? changes[i - 1]!.value : '';
+      const src = [c.sourceType, c.sourceId].filter(Boolean).join(' ') || 'unknown source';
+      return `• ${fmtWhen(c.timestamp)}: ${i === 0 ? 'set to' : `${show(prop, prev)} ->`} ${show(prop, c.value)} (source: ${src})`;
+    });
+    blocks.push(`${label}:\n${lines.join('\n')}`);
+  }
+  const link = hubspotLink(dossier.contactId);
+  if (!blocks.length) {
+    return `HubSpot did not return change history for ${missing.join(', ')} on this contact. You can review the property history directly on the record: ${link}`;
+  }
+  const tail = missing.length && asked.length ? `\n\nHubSpot did not return change history for ${missing.join(', ')}. Record: ${link}` : '';
+  return `Change history from HubSpot (oldest first):\n\n${blocks.join('\n\n')}${tail}`;
+}
+
+/** Rewrites internal jargon into plain language and makes sure "not available" answers carry the record link. */
+function plainLanguage(answer: string, contactId: string): string {
+  let out = answer.replace(/\b(?:in|from) the (?:provided )?(?:diagnostic )?(?:payload|dossier|data|JSON)\b/gi, 'in HubSpot for this contact').replace(/\b(?:the )?(?:provided )?(?:payload|dossier)\b/gi, 'HubSpot');
+  if (/not available|did not return|no (?:data|information|record)/i.test(out) && !out.includes('/record/0-1/')) out += ` You can check the record directly: ${hubspotLink(contactId)}`;
+  return out;
 }
 
 const FOLLOWUP_RULES = `You are now answering a follow-up question from the SDR about a lead that was ALREADY diagnosed; the diagnosis card is already on screen, so never repeat the diagnosis or the Slack escalation.
 Respond with ONLY a JSON object: {"answer": string, "suggestedQuestions": string[]}.
 BROAD QUESTION RULE: if the question is vague or open-ended (e.g. "what else do you know?", "tell me more", "anything else?"), do NOT list dossier fields. Answer in 1-2 short sentences asking what they want to check, and return 3-4 concrete options in suggestedQuestions, chosen from payload.availableTopics (you may rephrase them slightly; each must be something answerable from the payload).
 SPECIFIC QUESTION RULE: if the question concerns a specific property, deal, meeting, list, owner, cycle or waterfall step, answer concisely (at most 3 sentences) using ONLY facts in payload.dossier and payload.engine. If the requested field is not in the payload, say so clearly. suggestedQuestions may be empty.
+LANGUAGE: write in plain BizOps language. Never say "payload", "dossier", "JSON" or "provided data". If something is not available, say "HubSpot did not return <field> for this contact" and include payload.hubspotLink so the rep can check the record.
 GUARDRAILS: never invent IDs, names or dates; never output the prospect's email address or phone number; never output the Slack escalation unless the question explicitly asks for it.`;
 
 export async function answerLeadFollowup(input: FollowupInput): Promise<FollowupResult> {
   const { dossier, diagnosis, question } = input;
+  // History questions are answered deterministically from HubSpot's timeline (exact dates, values and sources).
+  if (isHistoryQuestion(question)) return { answer: formatPropertyHistory(dossier, question), source: 'fallback' };
   const provider = pickProvider();
   if (!provider) return fallbackFollowup(input);
 
@@ -560,12 +639,8 @@ export async function answerLeadFollowup(input: FollowupInput): Promise<Followup
   const prompt = `Payload:\n${JSON.stringify({ ...evidence, hubspotLink: hubspotLink(dossier.contactId), slackTags: slackTags(), availableTopics: topics, question }, null, 2)}`;
   const system = `${getSystemPrompt()}\n\n${FOLLOWUP_RULES}`;
   try {
-    const raw =
-      provider.name === 'vertex'
-        ? (await callVertex(provider.project, prompt, system)).text
-        : await withTimeout(callLLM(provider, prompt, system), LLM_TIMEOUT_MS);
-    const j = parseJson(raw) as { answer?: unknown; suggestedQuestions?: unknown };
-    let answer = String(j.answer ?? '').replace(EMAIL_RE, '[email removed]').trim();
+    const j = (await callModelJson(provider, prompt, system)).json as { answer?: unknown; suggestedQuestions?: unknown };
+    const answer = plainLanguage(String(j.answer ?? '').replace(EMAIL_RE, '[email removed]').trim(), dossier.contactId);
     if (!answer) throw new Error('empty answer');
 
     // Guardrails enforced in code: no IDs outside the evidence, and no Slack block unless asked for.

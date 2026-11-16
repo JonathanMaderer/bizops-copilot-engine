@@ -206,7 +206,9 @@ async function runWaterfall(input: LeadResult): Promise<Diagnosis> {
 
   // 4. Filter Hygiene
   const isSmall = p[PROPS.numEmployeesRange] === EXCLUDED_EMPLOYEE_RANGE;
-  const falseSbp = isSmall && p[PROPS.sdrLeadSource] === SIZE_OVERRIDE_LEAD_SOURCE;
+  // sdr__lead_source_ is a multi-select: HubSpot stores it as "a;b".
+  const leadSources = String(p[PROPS.sdrLeadSource] ?? '').split(';').map((x) => x.trim());
+  const falseSbp = isSmall && leadSources.includes(SIZE_OVERRIDE_LEAD_SOURCE);
   const smallCo = isSmall && !falseSbp;
   const reasonMissing = has(p[PROPS.unqualifiedReasonText]) && !has(p[PROPS.newUnqualifiedReason]);
   d = done(

@@ -353,7 +353,7 @@ export function App() {
                           <span className="h-2 w-2 animate-pulse rounded-full bg-indigo-400" /> Investigating…
                         </div>
                       )}
-                      {m.text && <p className="py-1 text-sm text-zinc-300">{m.text}</p>}
+                      {m.text && <p className="whitespace-pre-wrap break-words py-1 text-sm text-zinc-300">{m.text}</p>}
                       {m.suggestions && (
                         <div className="flex flex-wrap gap-1.5 pt-1">
                           {m.suggestions.map((q) => (
