@@ -166,25 +166,128 @@ function Inspector({ r }: { r: CopilotResult }) {
   );
 }
 
-function Feedback({ r }: { r: CopilotResult }) {
-  const [state, setState] = useState<'idle' | 'down' | 'saved'>('idle');
-  const [reason, setReason] = useState('');
+const VERDICT_OPTIONS = [
+  ...CANONICAL.map((c) => `BLOCKED: Step ${c.step} ${c.title}`),
+  ...CANONICAL.filter((c) => c.step >= 4).map((c) => `WARN: Step ${c.step} ${c.title}`),
+  'PASS: should be on the board',
+];
+
+type TeachResult = { rule: string; commitUrl: string };
+
+function postFeedback(r: CopilotResult, rating: 'up' | 'down', actualReason?: string) {
+  return fetch('/api/feedback', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({
+      contactId: r.contactId,
+      rating,
+      actualReason,
+      engineVerdict: r.engine.diagnosis.conclusion,
+      confidence: r.engine.confidence.score,
+      reportedIssue: r.request.reportedIssue,
+    }),
+  });
+}
+
+function CoachDrawer({ r, onClose }: { r: CopilotResult; onClose: () => void }) {
+  const current = verdictOf(r).text;
+  const [expected, setExpected] = useState(VERDICT_OPTIONS.find((o) => o !== current) ?? '');
+  const [custom, setCustom] = useState('');
+  const [rule, setRule] = useState('');
+  const [state, setState] = useState<'idle' | 'saving' | 'done'>('idle');
   const [err, setErr] = useState<string | null>(null);
-  async function save(rating: 'up' | 'down', actualReason?: string) {
+  const [result, setResult] = useState<TeachResult | null>(null);
+  const expectedVerdict = expected === 'other' ? custom.trim() : expected;
+
+  async function submit() {
     setErr(null);
+    setState('saving');
+    void postFeedback(r, 'down', `${expectedVerdict}: ${rule.trim()}`).catch(() => undefined);
     try {
-      const res = await fetch('/api/feedback', {
+      const res = await fetch('/api/teach', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          contactId: r.contactId,
-          rating,
-          actualReason,
-          engineVerdict: r.engine.diagnosis.conclusion,
-          confidence: r.engine.confidence.score,
-          reportedIssue: r.request.reportedIssue,
-        }),
+        body: JSON.stringify({ contactId: r.contactId, currentVerdict: current, expectedVerdict, ruleExplanation: rule.trim() }),
       });
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(j.error ?? `Teach failed (${res.status})`);
+      setResult(j as TeachResult);
+      setState('done');
+    } catch (e) {
+      setErr((e as Error).message);
+      setState('idle');
+    }
+  }
+
+  const field = 'w-full rounded-md border border-zinc-700 bg-zinc-950 px-2.5 py-1.5 text-xs text-zinc-100 placeholder:text-zinc-600 focus:border-indigo-500 focus:outline-none';
+  if (state === 'done' && result) {
+    return (
+      <div className="space-y-2 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-3 text-xs">
+        <p className="font-medium text-emerald-300">✓ Rule committed to the BizOps playbook. It goes live after the next deploy.</p>
+        <p className={`${mono} whitespace-pre-wrap text-zinc-300`}>{result.rule}</p>
+        <div className="flex gap-3">
+          <a href={result.commitUrl} target="_blank" rel="noreferrer" className="text-indigo-400 hover:underline">View commit ↗</a>
+          <button onClick={onClose} className="text-zinc-500 hover:text-zinc-300">Close</button>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <form
+      className="space-y-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 p-3 text-xs"
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (expectedVerdict && rule.trim().length >= 10 && state !== 'saving') void submit();
+      }}
+    >
+      <div className="flex items-center justify-between">
+        <p className="font-semibold text-zinc-200">🎓 Coach Agent</p>
+        <button type="button" onClick={onClose} className="text-zinc-500 hover:text-zinc-300">✕</button>
+      </div>
+      <p className="text-zinc-500">
+        Engine said <span className="text-zinc-300">{current}</span>. Teach it the correct rule; it will be added to the playbook.
+      </p>
+      <label className="block space-y-1">
+        <span className="text-zinc-400">Expected verdict</span>
+        <select value={expected} onChange={(e) => setExpected(e.target.value)} className={field}>
+          {VERDICT_OPTIONS.filter((o) => o !== current).map((o) => (
+            <option key={o} value={o}>{o}</option>
+          ))}
+          <option value="other">Other…</option>
+        </select>
+      </label>
+      {expected === 'other' && <input value={custom} onChange={(e) => setCustom(e.target.value)} placeholder="Describe the expected verdict" className={field} />}
+      <label className="block space-y-1">
+        <span className="text-zinc-400">Rule explanation</span>
+        <textarea
+          autoFocus
+          rows={3}
+          value={rule}
+          onChange={(e) => setRule(e.target.value)}
+          placeholder="e.g. Leads with sl_stage = Nurture are excluded from the EMEA board even when the cycle is open."
+          className={field}
+        />
+      </label>
+      <div className="flex items-center gap-3">
+        <button
+          disabled={state === 'saving' || !expectedVerdict || rule.trim().length < 10}
+          className="rounded-md bg-zinc-100 px-3 py-1 font-medium text-zinc-900 hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          {state === 'saving' ? 'Teaching…' : 'Teach agent'}
+        </button>
+        {err && <span className="text-rose-400">{err}</span>}
+      </div>
+    </form>
+  );
+}
+
+function Feedback({ r }: { r: CopilotResult }) {
+  const [state, setState] = useState<'idle' | 'coach' | 'saved'>('idle');
+  const [err, setErr] = useState<string | null>(null);
+  async function thumbsUp() {
+    setErr(null);
+    try {
+      const res = await postFeedback(r, 'up');
       if (!res.ok) throw new Error((await res.json()).error ?? 'Save failed');
       setState('saved');
     } catch (e) {
@@ -193,28 +296,13 @@ function Feedback({ r }: { r: CopilotResult }) {
   }
   if (state === 'saved') return <p className="text-xs text-emerald-400">✓ Feedback saved. Thanks!</p>;
   return (
-    <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
-      <button onClick={() => save('up')} className="rounded-md px-2 py-1 hover:bg-zinc-800 hover:text-emerald-400">👍</button>
-      <button onClick={() => setState(state === 'down' ? 'idle' : 'down')} className={`rounded-md px-2 py-1 hover:bg-zinc-800 hover:text-rose-400 ${state === 'down' ? 'bg-zinc-800 text-rose-400' : ''}`}>👎</button>
-      {state === 'down' && (
-        <form
-          className="flex min-w-0 flex-1 gap-2"
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (reason.trim()) void save('down', reason.trim());
-          }}
-        >
-          <input
-            autoFocus
-            value={reason}
-            onChange={(e) => setReason(e.target.value)}
-            placeholder="What was the actual reason?"
-            className="min-w-0 flex-1 rounded-md border border-zinc-700 bg-zinc-950 px-2.5 py-1 text-xs text-zinc-100 placeholder:text-zinc-600 focus:border-indigo-500 focus:outline-none"
-          />
-          <button className="rounded-md bg-zinc-100 px-2.5 py-1 font-medium text-zinc-900 hover:bg-white">Save</button>
-        </form>
-      )}
-      {err && <span className="text-rose-400">{err}</span>}
+    <div className="space-y-2">
+      <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+        <button onClick={thumbsUp} className="rounded-md px-2 py-1 hover:bg-zinc-800 hover:text-emerald-400">👍</button>
+        <button onClick={() => setState(state === 'coach' ? 'idle' : 'coach')} className={`rounded-md px-2 py-1 hover:bg-zinc-800 hover:text-rose-400 ${state === 'coach' ? 'bg-zinc-800 text-rose-400' : ''}`}>👎</button>
+        {err && <span className="text-rose-400">{err}</span>}
+      </div>
+      {state === 'coach' && <CoachDrawer r={r} onClose={() => setState('idle')} />}
     </div>
   );
 }

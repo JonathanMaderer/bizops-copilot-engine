@@ -188,3 +188,7 @@ Change needed: ai_sdr_cycle_end_time: 2026-10-30 -> Inactive (re-activate cycle)
 New BizOps corrections are appended here (newest last). Each rule overrides anything above it when they conflict. Format: `- [YYYY-MM-DD] <rule or exception> (source: <who/ticket>)`.
 
 _No coaching rules recorded yet._
+
+## Learned Rules (BizOps Coaching)
+
+Rules committed from the in-app "Coach Agent" flow (`POST /api/teach`), newest last. They override anything above when they conflict.

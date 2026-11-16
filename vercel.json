@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm ci",
+  "buildCommand": "npx vite build --config web/vite.config.ts",
+  "outputDirectory": "web/dist",
+  "functions": {
+    "api/*.ts": {
+      "includeFiles": "docs/BIZOPS_PLAYBOOK.md",
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
+}

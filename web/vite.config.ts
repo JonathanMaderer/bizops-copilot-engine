@@ -1,84 +1,55 @@
 import path from 'node:path';
+import type { ServerResponse } from 'node:http';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const servicePath = path.resolve(here, '../src/api/diagnose.ts');
-const feedbackPath = path.resolve(here, '../src/api/feedback.ts');
+const routesPath = path.resolve(here, '../src/api/routes.ts');
 
-class BadRequest extends Error {}
+type Routes = typeof import('../src/api/routes.ts');
+type Handler = (routes: Routes, body: Record<string, any>) => Promise<{ status: number; body: unknown }>;
 
-/** Serves POST /api/diagnose and /api/feedback by running the engine service layer inside the Vite dev server. */
+/** Serves /api/* in dev with the same handlers (validation + error handling) as the Vercel functions in /api. */
 function engineApi(): Plugin {
   return {
     name: 'sdr-engine-api',
     configureServer(server) {
-      const sendJson = (res: import('node:http').ServerResponse, status: number, body: unknown) => {
+      const sendJson = (res: ServerResponse, status: number, body: unknown) => {
         if (res.headersSent || res.writableEnded) return;
         res.statusCode = status;
         res.setHeader('content-type', 'application/json');
         res.end(JSON.stringify(body));
       };
-      /** Reads the JSON body and runs the handler; any failure becomes a JSON response, never a server crash. */
-      const route = (url: string, handler: (body: any) => Promise<unknown>) =>
+      const mount = (url: string, method: 'GET' | 'POST', handler: Handler) =>
         server.middlewares.use(url, async (req, res) => {
           try {
-            if (req.method !== 'POST') return sendJson(res, 405, { error: 'Use POST' });
-            let raw = '';
-            for await (const chunk of req) raw += chunk;
-            let body: any;
-            try {
-              body = JSON.parse(raw || '{}');
-            } catch {
-              return sendJson(res, 400, { error: 'Invalid JSON body' });
+            if (req.method !== method) return sendJson(res, 405, { error: `Use ${method}` });
+            let body: Record<string, any> = {};
+            if (method === 'POST') {
+              let raw = '';
+              for await (const chunk of req) raw += chunk;
+              try {
+                body = JSON.parse(raw || '{}') ?? {};
+              } catch {
+                return sendJson(res, 400, { error: 'Invalid JSON body' });
+              }
             }
-            sendJson(res, 200, await handler(body ?? {}));
+            const routes = (await server.ssrLoadModule(routesPath)) as Routes;
+            const r = await handler(routes, body);
+            sendJson(res, r.status, r.body);
           } catch (e) {
-            const err = e instanceof Error ? e : new Error(String(e));
-            console.error(`[api ${url}]`, err);
-            if (err instanceof BadRequest || err.constructor?.name === 'InvalidInputError') return sendJson(res, 400, { error: err.message });
-            sendJson(res, 500, { error: 'Internal Server Error', details: err.message });
+            console.error(`[api ${url}]`, e);
+            sendJson(res, 500, { error: 'Internal Server Error', details: (e as Error).message });
           }
         });
-      server.middlewares.use('/api/status', async (_req, res) => {
-        try {
-          const mod = (await server.ssrLoadModule(path.resolve(here, '../src/ai/copilot.ts'))) as typeof import('../src/ai/copilot.ts');
-          sendJson(res, 200, { llm: mod.getLlmStatus() });
-        } catch (e) {
-          sendJson(res, 500, { error: 'Internal Server Error', details: (e as Error).message });
-        }
-      });
-      route('/api/diagnose', async (body) => {
-        // Only a bare numeric ID or a HubSpot contact URL is accepted; conversational text is rejected cleanly.
-        const raw = String(body.contactId ?? body.contactIdOrUrl ?? body.input ?? '').trim();
-        const valid = /^\d{3,}$/.test(raw) || /^https?:\/\/\S+\/(?:record\/0-1|contact|contacts)\/\d+/.test(raw);
-        if (!valid) {
-          throw new BadRequest('Please provide a valid HubSpot Contact ID.');
-        }
-        const mod = (await server.ssrLoadModule(servicePath)) as typeof import('../src/api/diagnose.ts');
-        return mod.diagnoseLead({ ...body, contactIdOrUrl: raw });
-      });
-      route('/api/followup', async (body) => {
-        if (typeof body.question !== 'string' || !body.question.trim()) throw new BadRequest('question is required');
-        if (!body.dossier || typeof body.dossier !== 'object') throw new BadRequest('dossier is required');
-        const mod = (await server.ssrLoadModule(path.resolve(here, '../src/ai/copilot.ts'))) as typeof import('../src/ai/copilot.ts');
-        const { answer, suggestedQuestions } = await mod.answerLeadFollowup({
-          dossier: body.dossier,
-          diagnosis: body.diagnosis ?? { contactId: body.dossier.contactId ?? '', steps: [], conclusion: '' },
-          question: body.question.trim(),
-        });
-        return { answer, suggestedQuestions };
-      });
-      route('/api/feedback', async (body) => {
-        if (!body.contactId || (body.rating !== 'up' && body.rating !== 'down')) {
-          throw new BadRequest('contactId and rating (up|down) are required');
-        }
-        const mod = (await server.ssrLoadModule(feedbackPath)) as typeof import('../src/api/feedback.ts');
-        mod.saveFeedback(body);
-        return { ok: true };
-      });
+      mount('/api/status', 'GET', (r) => r.handleStatus());
+      mount('/api/diagnose', 'POST', (r, b) => r.handleDiagnose(b));
+      mount('/api/followup', 'POST', (r, b) => r.handleFollowup(b));
+      mount('/api/feedback', 'POST', (r, b) => r.handleFeedback(b));
+      mount('/api/teach', 'POST', (r, b) => r.handleTeach(b));
+      mount('/api/monday-webhook', 'POST', (r, b) => r.handleMondayWebhook(b));
     },
   };
 }
@@ -86,5 +57,6 @@ function engineApi(): Plugin {
 export default defineConfig({
   root: here,
   plugins: [react(), tailwindcss(), engineApi()],
+  build: { outDir: 'dist', emptyOutDir: true },
   server: { port: 5173, fs: { allow: [path.resolve(here, '..')] } },
 });

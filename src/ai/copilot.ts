@@ -85,7 +85,8 @@ const FALLBACK_RULES = `Core rules (playbook file unavailable):
 - Use only payload facts; rep statements are claims, not CRM data. Flag exact-email duplicates listed in dossier.duplicates.
 - Never include the prospect's email address in any output.`;
 
-const PLAYBOOK_PATHS = [new URL('../../docs/BIZOPS_PLAYBOOK.md', import.meta.url), path.resolve(process.cwd(), 'docs/BIZOPS_PLAYBOOK.md')];
+// cwd first: on Vercel the file ships via `includeFiles` at <cwd>/docs; the module-relative path covers scripts run elsewhere.
+const PLAYBOOK_PATHS = [path.join(process.cwd(), 'docs', 'BIZOPS_PLAYBOOK.md'), new URL('../../docs/BIZOPS_PLAYBOOK.md', import.meta.url)];
 const PLAYBOOK_MAX_CHARS = 60_000;
 const COACHING_HEADING = '## Live Coaching Rules';
 
@@ -297,9 +298,31 @@ type Provider =
   | { name: 'vertex'; project: string; model: string }
   | { name: 'anthropic' | 'openai'; key: string; model: string };
 
+interface ServiceAccount {
+  project_id?: string;
+  client_email?: string;
+  private_key?: string;
+}
+
+/** Production credentials: GCP_SERVICE_ACCOUNT_JSON holds the key JSON (raw or base64). Null when unset/invalid. */
+function serviceAccountFromEnv(): ServiceAccount | null {
+  const raw = process.env.GCP_SERVICE_ACCOUNT_JSON?.trim();
+  if (!raw) return null;
+  try {
+    const text = raw.startsWith('{') ? raw : Buffer.from(raw, 'base64').toString('utf8');
+    const sa = JSON.parse(text) as ServiceAccount;
+    if (sa.private_key) sa.private_key = sa.private_key.replace(/\\n/g, '\n');
+    return sa.client_email && sa.private_key ? sa : null;
+  } catch {
+    console.error('GCP_SERVICE_ACCOUNT_JSON is set but is not valid service-account JSON.');
+    return null;
+  }
+}
+
 function pickProvider(): Provider | null {
-  const keyPath = resolveGcpKeyPath();
-  const project = keyPath ? vertexProject(keyPath) : null;
+  const sa = serviceAccountFromEnv();
+  const keyPath = sa ? null : resolveGcpKeyPath();
+  const project = sa ? (process.env.GCP_PROJECT_ID ?? sa.project_id ?? null) : keyPath ? vertexProject(keyPath) : null;
   if (project) return { name: 'vertex', project, model: VERTEX_MODELS[0]! };
   const model = process.env.COPILOT_MODEL;
   if (process.env.ANTHROPIC_API_KEY) {
@@ -329,7 +352,14 @@ function withTimeout<T>(p: Promise<T>, ms: number): Promise<T> {
 
 /** Calls Gemini on Vertex AI via @google/genai; tries the older model only if the first is missing in the region. */
 async function callVertex(project: string, prompt: string, system: string = getSystemPrompt()): Promise<{ text: string; model: string }> {
-  const ai = new GoogleGenAI({ vertexai: true, project, location: process.env.GCP_LOCATION || 'us-central1' });
+  const sa = serviceAccountFromEnv();
+  const ai = new GoogleGenAI({
+    vertexai: true,
+    project,
+    location: process.env.GCP_LOCATION || 'us-central1',
+    // Explicit credentials in production; locally the SDK falls back to GOOGLE_APPLICATION_CREDENTIALS / ADC.
+    ...(sa ? { googleAuthOptions: { credentials: { client_email: sa.client_email, private_key: sa.private_key }, projectId: project } } : {}),
+  });
   let lastErr: unknown;
   for (const model of VERTEX_MODELS) {
     try {
@@ -660,5 +690,41 @@ export async function answerLeadFollowup(input: FollowupInput): Promise<Followup
   } catch (e) {
     console.error('Follow-up generation failed:', (e as Error).message);
     return fallbackFollowup(input);
+  }
+}
+
+// ---- "Teach Agent": format a BizOps correction as a playbook rule ------------------------------------
+
+export interface TeachInput {
+  contactId: string;
+  currentVerdict?: string;
+  expectedVerdict: string;
+  ruleExplanation: string;
+}
+
+const TEACH_RULES = `You format BizOps corrections into ONE playbook rule for docs/BIZOPS_PLAYBOOK.md.
+Respond with ONLY a JSON object: {"title": string, "rule": string}.
+- title: 3-8 words naming the situation (e.g. "False SBP overrides QBD disqualification").
+- rule: one or two imperative sentences stating exactly when the rule applies (property names and values in backticks) and what the engine/copilot must conclude instead. Use only facts from the input; do not invent property names, IDs or values.
+- Never include email addresses or phone numbers.`;
+
+/** One Markdown bullet in the playbook's coaching style: "- [YYYY-MM-DD] **Title**: rule (source: ...)". */
+export async function formatCoachingRule(input: TeachInput): Promise<{ bullet: string; source: 'llm' | 'fallback' }> {
+  const date = new Date().toISOString().slice(0, 10);
+  const clean = (t: string) => t.replace(EMAIL_RE, '[email removed]').replace(/\s+/g, ' ').trim();
+  const src = `(source: BizOps coaching on contact ${input.contactId}${input.currentVerdict ? `; engine said "${clean(input.currentVerdict).slice(0, 120)}"` : ''}; expected "${clean(input.expectedVerdict).slice(0, 120)}")`;
+  const fallback = `- [${date}] **${clean(input.expectedVerdict).slice(0, 80)}**: ${clean(input.ruleExplanation).slice(0, 600)} ${src}`;
+  const provider = pickProvider();
+  if (!provider) return { bullet: fallback, source: 'fallback' };
+  try {
+    const prompt = `Input:\n${JSON.stringify({ currentVerdict: input.currentVerdict ?? null, expectedVerdict: input.expectedVerdict, ruleExplanation: input.ruleExplanation }, null, 2)}`;
+    const j = (await callModelJson(provider, prompt, `${SYSTEM_PROMPT}\n\n${TEACH_RULES}`)).json as { title?: unknown; rule?: unknown };
+    const title = clean(String(j.title ?? '')).replace(/\*/g, '').slice(0, 80);
+    const rule = clean(String(j.rule ?? '')).slice(0, 600);
+    if (!title || !rule) throw new Error('empty rule');
+    return { bullet: `- [${date}] **${title}**: ${rule} ${src}`, source: 'llm' };
+  } catch (e) {
+    console.error('Rule formatting failed:', (e as Error).message);
+    return { bullet: fallback, source: 'fallback' };
   }
 }
